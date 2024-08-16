@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PleaseRise : MonoBehaviour
 {
+    public GameObject GameManager;
+    private GameManager GameMan;
+
     public float BaseSpeed = 10.0f;
     public float TrueSpeed;
     public Rigidbody2D rb;
@@ -15,6 +18,8 @@ public class PleaseRise : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager = GameObject.Find("GameManager");
+        GameMan = GameManager.GetComponent<GameManager>();
         rb = this.GetComponent<Rigidbody2D>();
         Tilt = Beam.GetComponent<BeamTilt>();
     }
@@ -36,8 +41,7 @@ public class PleaseRise : MonoBehaviour
         GameOver();
     }
     void GameOver() {
-        Debug.Log("The game is supposed to end but has not!");
-        Debug.Log("As you were the first to notice this you have unlocked the ability to create a game over screen for free!");
+        GameMan.EndGame();
     }
 }
 
