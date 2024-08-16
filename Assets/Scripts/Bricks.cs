@@ -20,11 +20,11 @@ public class Bricks : MonoBehaviour
     {
         return BrickCount;
     }
-    void AddBrickCount()
+    public void AddBrickCount()
     {
         BrickCount += 1;
     }
-    void SetBrickCount(float BrickSet)
+    public void SetBrickCount(float BrickSet)
     {
         BrickCount = BrickSet;
     }

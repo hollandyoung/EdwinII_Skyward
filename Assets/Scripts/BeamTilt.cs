@@ -8,17 +8,18 @@ public class BeamTilt : MonoBehaviour
     private float tiltVelocity;
     private float leftWeight;
     private float rightWeight;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
     [SerializeField] private GameObject leftPan;
     [SerializeField] private GameObject rightPan;
     private PanBody leftPanScript;
     private PanBody rightPanScript;
+    [SerializeField] private float accelerationAdjust = 0.00001f;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
-        rigidbody.rotation = 0;
+        rb = GetComponent<Rigidbody2D>();
+        rb.rotation = 0;
         tiltAcceleration = 0;
         leftPanScript = leftPan.GetComponent<PanBody>();
         rightPanScript = rightPan.GetComponent<PanBody>();
@@ -29,18 +30,18 @@ public class BeamTilt : MonoBehaviour
     {
         leftWeight = leftPanScript.GetWeight();
         rightWeight = rightPanScript.GetWeight();
-        tiltAcceleration = (rightWeight - leftWeight)/(rightWeight + leftWeight); // Changes the acceleration of the beam
+        tiltAcceleration = (float) ((rightWeight - leftWeight) * accelerationAdjust); // Changes the acceleration of the beam
         tiltVelocity += tiltAcceleration; // Adjusts the tilt velocity by the tilt acceleration
-        rigidbody.rotation += (float) tiltVelocity; // Tilts the beam by the tilt velocity
+        rb.rotation -= (float) tiltVelocity; // Tilts the beam by the tilt velocity
     }
 
     public float GetBeamTilt()
     {
-        return rigidbody.rotation;
+        return rb.rotation;
     }
     void SetBeamTilt(float beamTilt)
     {
-        rigidbody.rotation = beamTilt;
+        rb.rotation = beamTilt;
     }
 
     public float GetBeamTiltVelocity()
