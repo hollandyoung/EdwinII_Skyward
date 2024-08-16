@@ -5,7 +5,7 @@ using UnityEngine;
 public class PanBody : MonoBehaviour
 {
     // Variables
-    public Transform[] slots;
+    private GameObject[] slots;
     private int houseCount;
     private float weight;
 
@@ -18,23 +18,33 @@ public class PanBody : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slots = new Transform[2];
-        slots[0].position = transform.position - new Vector3 (-2.0f, 0, 0);
-        slots[1].position = transform.position - new Vector3(2.0f, 0, 0);
+        slots = new GameObject[2];
+        slots[0].transform.position = transform.position - new Vector3 (-2.0f, 0, 0);
+        slots[1].transform.position = transform.position - new Vector3(2.0f, 0, 0);
+        houseCount = 0;
     }
 
     private void OnMouseOver()
     {
-        Debug.Log("Working");
         if (Input.GetMouseButtonDown(0))
         {
-            CreateHouse("basic", slots[GetFirstSlot()]);
+            int slot = GetFirstSlot();
+            if (slot == -1)
+            {
+                Debug.Log("Disaster");
+            }
+            else
+            {
+                Debug.Log("Slot num: " + slot);
+                CreateHouse("basic", slot);
+            }
         }
     }
 
-    private void CreateHouse(string type, Transform pos)
+    private void CreateHouse(string type, int slot)
     {
         GameObject prefab;
+        type = type.ToLower();
         switch (type)
         {
             case "color":
@@ -54,7 +64,7 @@ public class PanBody : MonoBehaviour
                 break;
         }
 
-        GameObject a = Instantiate(prefab, pos);
+        slots[slot] = Instantiate(prefab);
         houseCount++;
     }
 
