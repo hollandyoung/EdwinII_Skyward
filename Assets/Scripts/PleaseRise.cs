@@ -5,7 +5,9 @@ using UnityEngine;
 public class PleaseRise : MonoBehaviour
 {
     public float BaseSpeed = 10.0f;
+    public float TrueSpeed;
     public Rigidbody2D rb;
+    public Vector2 FixMovement;
 
     private double tiltVelocity;
     private BeamTilt Tilt;
@@ -18,14 +20,15 @@ public class PleaseRise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       FixMovement = new Vector2(0,1);
         tiltVelocity = Tilt.GetBeamTiltVelocity();
     }
     void FixedUpdate(){
-        MoveTide();
+        MoveTide(FixMovement);
     }
-    void MoveTide(){
-        rb.velocity = BaseSpeed * tiltVelocity;
+    void MoveTide(Vector2 Fix){
+        TrueSpeed = (float)(BaseSpeed * tiltVelocity);
+        rb.velocity = Fix * TrueSpeed;
     }
 }
 
