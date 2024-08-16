@@ -7,6 +7,7 @@ public class House : MonoBehaviour
     public GameObject Bricker;
     private Bricks Brick;
     public float WaitTime = 4.0f;
+    public bool MakeBricks = true;
 
     // Variables
     private string houseType;
@@ -24,8 +25,10 @@ public class House : MonoBehaviour
 
     IEnumerator ProduceBricks()
     {
+        while (MakeBricks) {
        //Wait for 4 seconds
         yield return new WaitForSeconds(WaitTime);
         Brick.AddBrickCount();
+        }
     }
 }
