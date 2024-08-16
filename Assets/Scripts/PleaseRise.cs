@@ -36,7 +36,8 @@ public class PleaseRise : MonoBehaviour
         GameOver();
     }
     void GameOver() {
-
+        Debug.Log("The game is supposed to end but has not!");
+        Debug.Log("As you were the first to notice this you have unlocked the ability to create a game over screen for free!")
     }
 }
 
