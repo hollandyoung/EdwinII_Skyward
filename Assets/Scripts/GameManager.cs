@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void StartGame()
+    public void StartGame()
     {
         // Starts the game and resets values for scores
         gameActive = true;
