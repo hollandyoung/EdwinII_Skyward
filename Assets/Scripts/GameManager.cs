@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 
-    void EndGame()
+    public void EndGame()
     {
         // Stops the game and saves the end score and updates the high score if needed
         gameActive = false;
