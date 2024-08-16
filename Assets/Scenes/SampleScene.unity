@@ -2115,6 +2115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftPan: {fileID: 223415709}
   rightPan: {fileID: 649064818}
+  accelerationAdjust: 0.00001
 --- !u!50 &1683391794
 Rigidbody2D:
   serializedVersion: 4
