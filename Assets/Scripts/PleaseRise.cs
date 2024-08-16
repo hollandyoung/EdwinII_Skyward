@@ -9,12 +9,14 @@ public class PleaseRise : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 FixMovement;
 
+    public GameObject Beam;
     private double tiltVelocity;
     private BeamTilt Tilt;
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        Tilt = Beam.GetComponent<BeamTilt>();
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class PleaseRise : MonoBehaviour
         MoveTide(FixMovement);
     }
     void MoveTide(Vector2 Fix){
-        TrueSpeed = (float)(BaseSpeed * tiltVelocity);
+        TrueSpeed = (float)(BaseSpeed * (tiltVelocity + 1));
         rb.velocity = Fix * TrueSpeed;
     }
 }
