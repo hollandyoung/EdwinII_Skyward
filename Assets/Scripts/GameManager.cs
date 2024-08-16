@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour
         endScore = 0;
     }
 
+    public void RestartGame()
+    {
+        // Reloads the scene (hopefully)
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+    }
+
     void EndGame()
     {
         // Stops the game and saves the end score and updates the high score if needed
