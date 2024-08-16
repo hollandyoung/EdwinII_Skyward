@@ -4,24 +4,40 @@ using UnityEngine;
 
 public class BuildHouse : MonoBehaviour
 {
-    public float HouseType;
-    public GameObject Houseprefab;
-    public GameObject ColorHouseprefab;
-    public GameObject HeavyHouseprefab;
-    public GameObject FloatHouseprefab;
-    public GameObject GrowHouseprefab;
-    public Vector2 center;
-    public float houseCountRight;
-    public float houseCountLeft;
+    // Variables
+    [SerializeField] GameObject Houseprefab;
+    [SerializeField] GameObject ColorHouseprefab;
+    [SerializeField] GameObject HeavyHouseprefab;
+    [SerializeField] GameObject FloatHouseprefab;
+    [SerializeField] GameObject GrowHouseprefab;
 
+    Vector2 center;
     Vector2 mousePosition;
-    // Start is called before the first frame update
-    void Start()
+    /*
+    private void CreateHouse(string type, Transform pos)
     {
-        
-    }
-    private void createHouse(){
-        GameObject a = Instantiate (Houseprefab) as GameObject;
+        GameObject prefab;
+        switch (type)
+        {
+            case "color":
+                prefab = ColorHouseprefab;
+                break;
+            case "heavy":
+                prefab = HeavyHouseprefab;
+                break;
+            case "float":
+                prefab = FloatHouseprefab;
+                break;
+            case "grow":
+                prefab = GrowHouseprefab;
+                break;
+            default:
+                prefab = Houseprefab;
+                break;
+        }
+        Transform slot;
+
+        GameObject a = Instantiate(prefab,);
         a.transform.position = mousePosition;
         if (mousePosition.x > center.x){
             houseCountRight += 1;
@@ -31,13 +47,12 @@ public class BuildHouse : MonoBehaviour
         }
     }
     
-    // Update is called once per frame
     void Update()
     {
         mousePosition = Input.mousePosition;
         if (Input.GetMouseButtonDown(0)) {
-            createHouse();
+            CreateHouse();
         }
 
-    }
+    }*/
 }

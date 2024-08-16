@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BeamTilt : MonoBehaviour
 {
-    private double tiltAcceleration;
-    private double tiltVelocity;
-    private double leftWeight;
-    private double rightWeight;
+    private float tiltAcceleration;
+    private float tiltVelocity;
+    private float leftWeight;
+    private float rightWeight;
     private Rigidbody2D rigidbody;
-    private GameObject leftPan;
-    private GameObject rightPan;
+    [SerializeField] private GameObject leftPan;
+    [SerializeField] private GameObject rightPan;
     private PanBody leftPanScript;
     private PanBody rightPanScript;
 
@@ -34,29 +34,29 @@ public class BeamTilt : MonoBehaviour
         rigidbody.rotation += (float) tiltVelocity; // Tilts the beam by the tilt velocity
     }
 
-    double GetBeamTilt()
+    public float GetBeamTilt()
     {
         return rigidbody.rotation;
     }
-    void SetBeamTilt(double beamTilt)
+    void SetBeamTilt(float beamTilt)
     {
-        rigidbody.rotation = (float) beamTilt;
+        rigidbody.rotation = beamTilt;
     }
 
-    double GetBeamTiltVelocity()
+    public float GetBeamTiltVelocity()
     {
         return tiltVelocity;
     }
-    void SetBeamTiltVelocity(double beamTiltVelocity)
+    void SetBeamTiltVelocity(float beamTiltVelocity)
     {
         tiltVelocity = beamTiltVelocity;
     }
 
-    double GetBeamTiltAcceleration()
+    public float GetBeamTiltAcceleration()
     {
         return tiltAcceleration;
     }
-    void SetBeamTiltAcceleration(double beamTiltAcceleration)
+    void SetBeamTiltAcceleration(float beamTiltAcceleration)
     {
         tiltAcceleration = beamTiltAcceleration;
     }
