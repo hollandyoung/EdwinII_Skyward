@@ -27,7 +27,7 @@ public class PleaseRise : MonoBehaviour
         MoveTide(FixMovement);
     }
     void MoveTide(Vector2 Fix){
-        TrueSpeed = (float)(BaseSpeed * tiltVelocity);
+        TrueSpeed = (float)(BaseSpeed * (tiltVelocity + 1));
         rb.velocity = Fix * TrueSpeed;
     }
 }
