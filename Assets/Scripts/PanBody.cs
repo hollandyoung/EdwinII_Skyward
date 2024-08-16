@@ -6,8 +6,8 @@ public class PanBody : MonoBehaviour
 {
     // Variables
     private GameObject[] slots;
+    [SerializeField] Transform[] positions;
     private int houseCount;
-    private float weight;
 
     [SerializeField] GameObject housePrefab;
     [SerializeField] GameObject colorHousePrefab;
@@ -19,8 +19,6 @@ public class PanBody : MonoBehaviour
     void Start()
     {
         slots = new GameObject[2];
-        slots[0].transform.position = transform.position - new Vector3 (-2.0f, 0, 0);
-        slots[1].transform.position = transform.position - new Vector3(2.0f, 0, 0);
         houseCount = 0;
     }
 
@@ -29,13 +27,8 @@ public class PanBody : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             int slot = GetFirstSlot();
-            if (slot == -1)
+            if (slot != -1)
             {
-                Debug.Log("Disaster");
-            }
-            else
-            {
-                Debug.Log("Slot num: " + slot);
                 CreateHouse("basic", slot);
             }
         }
@@ -65,6 +58,7 @@ public class PanBody : MonoBehaviour
         }
 
         slots[slot] = Instantiate(prefab);
+        slots[slot].transform.position = positions[slot].position;
         houseCount++;
     }
 
@@ -82,6 +76,34 @@ public class PanBody : MonoBehaviour
 
     public float GetWeight()
     {
+        float weight = 0f;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] != null)
+            {
+                string type = slots[i].gameObject.GetComponent<House>().GetHouseType();
+
+                // Change the weight modifiers to change weight of houses
+                switch (type)
+                {
+                    case "color":
+                        weight += 1.0f;
+                        break;
+                    case "heavy":
+                        weight += 3.0f;
+                        break;
+                    case "float":
+                        weight -= 1.0f;
+                        break;
+                    case "grow":
+                        weight += houseCount / 10;
+                        break;
+                    default:
+                        weight += 1.0f;
+                        break;
+                }
+            }
+        }
         return weight;
     }
 

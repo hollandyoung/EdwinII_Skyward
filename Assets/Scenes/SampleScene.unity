@@ -181,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 223415709}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.036200047, y: -2.5921001, z: -0.057257503}
+  m_LocalPosition: {x: -0.036200047, y: -2.5921001, z: 0}
   m_LocalScale: {x: 1.6410999, y: 1.1832, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -253,11 +253,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8726fafe1f192d24fa5924e04f310b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots: []
-  housePrefab: {fileID: 0}
-  colorHousePrefab: {fileID: 0}
-  heavyHousePrefab: {fileID: 0}
-  floatHousePrefab: {fileID: 0}
+  positions:
+  - {fileID: 118879009}
+  - {fileID: 1799923865}
+  housePrefab: {fileID: 1106297124404046687, guid: f0617d24a2b0c21488d771a8fbd93181, type: 3}
+  colorHousePrefab: {fileID: 74458737015616954, guid: 063b7093fba39df429dfe6abc03582c4, type: 3}
+  heavyHousePrefab: {fileID: 1771130121671953779, guid: 791e5ba7ea4c3d74e8d4c174d21d25a0, type: 3}
+  floatHousePrefab: {fileID: 8358229384984628690, guid: 2b8a63e7433a09a43b256d386e26436f, type: 3}
   growHousePrefab: {fileID: 0}
 --- !u!61 &223415713
 BoxCollider2D:
@@ -343,7 +345,7 @@ Transform:
   m_GameObject: {fileID: 412328397}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.12, y: 2.46, z: 0.057257503}
+  m_LocalPosition: {x: -4.12, y: 2.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -686,6 +688,7 @@ GameObject:
   - component: {fileID: 649064819}
   - component: {fileID: 649064820}
   - component: {fileID: 649064821}
+  - component: {fileID: 649064822}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -702,10 +705,12 @@ Transform:
   m_GameObject: {fileID: 649064818}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03999996, y: -2.5100002, z: -0.057257503}
+  m_LocalPosition: {x: -0.03999996, y: -2.5100002, z: 0}
   m_LocalScale: {x: 1.6410999, y: 1.1832, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1021993151}
+  - {fileID: 805968063}
   m_Father: {fileID: 1273588136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &649064820
@@ -805,6 +810,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &649064822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649064818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8726fafe1f192d24fa5924e04f310b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positions:
+  - {fileID: 1021993151}
+  - {fileID: 805968063}
+  housePrefab: {fileID: 1106297124404046687, guid: f0617d24a2b0c21488d771a8fbd93181, type: 3}
+  colorHousePrefab: {fileID: 74458737015616954, guid: 063b7093fba39df429dfe6abc03582c4, type: 3}
+  heavyHousePrefab: {fileID: 1771130121671953779, guid: 791e5ba7ea4c3d74e8d4c174d21d25a0, type: 3}
+  floatHousePrefab: {fileID: 8358229384984628690, guid: 2b8a63e7433a09a43b256d386e26436f, type: 3}
+  growHousePrefab: {fileID: 0}
 --- !u!1 &730896594
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,7 +908,7 @@ Transform:
   m_GameObject: {fileID: 730896594}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.009999752, y: -1.14, z: -0.057257503}
+  m_LocalPosition: {x: 0.009999752, y: -1.14, z: 0}
   m_LocalScale: {x: 0.21242306, y: 2.1721587, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -937,6 +962,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &805968062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 805968063}
+  m_Layer: 0
+  m_Name: Slot2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &805968063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805968062}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.46000004, y: 0.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 649064819}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &837183412
 GameObject:
@@ -1133,6 +1189,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1264432988}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1021993150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1021993151}
+  m_Layer: 0
+  m_Name: Slot1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1021993151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021993150}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.4, y: 0.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 649064819}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030709030
 GameObject:
@@ -1575,7 +1662,7 @@ Transform:
   m_GameObject: {fileID: 1273588134}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.07, y: 2.45, z: 0.057257503}
+  m_LocalPosition: {x: 4.07, y: 2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

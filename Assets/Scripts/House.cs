@@ -7,7 +7,7 @@ public class House : MonoBehaviour
     // Variables
     private string houseType;
 
-    public string getType()
+    public string GetHouseType()
     {
         return houseType;
     }
