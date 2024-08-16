@@ -8,6 +8,7 @@ public class PanBody : MonoBehaviour
     private GameObject[] slots;
     [SerializeField] Transform[] positions;
     private int houseCount;
+    private Camera mainCam;
 
     [SerializeField] GameObject housePrefab;
     [SerializeField] GameObject colorHousePrefab;
@@ -20,16 +21,21 @@ public class PanBody : MonoBehaviour
     {
         slots = new GameObject[2];
         houseCount = 0;
+        mainCam = Camera.main;
     }
 
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            int slot = GetFirstSlot();
+            int slot = GetClosestSlot();
             if (slot != -1)
             {
                 CreateHouse("basic", slot);
+            }
+            else
+            {
+                Debug.Log("Disaster");
             }
         }
     }
@@ -72,6 +78,22 @@ public class PanBody : MonoBehaviour
             }
         }
         return -1;
+    }
+
+    private int GetClosestSlot()
+    {
+        float minDist = (mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[0].transform.position).magnitude;
+        int closest = 0;
+
+        for (int i = 1; i < slots.Length; i++)
+        {
+            if ((mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[i].transform.position).magnitude < minDist)
+            {
+                closest = i;
+                minDist = (mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[i].transform.position).magnitude;
+            }
+        }
+        return closest;
     }
 
     public float GetWeight()
