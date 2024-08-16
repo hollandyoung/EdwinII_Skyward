@@ -32,5 +32,11 @@ public class PleaseRise : MonoBehaviour
         TrueSpeed = (float)(BaseSpeed * (tiltVelocity + 1));
         rb.velocity = Fix * TrueSpeed;
     }
+    private void OnCollisionEnter2D(Collision2D collision) {
+        GameOver();
+    }
+    void GameOver() {
+
+    }
 }
 
