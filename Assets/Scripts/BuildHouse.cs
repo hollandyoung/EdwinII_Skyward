@@ -29,6 +29,9 @@ public class BuildHouse : MonoBehaviour
     void Update()
     {
         mousePosition = Input.mousePosition;
+        if (Input.GetMouseButtonDown) {
+            createHouse();
+        }
 
     }
 }
