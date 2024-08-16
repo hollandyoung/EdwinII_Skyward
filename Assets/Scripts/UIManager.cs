@@ -10,13 +10,22 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startButton.SetActive(true);
-        restartButton.SetActive(false);
+        SetActiveStartButton(true);
+        SetActiveRestartButton(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void SetActiveStartButton(bool active)
+    {
+        startButton.SetActive(active);
+    }
+    public void SetActiveRestartButton(bool active)
+    {
+        restartButton.SetActive(active);
     }
 }
