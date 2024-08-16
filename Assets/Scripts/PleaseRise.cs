@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RisingTide : MonoBehaviour
+public class PleaseRise : MonoBehaviour
 {
     public float BaseSpeed = 10.0f;
     public Rigidbody2D rb;
@@ -28,3 +28,4 @@ public class RisingTide : MonoBehaviour
         rb.velocity = BaseSpeed * tiltVelocity;
     }
 }
+
