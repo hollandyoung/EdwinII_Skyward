@@ -7,6 +7,7 @@ public class PanBody : MonoBehaviour
     // Variables
     [SerializeField] GameObject slot1;
     [SerializeField] GameObject slot2;
+    private float weight;
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +19,10 @@ public class PanBody : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public float getWeight()
+    {
+        return weight;
     }
 }
