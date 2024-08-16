@@ -253,8 +253,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8726fafe1f192d24fa5924e04f310b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot1: {fileID: 0}
-  slot2: {fileID: 0}
+  slots: []
+  housePrefab: {fileID: 0}
+  colorHousePrefab: {fileID: 0}
+  heavyHousePrefab: {fileID: 0}
+  floatHousePrefab: {fileID: 0}
+  growHousePrefab: {fileID: 0}
 --- !u!61 &223415713
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -781,9 +785,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Houseprefab: {fileID: 1106297124404046687, guid: f0617d24a2b0c21488d771a8fbd93181, type: 3}
-  center: {x: 0, y: 0}
-  houseCountRight: 0
-  houseCountLeft: 0
+  ColorHouseprefab: {fileID: 0}
+  HeavyHouseprefab: {fileID: 0}
+  FloatHouseprefab: {fileID: 0}
+  GrowHouseprefab: {fileID: 0}
 --- !u!4 &789376698
 Transform:
   m_ObjectHideFlags: 0
@@ -892,6 +897,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465d2c45bc1b1a14097d7afc2d729a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BaseSpeed: 10
+  TrueSpeed: 0
+  rb: {fileID: 1032884843}
+  FixMovement: {x: 0, y: 0}
 --- !u!50 &1032884843
 Rigidbody2D:
   serializedVersion: 4
