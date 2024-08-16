@@ -34,7 +34,7 @@ public class BeamTilt : MonoBehaviour
         rigidbody.rotation += (float) tiltVelocity; // Tilts the beam by the tilt velocity
     }
 
-    double GetBeamTilt()
+    public double GetBeamTilt()
     {
         return rigidbody.rotation;
     }
@@ -43,7 +43,7 @@ public class BeamTilt : MonoBehaviour
         rigidbody.rotation = (float) beamTilt;
     }
 
-    double GetBeamTiltVelocity()
+    public double GetBeamTiltVelocity()
     {
         return tiltVelocity;
     }
@@ -52,7 +52,7 @@ public class BeamTilt : MonoBehaviour
         tiltVelocity = beamTiltVelocity;
     }
 
-    double GetBeamTiltAcceleration()
+    public double GetBeamTiltAcceleration()
     {
         return tiltAcceleration;
     }
