@@ -4,11 +4,28 @@ using UnityEngine;
 
 public class House : MonoBehaviour
 {
+    public GameObject Bricker;
+    private Bricks Brick;
+    public float WaitTime = 4.0f;
+
     // Variables
     private string houseType;
 
     public string GetHouseType()
     {
         return houseType;
+    }
+    void Start()
+    {
+        Bricker = GameObject.Find("Brick Manager");
+        Brick = Bricker.GetComponent<Bricks>();
+        StartCoroutine(ProduceBricks());
+    }
+
+    IEnumerator ProduceBricks()
+    {
+       //Wait for 4 seconds
+        yield return new WaitForSeconds(WaitTime);
+        Brick.AddBrickCount();
     }
 }
