@@ -9,8 +9,8 @@ public class BeamTilt : MonoBehaviour
     private float leftWeight;
     private float rightWeight;
     private Rigidbody2D rigidbody;
-    private GameObject leftPan;
-    private GameObject rightPan;
+    [SerializeField] private GameObject leftPan;
+    [SerializeField] private GameObject rightPan;
     private PanBody leftPanScript;
     private PanBody rightPanScript;
 
