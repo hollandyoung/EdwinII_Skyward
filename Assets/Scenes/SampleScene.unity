@@ -1334,6 +1334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMoveable: 1
+  yFocalObject: {fileID: 0}
 --- !u!1 &532594998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,8 +1478,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Restart
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 046e9c07c1056e042887d1a9b44154ab, type: 2}
+  m_sharedMaterial: {fileID: -8421423467362020286, guid: 046e9c07c1056e042887d1a9b44154ab, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3646,8 +3647,8 @@ MonoBehaviour:
 
     cost: 5 bricks'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 046e9c07c1056e042887d1a9b44154ab, type: 2}
+  m_sharedMaterial: {fileID: -8421423467362020286, guid: 046e9c07c1056e042887d1a9b44154ab, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3834,7 +3835,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0867d436efc938f4b84fcc4378d744d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 0}
   restartButton: {fileID: 1749228018}
   BuildButton: {fileID: 1146246341}
 --- !u!4 &1708185687
