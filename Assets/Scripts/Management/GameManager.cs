@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         uIManagerScript = uIManagerObject.GetComponent<UIManager>();
-        gameActive = false;
+        StartGame();
     }
 
     // Update is called once per frame
