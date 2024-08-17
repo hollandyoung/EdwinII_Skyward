@@ -35,7 +35,7 @@ public class CreateTower : MonoBehaviour
     }
     void BaseTower()
     {
-        while (NumberOfSegments <= 12) {
+        while (NumberOfSegments <= 13) {
         GenerateTower();
         }
     }
