@@ -129,6 +129,7 @@ public class AnnoyingSlot : MonoBehaviour
         }
         TotalBricks = Bricker.GetBrickCount();
         if (TotalBricks >= TowerCost){
+        Bricker.SetBrickCount(TotalBricks - BuildingCost);
         connection = Instantiate(prefab, transform);
         connection.GetComponent<House>().SetSide(rightSide);
         buildManager.UpdateWeight(type, rightSide);
