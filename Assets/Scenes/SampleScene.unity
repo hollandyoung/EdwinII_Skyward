@@ -187,7 +187,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016180575, y: 0.14307165}
+  m_Offset: {x: 0.20572504, y: -0.4668995}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -198,7 +198,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.53885067, y: 0.7138567}
+  m_Size: {x: 0.51464266, y: 1.0160446}
   m_EdgeRadius: 0
 --- !u!114 &118879011
 MonoBehaviour:
@@ -1175,7 +1175,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025096707, y: 0.15822366}
+  m_Offset: {x: -0.19858627, y: -0.31744203}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1186,7 +1186,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.43874592, y: 0.6835527}
+  m_Size: {x: 0.4629542, y: 1.0081246}
   m_EdgeRadius: 0
 --- !u!114 &805968065
 MonoBehaviour:
@@ -1462,7 +1462,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08897951, y: 0.069618255}
+  m_Offset: {x: 0.16204444, y: -0.3026653}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1473,7 +1473,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.56651086, y: 0.64557916}
+  m_Size: {x: 0.53115505, y: 0.9978416}
   m_EdgeRadius: 0
 --- !u!114 &1021993153
 MonoBehaviour:
@@ -2566,7 +2566,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.032361433, y: 0.05610647}
+  m_Offset: {x: -0.16147004, y: -0.4531358}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2577,7 +2577,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.49030825, y: 0.5287052}
+  m_Size: {x: 0.49030772, y: 0.9875829}
   m_EdgeRadius: 0
 --- !u!114 &1799923867
 MonoBehaviour:
