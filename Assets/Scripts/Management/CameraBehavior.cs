@@ -8,15 +8,29 @@ public class CameraBehavior : MonoBehaviour
     public bool cameraMoveable;
     private Vector3 oldLoc;
     private float scrollScale = 1.0f;
+    [SerializeField] private GameObject yFocalObject;
+    private float yFocalPoint;
 
     // Update is called once per frame
     void Update()
     {
         if (cameraMoveable)
         {
+            if (transform.position.z <= -1 && transform.position.z >= -16)
+            {
+                Zoom();
+            }
+            else if (transform.position.z >= -1)
+            {
+                transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
+            }
+            else
+            {
+                transform.position = new Vector3 (transform.position.x, transform.position.y, -16);
+            }
             Pan();
-            Zoom();
         }
+        //y
         //gameObject.transform.Translate
     }
 
