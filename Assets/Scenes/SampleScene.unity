@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicked: 0
-  slotType: 
-  panBody: {fileID: 1489852125}
+  housePrefab: {fileID: 0}
+  platformPrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!61 &31866648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -428,9 +428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicked: 0
-  slotType: 
-  panBody: {fileID: 1489852125}
+  housePrefab: {fileID: 0}
+  platformPrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!61 &67147252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1087,9 +1087,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicked: 0
-  slotType: 
-  panBody: {fileID: 1489852125}
+  housePrefab: {fileID: 0}
+  platformPrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!61 &504678628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1180,9 +1180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicked: 0
-  slotType: 
-  panBody: {fileID: 1489852125}
+  housePrefab: {fileID: 0}
+  platformPrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!61 &515602898
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1598,9 +1598,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicked: 0
-  slotType: 
-  panBody: {fileID: 0}
+  housePrefab: {fileID: 0}
+  platformPrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!61 &632099350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2118,19 +2118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8726fafe1f192d24fa5924e04f310b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 632099348}
-  - {fileID: 1529006207}
-  - {fileID: 1081029777}
-  - {fileID: 1729048332}
-  - {fileID: 1496639658}
-  housePrefab: {fileID: 1106297124404046687, guid: f0617d24a2b0c21488d771a8fbd93181, type: 3}
-  houseStack: {fileID: 7093863362394545087, guid: 683f1c6bba463c04b847917b2e376942, type: 3}
-  colorHousePrefab: {fileID: 74458737015616954, guid: 063b7093fba39df429dfe6abc03582c4, type: 3}
-  heavyHousePrefab: {fileID: 1771130121671953779, guid: 791e5ba7ea4c3d74e8d4c174d21d25a0, type: 3}
-  floatHousePrefab: {fileID: 8358229384984628690, guid: 2b8a63e7433a09a43b256d386e26436f, type: 3}
-  growHousePrefab: {fileID: 0}
-  columnPrefab: {fileID: 0}
   gM: {fileID: 1919727298}
 --- !u!212 &1002702557
 SpriteRenderer:
@@ -2365,7 +2352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 0}
-  BaseSpeed: 1
+  BaseSpeed: 0.1
   TrueSpeed: 0
   rb: {fileID: 1032884843}
   FixMovement: {x: 0, y: 0}
@@ -2604,9 +2591,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicked: 0
-  slotType: 
-  panBody: {fileID: 0}
+  housePrefab: {fileID: 0}
+  platformPrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!61 &1081029779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3289,19 +3276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8726fafe1f192d24fa5924e04f310b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 515602896}
-  - {fileID: 504678626}
-  - {fileID: 31866646}
-  - {fileID: 1897325792}
-  - {fileID: 67147250}
-  housePrefab: {fileID: 1106297124404046687, guid: f0617d24a2b0c21488d771a8fbd93181, type: 3}
-  houseStack: {fileID: 7093863362394545087, guid: 683f1c6bba463c04b847917b2e376942, type: 3}
-  colorHousePrefab: {fileID: 74458737015616954, guid: 063b7093fba39df429dfe6abc03582c4, type: 3}
-  heavyHousePrefab: {fileID: 1771130121671953779, guid: 791e5ba7ea4c3d74e8d4c174d21d25a0, type: 3}
-  floatHousePrefab: {fileID: 8358229384984628690, guid: 2b8a63e7433a09a43b256d386e26436f, type: 3}
-  growHousePrefab: {fileID: 0}
-  columnPrefab: {fileID: 2154798950112618249, guid: bccbac2be86160b44ae16ce15a1c4068, type: 3}
   gM: {fileID: 1919727298}
 --- !u!212 &1489852126
 SpriteRenderer:
@@ -3445,9 +3419,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicked: 0
-  slotType: 
-  panBody: {fileID: 0}
+  housePrefab: {fileID: 0}
+  platformPrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!61 &1496639660
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3538,9 +3512,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicked: 0
-  slotType: 
-  panBody: {fileID: 0}
+  housePrefab: {fileID: 0}
+  platformPrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!61 &1529006209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3897,9 +3871,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicked: 0
-  slotType: 
-  panBody: {fileID: 0}
+  housePrefab: {fileID: 0}
+  platformPrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!61 &1729048334
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4411,9 +4385,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicked: 0
-  slotType: 
-  panBody: {fileID: 1489852125}
+  housePrefab: {fileID: 0}
+  platformPrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!61 &1897325794
 BoxCollider2D:
   m_ObjectHideFlags: 0
