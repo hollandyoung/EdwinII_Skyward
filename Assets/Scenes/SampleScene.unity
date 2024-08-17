@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 118879009}
   - component: {fileID: 118879010}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +910,7 @@ MonoBehaviour:
   TowerPrefab: {fileID: 4141647870960665684, guid: e3ffbe46087c1da44b01ee528cf77966, type: 3}
   MakeTower: 1
   centerX: 0
-  StartY: -6
+  StartY: -13.5
   Yscaling: 0.8
   NumberOfSegments: 0
 --- !u!4 &712024321
@@ -1022,7 +1022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 805968063}
   - component: {fileID: 805968064}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1295,7 +1295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1021993151}
   - component: {fileID: 1021993152}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2385,7 +2385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1799923865}
   - component: {fileID: 1799923866}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
