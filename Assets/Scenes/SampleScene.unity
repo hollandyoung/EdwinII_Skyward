@@ -2121,7 +2121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1032884842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2142,6 +2142,8 @@ MonoBehaviour:
   Beam: {fileID: 115834244}
   ScaleTide: 1
   Tidescale: 1
+  TideWavy: 1
+  TideDirection: 0
   FixFloat: 0
 --- !u!50 &1032884843
 Rigidbody2D:
