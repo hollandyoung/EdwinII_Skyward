@@ -61,7 +61,7 @@ public class PanBody : MonoBehaviour
                 prefab = housePrefab;
                 break;
         }
-        positions[slot].GetComponentInChildren<HouseStack>().AddHouse(prefab);
+        positions[slot].GetComponentInChildren<HouseStack>().AddHouse(prefab, gameObject.name);
         houseCount++;
     }
 

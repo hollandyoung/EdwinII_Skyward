@@ -17,20 +17,21 @@ public class HouseStack : MonoBehaviour
         beamScript = beam.GetComponent<BeamTilt>();
     }
 
-    public void AddHouse(GameObject house)
+    public void AddHouse(GameObject house, string panName)
     {
         GameObject obj = Instantiate(house, transform);
         houses.Add(obj);
         float height = obj.GetComponent<Collider2D>().bounds.size.y;
         obj.transform.position += new Vector3(0f, height * houses.Count, 0f);
 
-        if (gameObject.name == "Body1")
+        if (panName == "Body2")
         {
             beamScript.WeightAdded(house.GetComponent<House>().GetWeight(), -1);
         }
         else
         {
             beamScript.WeightAdded(house.GetComponent<House>().GetWeight(), 1);
+            Debug.Log(panName);
         }
     }
 
