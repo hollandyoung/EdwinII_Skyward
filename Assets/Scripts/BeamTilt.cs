@@ -40,11 +40,11 @@ public class BeamTilt : MonoBehaviour
         // Change acceleration by an amount based on the weight in the opposite direction of the velocity
         if (direction == -1)
         {
-            tiltAcceleration += (rightWeight / leftWeight);
+            tiltAcceleration += ((1 + rightWeight) / (1 + leftWeight));
         }
         else
         {
-            tiltAcceleration -= (leftWeight / rightWeight);
+            tiltAcceleration -= ((1 + leftWeight) / (1 + rightWeight));
         }
     }
 
