@@ -30,9 +30,23 @@ public class BeamTilt : MonoBehaviour
     {
         leftWeight = leftPanScript.GetWeight();
         rightWeight = rightPanScript.GetWeight();
-        tiltAcceleration = (float) ((rightWeight - leftWeight) * accelerationAdjust); // Changes the acceleration of the beam
         tiltVelocity += tiltAcceleration; // Adjusts the tilt velocity by the tilt acceleration
         rb.rotation -= (float) tiltVelocity; // Tilts the beam by the tilt velocity
+    }
+
+    public void WeightAdded(int amount, int direction) // -1 for left, 1 for right
+    {
+        // Change velocity by set amount in the given direction
+        tiltVelocity += (amount * direction);
+        // Change acceleration by an amount based on the weight in the opposite direction of the velocity
+        if (direction == -1)
+        {
+            tiltAcceleration += (rightWeight / leftWeight);
+        }
+        else
+        {
+            tiltAcceleration -= (leftWeight / rightWeight);
+        }
     }
 
     public float GetBeamTilt()

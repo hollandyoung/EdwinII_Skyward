@@ -6,8 +6,16 @@ using UnityEngine;
 
 public class HouseStack : MonoBehaviour
 {
+    private GameObject beam;
+    private BeamTilt beamScript;
     private List<GameObject> houses = new List<GameObject>();
     Transform anchorTrans;
+
+    void Start()
+    {
+        beam = GameObject.Find("Beam");
+        beamScript = beam.GetComponent<BeamTilt>();
+    }
 
     public void AddHouse(GameObject house)
     {
@@ -15,6 +23,15 @@ public class HouseStack : MonoBehaviour
         houses.Add(obj);
         float height = obj.GetComponent<Collider2D>().bounds.size.y;
         obj.transform.position += new Vector3(0f, height * houses.Count, 0f);
+
+        if (gameObject.name == "Body1")
+        {
+            beamScript.WeightAdded(house.GetComponent<House>().GetWeight(), -1);
+        }
+        else
+        {
+            beamScript.WeightAdded(house.GetComponent<House>().GetWeight(), 1);
+        }
     }
 
     public float GetWeight()
