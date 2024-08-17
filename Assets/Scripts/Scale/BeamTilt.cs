@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BeamTilt : MonoBehaviour
 {
-    private float tail;
+    //private float tail; //If we ever need to stop stuff spinning, this will help
     private float tiltAcceleration;
     private float tiltVelocity;
     private float leftWeight;
@@ -33,22 +33,22 @@ public class BeamTilt : MonoBehaviour
     {
         leftWeight = buildManager.GetWeightLeft();
         rightWeight = buildManager.GetWeightRight();
-        tail = tiltVelocity;
+        //tail = tiltVelocity;
         tiltVelocity += tiltAcceleration; // Adjusts the tilt velocity by the tilt acceleration
         rb.rotation -= (float) tiltVelocity; // Tilts the beam by the tilt velocity
         // If the velocity is near zero, reset acceleration to zero
-        if (Mathf.Abs(tiltVelocity) < 0.0001 || Mathf.Abs(tiltVelocity) > Mathf.Abs(tail))
+        if (Mathf.Abs(tiltVelocity) < 0.0001 /*|| Mathf.Abs(tiltVelocity) > Mathf.Abs(tail)*/)
         {
             SetBeamTiltAcceleration(0);
             SetBeamTiltVelocity(0);
-        }
+        } 
     }
 
     public void WeightAdded(int amount, int direction) // -1 for left, 1 for right
     {
         // Change velocity by set amount in the given direction
         tiltVelocity -= (amount * direction * velocityAdapter);
-        tail = tiltVelocity;
+        //tail = tiltVelocity;
         // Change acceleration by an amount based on the weight in the opposite direction of the velocity
         if (direction == -1)
         {
