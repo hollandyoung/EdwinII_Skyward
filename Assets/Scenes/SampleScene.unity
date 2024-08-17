@@ -922,11 +922,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerPrefab: {fileID: 4141647870960665684, guid: e3ffbe46087c1da44b01ee528cf77966, type: 3}
+  Bricked: {fileID: 0}
   MakeTower: 1
   centerX: 0
   StartY: -13.5
   Yscaling: 0.8
   NumberOfSegments: 0
+  TotalBricks: 0
+  TowerCost: 5
 --- !u!4 &712024321
 Transform:
   m_ObjectHideFlags: 0
@@ -2790,7 +2793,7 @@ Transform:
   m_GameObject: {fileID: 1850570304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09480286, y: -3.0829103, z: 0}
+  m_LocalPosition: {x: -0.09480286, y: 4.67, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
