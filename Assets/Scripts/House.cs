@@ -16,6 +16,12 @@ public class House : MonoBehaviour
     {
         return houseType;
     }
+
+    public void SetHouseType(string type)
+    {
+        houseType = type;
+    }
+
     void Start()
     {
         Bricker = GameObject.Find("Brick Manager");
