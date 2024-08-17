@@ -21,8 +21,16 @@ public class AnnoyingSlot : MonoBehaviour
     [SerializeField] GameObject platformPrefab;
     [SerializeField] GameObject columnPrefab;
 
+    private float BuildingCost;
+    public GameObject Bricked;
+    private Bricks Bricker;
+    public float TotalBricks;
+
     private void Start()
     {
+        Bricked = GameObject.Find("Brick Manager");
+        Bricker = Bricked.GetComponent<Bricks>();
+
         rend = gameObject.GetComponent<SpriteRenderer>();
         rend.enabled = false;
         source = transform.parent.gameObject;
@@ -108,17 +116,23 @@ public class AnnoyingSlot : MonoBehaviour
         {
             case "column":
                 prefab = columnPrefab;
+                BuildingCost = 1.0f;
                 break;
             case "platform":
                 prefab = platformPrefab;
+                BuildingCost = 1.0f;
                 break;
             default:
                 prefab = housePrefab;
+                BuildingCost = 3.0f;
                 break;
         }
+        TotalBricks = Bricker.GetBrickCount();
+        if (TotalBricks >= TowerCost){
         connection = Instantiate(prefab, transform);
         connection.GetComponent<House>().SetSide(rightSide);
         buildManager.UpdateWeight(type, rightSide);
+        }
     }
 
     private void AddAll()
