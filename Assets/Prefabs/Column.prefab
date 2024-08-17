@@ -145,9 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3569785f8da58f84f868da987d18e9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bricker: {fileID: 0}
-  WaitTime: 4
-  MakeBricks: 0
+  bricker: {fileID: 0}
+  waitTime: 4
+  makeBricks: 0
 --- !u!1001 &3148950001614714788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,6 +156,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2171797403601445228}
     m_Modifications:
+    - target: {fileID: 2520150014853076186, guid: cccb239e21bd7e243a527d3af45eb4b3, type: 3}
+      propertyPath: columnPrefab
+      value: 
+      objectReference: {fileID: 2154798950112618249}
     - target: {fileID: 6979300790060624815, guid: cccb239e21bd7e243a527d3af45eb4b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -222,6 +226,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2171797403601445228}
     m_Modifications:
+    - target: {fileID: 2520150014853076186, guid: cccb239e21bd7e243a527d3af45eb4b3, type: 3}
+      propertyPath: columnPrefab
+      value: 
+      objectReference: {fileID: 2154798950112618249}
     - target: {fileID: 6979300790060624815, guid: cccb239e21bd7e243a527d3af45eb4b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

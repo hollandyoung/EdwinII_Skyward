@@ -11,6 +11,7 @@ public class House : MonoBehaviour
 
     // Variables
     private string houseType;
+    private bool rightSide;
 
     void Start()
     {
@@ -27,5 +28,15 @@ public class House : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             brick.AddBrickCount();
         }
+    }
+
+    public void SetSide(bool side)
+    {
+        rightSide = side;
+    }
+
+    public bool GetSide()
+    {
+        return rightSide;
     }
 }

@@ -16,6 +16,7 @@ public class BeamTilt : MonoBehaviour
     private PanBody rightPanScript;
     [SerializeField] private float velocityAdapter;
     [SerializeField] private float accelerationAdapter;
+    [SerializeField] BuildManager buildManager;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +31,8 @@ public class BeamTilt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        leftWeight = leftPanScript.GetWeight();
-        rightWeight = rightPanScript.GetWeight();
+        leftWeight = buildManager.GetWeightLeft();
+        rightWeight = buildManager.GetWeightRight();
         tail = tiltVelocity;
         tiltVelocity += tiltAcceleration; // Adjusts the tilt velocity by the tilt acceleration
         rb.rotation -= (float) tiltVelocity; // Tilts the beam by the tilt velocity

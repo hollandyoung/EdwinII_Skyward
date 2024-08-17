@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PanBody : MonoBehaviour
 {
-    // Instance Variables
-    private int houseCount;
-
     // Objects
     [SerializeField] GameObject gM; // Game manager
 
@@ -15,8 +12,6 @@ public class PanBody : MonoBehaviour
 
     void Start()
     {
-        houseCount = 0;
-
         gMScript = gM.GetComponent<GameManager>();
     }
 
@@ -39,16 +34,6 @@ public class PanBody : MonoBehaviour
             weight += positions[i].GetComponentInChildren<HouseStack>().GetWeight();
         }*/
         return weight;
-    }
-
-    public int GetCount()
-    {
-        return houseCount;
-    }
-
-    public void AddCount()
-    {
-        houseCount++;
     }
     #endregion
 }
