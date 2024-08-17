@@ -33,7 +33,7 @@ public class CreateTower : MonoBehaviour
     public void GenerateTower()
     {
         //a = new gameObject Instantiate(TowerPrefab);
-        Instantiate(TowerPrefab, new Vector2(centerX, StartY + (Yscaling * NumberOfSegments)));
+        Instantiate(TowerPrefab, new Vector3(centerX, StartY + (Yscaling * NumberOfSegments), 0), Quaternion.identity);
         NumberOfSegments += 1;
     }
 }
