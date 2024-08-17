@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3753298897
+    locked: 0
+  - name: TowerElements
+    uniqueID: 782233319
+    locked: 0
+  - name: Houses
+    uniqueID: 1202343929
+    locked: 0
+  - name: Tide
+    uniqueID: 550939809
+    locked: 0
