@@ -8,7 +8,7 @@ public class HouseStack : MonoBehaviour
 {
     private GameObject beam;
     private BeamTilt beamScript;
-    private List<GameObject> houses = new List<GameObject>();
+    public List<GameObject> houses = new List<GameObject>();
     Transform anchorTrans;
 
     void Start()
