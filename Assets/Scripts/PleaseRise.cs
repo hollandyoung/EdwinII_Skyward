@@ -7,7 +7,7 @@ public class PleaseRise : MonoBehaviour
     public GameObject GameManager;
     private GameManager GameMan;
 
-    public float BaseSpeed = 10.0f;
+    public float BaseSpeed = .05f;
     public float TrueSpeed;
     public Rigidbody2D rb;
     public Vector2 FixMovement;
@@ -18,6 +18,10 @@ public class PleaseRise : MonoBehaviour
 
     public bool ScaleTide = true;
     public float Tidescale = 1.0f;
+    public float TideScaleSpeed = 1.4f;
+
+    public bool TideWavy = true;
+    public float TideDirection;
 
     public float FixFloat;
     // Start is called before the first frame update
@@ -28,6 +32,7 @@ public class PleaseRise : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         Tilt = Beam.GetComponent<BeamTilt>();
         StartCoroutine(TideScale());
+        StartCoroutine(WavyTide());
     }
 
     // Update is called once per frame
@@ -42,7 +47,7 @@ public class PleaseRise : MonoBehaviour
     void MoveTide(Vector2 Fix){
         FixFloat = (float)tiltVelocity;
         TrueSpeed = (float)Mathf.Abs(BaseSpeed * (FixFloat + 1));
-        rb.velocity = Fix * TrueSpeed * Tidescale;
+        rb.velocity = Fix * TrueSpeed * Tidescale * TideDirection;
     }
     private void OnCollisionEnter2D(Collision2D collision) {
         GameOver();
@@ -60,8 +65,18 @@ public class PleaseRise : MonoBehaviour
         
         }
     }
+    IEnumerator WavyTide()
+    {
+        while (TideWavy) {
+        TideDirection = 2;
+        yield return new WaitForSeconds(1);
+        TideDirection = -1;
+        yield return new WaitForSeconds(1);
+        
+        }
+    }
     void Scaling(){
-        Tidescale = (Tidescale * 1.2f);
+        Tidescale = (Tidescale * TideScaleSpeed);
     }
 
 }

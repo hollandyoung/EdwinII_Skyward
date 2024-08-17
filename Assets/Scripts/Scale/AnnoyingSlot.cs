@@ -4,29 +4,108 @@ using UnityEngine;
 
 public class AnnoyingSlot : MonoBehaviour
 {
-    public bool clicked;
-    [SerializeField] string slotType;
-    [SerializeField] PanBody panBody;
+    // Variables for external components
+    private SpriteRenderer rend;
+    private GameObject source;
+    private GameObject connection = null;
+    private BuildManager buildManager;
+    
+    // Instance Variables
+    private bool clicked;
+    private List<string> validTypes = new List<string>();
+    private bool rightSide;
+
+    // Prefabs
+    [SerializeField] GameObject housePrefab;
+    [SerializeField] GameObject platformPrefab;
+    [SerializeField] GameObject columnPrefab;
 
     private void Start()
     {
-        //slotType = "";
+        rend = gameObject.GetComponent<SpriteRenderer>();
+        rend.enabled = false;
+        source = transform.parent.gameObject;
+        buildManager = GameObject.Find("GameManager").GetComponent<BuildManager>();
+
+        switch (source.tag)
+        {
+            case "Column":
+                if (gameObject.name == "TTerminal")
+                {
+                    AddAll();
+                }
+                break;
+            case "Platform":
+                if (gameObject.name == "TTerminal")
+                {
+                    validTypes.Add("column");
+                    validTypes.Add("house");
+                }
+                else if (gameObject.name == "LTerminal" || gameObject.name == "RTerminal")
+                {
+                    validTypes.Add("platform");
+                }
+                break;
+            case "Pan":
+                AddAll();
+                break;
+        }
     }
 
     private void Update()
     {
-        if (clicked && slotType.Equals("column"))
+        if (clicked && connection == null)
+        {
+            string structureType = buildManager.GetBuildType();
+            if (validTypes.Contains(structureType))
+            {
+                GenerateConnection(structureType);
+            }
+        }
+        /*if (clicked && slotType.Equals("column"))
         {
             if (panBody == null)
             {
                 Debug.Log("Disaster");
             }
             panBody.CreateHouse("column", transform);
+        }*/
+    }
+
+    private void GenerateConnection(string type)
+    {
+        GameObject prefab;
+        type = type.ToLower();
+        switch (type)
+        {
+            case "column":
+                prefab = columnPrefab;
+                break;
+            case "platform":
+                prefab = platformPrefab;
+                break;
+            default:
+                prefab = housePrefab;
+                break;
         }
+        connection = Instantiate(prefab, transform);
+        //houseCount++;
+    }
+
+    private void AddAll()
+    {
+        validTypes.Add("column");
+        validTypes.Add("house");
+        validTypes.Add("platform");
     }
 
     private void OnMouseOver()
     {
+        if (connection == null)
+        {
+            rend.enabled = true;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             clicked = true;
@@ -40,15 +119,6 @@ public class AnnoyingSlot : MonoBehaviour
     private void OnMouseExit()
     {
         clicked = false;
-    }
-
-    public void SetType(string type)
-    {
-        slotType = type;
-    }
-
-    public void SetPanBody(PanBody other)
-    {
-        panBody = other;
+        rend.enabled = false;
     }
 }
