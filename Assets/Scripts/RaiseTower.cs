@@ -19,7 +19,7 @@ public class RaiseTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Height = (Builder.GetNumberOfSegments() - 12);
+        Height = (Builder.GetNumberOfSegments() - 13);
         transform.position = new Vector3(0, (float)(Height * Yscaling), 0 );
     }
 }
