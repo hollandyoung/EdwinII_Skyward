@@ -4,19 +4,8 @@ using UnityEngine;
 
 public class PanBody : MonoBehaviour
 {
-    // Variables
-    [SerializeField] Transform[] positions;
+    // Instance Variables
     private int houseCount;
-    private Camera mainCam;
-
-    // Prefabs
-    [SerializeField] GameObject housePrefab;
-    [SerializeField] GameObject houseStack;
-    [SerializeField] GameObject colorHousePrefab;
-    [SerializeField] GameObject heavyHousePrefab;
-    [SerializeField] GameObject floatHousePrefab;
-    [SerializeField] GameObject growHousePrefab;
-    [SerializeField] GameObject columnPrefab;
 
     // Objects
     [SerializeField] GameObject gM; // Game manager
@@ -26,26 +15,9 @@ public class PanBody : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < positions.Length; i++)
-        {
-            Instantiate(houseStack, positions[i]);
-        }
         houseCount = 0;
-        mainCam = Camera.main;
 
         gMScript = gM.GetComponent<GameManager>();
-    }
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            int slot = CheckSlotsClicked();
-            if (slot != -1)
-            {
-                CreateHouse("basic", slot);
-            }
-        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -57,118 +29,15 @@ public class PanBody : MonoBehaviour
         Debug.Log(collision.gameObject.layer);
     }
 
-    private void CreateHouse(string type, int slot)
-    {
-        GameObject prefab;
-        type = type.ToLower();
-        switch (type)
-        {
-            case "color":
-                prefab = colorHousePrefab;
-                break;
-            case "heavy":
-                prefab = heavyHousePrefab;
-                break;
-            case "float":
-                prefab = floatHousePrefab;
-                break;
-            case "grow":
-                prefab = growHousePrefab;
-                break;
-            case "column":
-                prefab = columnPrefab;
-                break;
-            default:
-                prefab = housePrefab;
-                break;
-        }
-        positions[slot].GetComponentInChildren<HouseStack>().AddHouse(prefab, gameObject.name);
-        houseCount++;
-    }
-
-    public void CreateHouse(string type, Transform parent)
-    {
-        GameObject prefab;
-        type = type.ToLower();
-        switch (type)
-        {
-            case "color":
-                prefab = colorHousePrefab;
-                break;
-            case "heavy":
-                prefab = heavyHousePrefab;
-                break;
-            case "float":
-                prefab = floatHousePrefab;
-                break;
-            case "grow":
-                prefab = growHousePrefab;
-                break;
-            case "column":
-                prefab = columnPrefab;
-                break;
-            default:
-                prefab = housePrefab;
-                break;
-        }
-        GameObject obj = Instantiate(prefab, parent);
-        AnnoyingSlot slotScript = obj.GetComponentInChildren<AnnoyingSlot>();
-        slotScript.SetType(type);
-        slotScript.SetPanBody(gameObject.GetComponent<PanBody>());
-        houseCount++;
-    }
-
-    public void CreateHouse(string type, Transform parent, bool fromCol)
-    {
-        GameObject prefab;
-        type = type.ToLower();
-        switch (type)
-        {
-            case "color":
-                prefab = colorHousePrefab;
-                break;
-            case "heavy":
-                prefab = heavyHousePrefab;
-                break;
-            case "float":
-                prefab = floatHousePrefab;
-                break;
-            case "grow":
-                prefab = growHousePrefab;
-                break;
-            case "column":
-                prefab = columnPrefab;
-                break;
-            default:
-                prefab = housePrefab;
-                break;
-        }
-        GameObject obj = Instantiate(prefab, parent);
-        AnnoyingSlot slotScript = obj.GetComponentInChildren<AnnoyingSlot>();
-        slotScript.SetType(type);
-        slotScript.SetPanBody(gameObject.GetComponent<PanBody>());
-        houseCount++;
-    }
-
-    private int CheckSlotsClicked()
-    {
-        for (int i = 0; i < positions.Length; i++)
-        {
-            if (positions[i].gameObject.GetComponent<AnnoyingSlot>().clicked)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
-
+    // NEED TO FIX PLEASE
+    #region
     public float GetWeight()
     {
         float weight = 0f;
-        for (int i = 0; i < positions.Length; i++)
+        /*for (int i = 0; i < positions.Length; i++)
         {
             weight += positions[i].GetComponentInChildren<HouseStack>().GetWeight();
-        }
+        }*/
         return weight;
     }
 
@@ -176,4 +45,10 @@ public class PanBody : MonoBehaviour
     {
         return houseCount;
     }
+
+    public void AddCount()
+    {
+        houseCount++;
+    }
+    #endregion
 }
