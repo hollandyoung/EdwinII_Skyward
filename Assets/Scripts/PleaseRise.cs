@@ -15,6 +15,8 @@ public class PleaseRise : MonoBehaviour
     public GameObject Beam;
     private double tiltVelocity;
     private BeamTilt Tilt;
+
+    public float FixFloat;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +36,8 @@ public class PleaseRise : MonoBehaviour
         MoveTide(FixMovement);
     }
     void MoveTide(Vector2 Fix){
-        TrueSpeed = (float)(BaseSpeed * (Mathf.abs(tiltVelocity) + 1));
+        FixFloat = (float)tiltVelocity;
+        TrueSpeed = (float)Mathf.Abs(BaseSpeed * (FixFloat + 1));
         rb.velocity = Fix * TrueSpeed;
     }
     private void OnCollisionEnter2D(Collision2D collision) {
