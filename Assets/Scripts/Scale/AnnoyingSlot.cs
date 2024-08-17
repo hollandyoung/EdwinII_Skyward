@@ -13,7 +13,7 @@ public class AnnoyingSlot : MonoBehaviour
     // Instance Variables
     private bool clicked;
     private List<string> validTypes = new List<string>();
-    private bool rightSide;
+    [SerializeField] bool rightSide;
 
     // Prefabs
     [SerializeField] GameObject housePrefab;
@@ -50,6 +50,22 @@ public class AnnoyingSlot : MonoBehaviour
                 AddAll();
                 break;
         }
+
+        if (source.tag.Equals("Pan"))
+        {
+            if (source.name.Equals("Body1"))
+            {
+                rightSide = false;
+            }
+            else
+            {
+                rightSide = true;
+            }
+        }
+        else
+        {
+            rightSide = source.GetComponent<House>().GetSide();
+        }
     }
 
     private void Update()
@@ -62,14 +78,6 @@ public class AnnoyingSlot : MonoBehaviour
                 GenerateConnection(structureType);
             }
         }
-        /*if (clicked && slotType.Equals("column"))
-        {
-            if (panBody == null)
-            {
-                Debug.Log("Disaster");
-            }
-            panBody.CreateHouse("column", transform);
-        }*/
     }
 
     private void GenerateConnection(string type)
@@ -89,7 +97,8 @@ public class AnnoyingSlot : MonoBehaviour
                 break;
         }
         connection = Instantiate(prefab, transform);
-        //houseCount++;
+        connection.GetComponent<House>().SetSide(rightSide);
+        buildManager.UpdateWeight(type, rightSide);
     }
 
     private void AddAll()

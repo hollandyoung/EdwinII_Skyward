@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1408437804455768444}
   - component: {fileID: 7265653903895596177}
   - component: {fileID: 5751998855332668972}
+  - component: {fileID: 5889365098313148541}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Platform
@@ -134,6 +135,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &5889365098313148541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450121812817806315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3569785f8da58f84f868da987d18e9bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bricker: {fileID: 0}
+  waitTime: 4
+  makeBricks: 0
 --- !u!1001 &2545086176639115859
 PrefabInstance:
   m_ObjectHideFlags: 0
