@@ -34,7 +34,7 @@ public class PleaseRise : MonoBehaviour
         MoveTide(FixMovement);
     }
     void MoveTide(Vector2 Fix){
-        TrueSpeed = (float)(BaseSpeed * (tiltVelocity + 1));
+        TrueSpeed = (float)(BaseSpeed * (Mathf.abs(tiltVelocity) + 1));
         rb.velocity = Fix * TrueSpeed;
     }
     private void OnCollisionEnter2D(Collision2D collision) {
