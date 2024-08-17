@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Slot
+  - Pan
+  - House
+  - Platform
+  - Column
   layers:
   - Default
   - TransparentFX
