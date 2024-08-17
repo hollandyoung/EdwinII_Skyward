@@ -18,6 +18,7 @@ public class PleaseRise : MonoBehaviour
 
     public bool ScaleTide = true;
     public float Tidescale = 1.0f;
+    public float TideScaleSpeed = 1.4f;
 
     public bool TideWavy = true;
     public float TideDirection;
@@ -75,7 +76,7 @@ public class PleaseRise : MonoBehaviour
         }
     }
     void Scaling(){
-        Tidescale = (Tidescale * 1.5f);
+        Tidescale = (Tidescale * TideScaleSpeed);
     }
 
 }

@@ -41,6 +41,10 @@ public class BuildManager : MonoBehaviour
     {
         currType = "column";
     }
+    public void SetApartment()
+    {
+        currType = "apartment";
+    }
 
     public string GetBuildType()
     {
