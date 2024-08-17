@@ -13,7 +13,6 @@ public class BeamTilt : MonoBehaviour
     [SerializeField] private GameObject rightPan;
     private PanBody leftPanScript;
     private PanBody rightPanScript;
-    [SerializeField] private float accelerationAdjust = 0.00001f;
 
     // Start is called before the first frame update
     void Start()
