@@ -1886,6 +1886,8 @@ MonoBehaviour:
   rb: {fileID: 1032884843}
   FixMovement: {x: 0, y: 0}
   Beam: {fileID: 1683391790}
+  ScaleTide: 1
+  Tidescale: 1
   FixFloat: 0
 --- !u!50 &1032884843
 Rigidbody2D:
@@ -3406,6 +3408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftPan: {fileID: 0}
   rightPan: {fileID: 0}
+  velocityAdapter: 0
+  accelerationAdapter: 0
 --- !u!50 &1683391794
 Rigidbody2D:
   serializedVersion: 4
