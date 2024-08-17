@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 118879009}
   - component: {fileID: 118879010}
+  - component: {fileID: 118879011}
   m_Layer: 9
   m_Name: Slot1
   m_TagString: Untagged
@@ -199,6 +200,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.53885067, y: 0.7138567}
   m_EdgeRadius: 0
+--- !u!114 &118879011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118879008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
 --- !u!1 &144566386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,6 +1120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 805968063}
   - component: {fileID: 805968064}
+  - component: {fileID: 805968065}
   m_Layer: 9
   m_Name: Slot2
   m_TagString: Untagged
@@ -1173,6 +1188,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43874592, y: 0.6835527}
   m_EdgeRadius: 0
+--- !u!114 &805968065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805968062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
 --- !u!1 &837183412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1021993151}
   - component: {fileID: 1021993152}
+  - component: {fileID: 1021993153}
   m_Layer: 9
   m_Name: Slot1
   m_TagString: Untagged
@@ -1446,6 +1475,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56651086, y: 0.64557916}
   m_EdgeRadius: 0
+--- !u!114 &1021993153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021993150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
 --- !u!1 &1030709030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,6 +2511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1799923865}
   - component: {fileID: 1799923866}
+  - component: {fileID: 1799923867}
   m_Layer: 9
   m_Name: Slot2
   m_TagString: Untagged
@@ -2536,6 +2579,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.49030825, y: 0.5287052}
   m_EdgeRadius: 0
+--- !u!114 &1799923867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799923864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
 --- !u!1 &1810978433
 GameObject:
   m_ObjectHideFlags: 0
