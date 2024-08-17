@@ -1063,9 +1063,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 712024320}
-        m_TargetAssemblyTypeName: CreateTower, Assembly-CSharp
-        m_MethodName: GenerateTower
+      - m_Target: {fileID: 1919727301}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetPlatform
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2965,9 +2965,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 712024320}
-        m_TargetAssemblyTypeName: CreateTower, Assembly-CSharp
-        m_MethodName: GenerateTower
+      - m_Target: {fileID: 1919727301}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetHouse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3435,9 +3435,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 712024320}
-        m_TargetAssemblyTypeName: CreateTower, Assembly-CSharp
-        m_MethodName: GenerateTower
+      - m_Target: {fileID: 1919727301}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetColumn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
