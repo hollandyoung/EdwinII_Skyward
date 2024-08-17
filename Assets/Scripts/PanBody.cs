@@ -5,21 +5,23 @@ using UnityEngine;
 public class PanBody : MonoBehaviour
 {
     // Variables
-    private GameObject[] slots;
     [SerializeField] Transform[] positions;
     private int houseCount;
     private Camera mainCam;
 
     [SerializeField] GameObject housePrefab;
+    [SerializeField] GameObject houseStack;
     [SerializeField] GameObject colorHousePrefab;
     [SerializeField] GameObject heavyHousePrefab;
     [SerializeField] GameObject floatHousePrefab;
     [SerializeField] GameObject growHousePrefab;
 
-    // Start is called before the first frame update
     void Start()
     {
-        slots = new GameObject[2];
+        for (int i = 0; i < positions.Length; i++)
+        {
+            Instantiate(houseStack, positions[i]);
+        }
         houseCount = 0;
         mainCam = Camera.main;
     }
@@ -62,30 +64,16 @@ public class PanBody : MonoBehaviour
                 prefab = housePrefab;
                 break;
         }
-
-        slots[slot] = Instantiate(prefab);
-        slots[slot].transform.position = positions[slot].position;
+        positions[slot].GetComponentInChildren<HouseStack>().AddHouse(prefab);
         houseCount++;
-    }
-
-    private int GetFirstSlot()
-    {
-        for (int i = 0; i < slots.Length; i++)
-        {
-            if (slots[i] == null)
-            {
-                return i;
-            }
-        }
-        return -1;
     }
 
     private int GetClosestSlot()
     {
-        float minDist = (mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[0].transform.position).magnitude;
+        float minDist = (mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[0].position).magnitude;
         int closest = 0;
 
-        for (int i = 1; i < slots.Length; i++)
+        for (int i = 1; i < positions.Length; i++)
         {
             if ((mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[i].transform.position).magnitude < minDist)
             {
@@ -99,32 +87,9 @@ public class PanBody : MonoBehaviour
     public float GetWeight()
     {
         float weight = 0f;
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < positions.Length; i++)
         {
-            if (slots[i] != null)
-            {
-                string type = slots[i].gameObject.GetComponent<House>().GetHouseType();
-
-                // Change the weight modifiers to change weight of houses
-                switch (type)
-                {
-                    case "color":
-                        weight += 1.0f;
-                        break;
-                    case "heavy":
-                        weight += 3.0f;
-                        break;
-                    case "float":
-                        weight -= 1.0f;
-                        break;
-                    case "grow":
-                        weight += houseCount / 10;
-                        break;
-                    default:
-                        weight += 1.0f;
-                        break;
-                }
-            }
+            weight += positions[i].GetComponentInChildren<HouseStack>().GetWeight();
         }
         return weight;
     }
