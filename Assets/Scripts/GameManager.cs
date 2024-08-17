@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         // Stops the game and saves the end score and updates the high score if needed
+        //Debug.Log("THE GAME IS OVER!!!!!!!!!!!!!!!!!");
         gameActive = false;
         uIManagerScript.SetActiveRestartButton(true);
         endScore = (int) timeAlive;
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
         {
             highScore = endScore;
         }
+        SceneManager.LoadScene (sceneName:"Game Over");
     }
 
     int GetEndScore()

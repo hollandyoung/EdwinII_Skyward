@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bricks : MonoBehaviour
 {
-    public float BrickCount = 0.0f;
+    public float BrickCount = 70.0f;
     // Start is called before the first frame update
     void Start()
     {
