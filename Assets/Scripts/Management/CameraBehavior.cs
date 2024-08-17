@@ -17,7 +17,7 @@ public class CameraBehavior : MonoBehaviour
             Pan();
             Zoom();
         }
-        gameObject.transform.Translate
+        //gameObject.transform.Translate
     }
 
     void Pan()
