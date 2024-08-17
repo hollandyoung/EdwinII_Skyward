@@ -70,7 +70,7 @@ public class PanBody : MonoBehaviour
 
     private int GetClosestSlot()
     {
-        float minDist = (mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[0].position).magnitude;
+        /*float minDist = (mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[0].position).magnitude;
         int closest = 0;
 
         for (int i = 1; i < positions.Length; i++)
@@ -81,7 +81,19 @@ public class PanBody : MonoBehaviour
                 minDist = (mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[i].transform.position).magnitude;
             }
         }
-        return closest;
+        return closest;*/
+        RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector3.fwd, 1.0f + mainCam.transform.position.z, 9);
+        if (hit.collider != null)
+        {
+            for (int i = 0; i < positions.Length; i++)
+            {
+                if (hit.collider.transform == positions[i])
+                {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     public float GetWeight()
