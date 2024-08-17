@@ -11,10 +11,10 @@ public class HouseStack : MonoBehaviour
 
     public void AddHouse(GameObject house)
     {
-        GameObject obj = Instantiate(house);
+        GameObject obj = Instantiate(house, transform);
         houses.Add(obj);
         float height = obj.GetComponent<Collider2D>().bounds.size.y;
-        obj.transform.position = transform.position + new Vector3(0f, height * houses.Count, 0f);
+        obj.transform.position += new Vector3(0f, height * houses.Count, 0f);
     }
 
     public float GetWeight()

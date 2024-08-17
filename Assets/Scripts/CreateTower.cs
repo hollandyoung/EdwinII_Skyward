@@ -13,7 +13,8 @@ public class CreateTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TowerTest());
+        //StartCoroutine(TowerTest());
+        BaseTower();
     }
 
     IEnumerator TowerTest()
@@ -28,7 +29,15 @@ public class CreateTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if (NumberOfSegments >= 12) {
+        //    MakeTower = false;
+        //}
+    }
+    void BaseTower()
+    {
+        while (NumberOfSegments <= 12) {
+        GenerateTower();
+        }
     }
     public void GenerateTower()
     {
