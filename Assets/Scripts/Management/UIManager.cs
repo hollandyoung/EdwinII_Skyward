@@ -6,6 +6,10 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject restartButton;
     [SerializeField] GameObject BuildButton;
+    [SerializeField] GameObject HouseButton;
+    [SerializeField] GameObject ColumnButton;
+    [SerializeField] GameObject PlatformButton;
+
 
     // Start is called before the first frame update
     void Start()
