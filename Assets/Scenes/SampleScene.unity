@@ -910,7 +910,7 @@ MonoBehaviour:
   TowerPrefab: {fileID: 4141647870960665684, guid: e3ffbe46087c1da44b01ee528cf77966, type: 3}
   MakeTower: 1
   centerX: 0
-  StartY: 0
+  StartY: -6
   Yscaling: 0.8
   NumberOfSegments: 0
 --- !u!4 &712024321
