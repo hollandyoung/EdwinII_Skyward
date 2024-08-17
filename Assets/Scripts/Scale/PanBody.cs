@@ -54,6 +54,7 @@ public class PanBody : MonoBehaviour
         {
             gMScript.EndGame();
         }
+        Debug.Log(collision.gameObject.layer);
     }
 
     private void CreateHouse(string type, int slot)
