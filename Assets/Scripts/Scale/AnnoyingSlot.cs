@@ -11,12 +11,10 @@ public class AnnoyingSlot : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             clicked = true;
-            Debug.Log("Click registered");
         }
         else
         {
             clicked = false;
-            Debug.Log("Touching");
         }
     }
 
