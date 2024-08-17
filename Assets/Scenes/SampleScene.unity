@@ -1490,8 +1490,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMoveable: 1
-  yFocalObject: {fileID: 0}
-  cameraSpeedAdjust: 0
+  yFocalObject: {fileID: 1810978433}
+  cameraSpeedAdjust: 3
 --- !u!50 &519420034
 Rigidbody2D:
   serializedVersion: 4
@@ -1501,7 +1501,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1

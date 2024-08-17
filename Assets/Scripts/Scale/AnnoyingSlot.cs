@@ -13,15 +13,24 @@ public class AnnoyingSlot : MonoBehaviour
     // Instance Variables
     private bool clicked;
     private List<string> validTypes = new List<string>();
-    [SerializeField] bool rightSide;
+    private bool rightSide;
+    private int col = -1;
 
     // Prefabs
     [SerializeField] GameObject housePrefab;
     [SerializeField] GameObject platformPrefab;
     [SerializeField] GameObject columnPrefab;
 
+    private float BuildingCost;
+    public GameObject Bricked;
+    private Bricks Bricker;
+    public float TotalBricks;
+
     private void Start()
     {
+        Bricked = GameObject.Find("Brick Manager");
+        Bricker = Bricked.GetComponent<Bricks>();
+
         rend = gameObject.GetComponent<SpriteRenderer>();
         rend.enabled = false;
         source = transform.parent.gameObject;
@@ -61,6 +70,25 @@ public class AnnoyingSlot : MonoBehaviour
             {
                 rightSide = true;
             }
+
+            switch (gameObject.name)
+            {
+                case "Slot0":
+                    col = 0;
+                    break;
+                case "Slot1":
+                    col = 1;
+                    break;
+                case "Slot2":
+                    col = 2;
+                    break;
+                case "Slot3":
+                    col = 3;
+                    break;
+                case "Slot4":
+                    col = 4;
+                    break;
+            }
         }
         else
         {
@@ -88,17 +116,24 @@ public class AnnoyingSlot : MonoBehaviour
         {
             case "column":
                 prefab = columnPrefab;
+                BuildingCost = 1.0f;
                 break;
             case "platform":
                 prefab = platformPrefab;
+                BuildingCost = 1.0f;
                 break;
             default:
                 prefab = housePrefab;
+                BuildingCost = 3.0f;
                 break;
         }
+        TotalBricks = Bricker.GetBrickCount();
+        if (TotalBricks >= BuildingCost){
+        Bricker.SetBrickCount(TotalBricks - BuildingCost);
         connection = Instantiate(prefab, transform);
         connection.GetComponent<House>().SetSide(rightSide);
         buildManager.UpdateWeight(type, rightSide);
+        }
     }
 
     private void AddAll()
@@ -129,5 +164,19 @@ public class AnnoyingSlot : MonoBehaviour
     {
         clicked = false;
         rend.enabled = false;
+    }
+
+    public void SetCol(int col)
+    {
+        this.col = col;
+
+        if (gameObject.name.Equals("LTerminal"))
+        {
+            col--;
+        }
+        else if (gameObject.name.Equals("RTerminal"))
+        {
+            col++;
+        }
     }
 }
