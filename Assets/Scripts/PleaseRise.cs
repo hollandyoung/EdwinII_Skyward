@@ -27,7 +27,7 @@ public class PleaseRise : MonoBehaviour
         GameMan = GameManager.GetComponent<GameManager>();
         rb = this.GetComponent<Rigidbody2D>();
         Tilt = Beam.GetComponent<BeamTilt>();
-        StartCoroutine(Tidescale());
+        StartCoroutine(TideScale());
     }
 
     // Update is called once per frame
@@ -51,14 +51,17 @@ public class PleaseRise : MonoBehaviour
         GameMan.EndGame();
     }
         
-    IEnumerator TowerTest()
+    IEnumerator TideScale()
     {
         while (ScaleTide) {
        //Wait for 1 seconds
         yield return new WaitForSeconds(10);
-        Tidescale *= 1.2
+        Scaling();
         
         }
+    }
+    void Scaling(){
+        Tidescale = (Tidescale * 1.2f);
     }
 
 }
