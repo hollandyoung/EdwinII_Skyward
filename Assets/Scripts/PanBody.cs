@@ -82,7 +82,7 @@ public class PanBody : MonoBehaviour
             }
         }
         return closest;*/
-        RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector3.fwd, 1.0f + mainCam.transform.position.z, 9);
+        RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector3.forward, 1.0f + mainCam.transform.position.z, 9);
         if (hit.collider != null)
         {
             for (int i = 0; i < positions.Length; i++)

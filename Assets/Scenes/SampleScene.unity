@@ -303,7 +303,7 @@ MonoBehaviour:
   - {fileID: 118879009}
   - {fileID: 1799923865}
   housePrefab: {fileID: 1106297124404046687, guid: f0617d24a2b0c21488d771a8fbd93181, type: 3}
-  houseStack: {fileID: 0}
+  houseStack: {fileID: 7093863362394545087, guid: 683f1c6bba463c04b847917b2e376942, type: 3}
   colorHousePrefab: {fileID: 74458737015616954, guid: 063b7093fba39df429dfe6abc03582c4, type: 3}
   heavyHousePrefab: {fileID: 1771130121671953779, guid: 791e5ba7ea4c3d74e8d4c174d21d25a0, type: 3}
   floatHousePrefab: {fileID: 8358229384984628690, guid: 2b8a63e7433a09a43b256d386e26436f, type: 3}
@@ -873,7 +873,7 @@ MonoBehaviour:
   - {fileID: 1021993151}
   - {fileID: 805968063}
   housePrefab: {fileID: 1106297124404046687, guid: f0617d24a2b0c21488d771a8fbd93181, type: 3}
-  houseStack: {fileID: 0}
+  houseStack: {fileID: 7093863362394545087, guid: 683f1c6bba463c04b847917b2e376942, type: 3}
   colorHousePrefab: {fileID: 74458737015616954, guid: 063b7093fba39df429dfe6abc03582c4, type: 3}
   heavyHousePrefab: {fileID: 1771130121671953779, guid: 791e5ba7ea4c3d74e8d4c174d21d25a0, type: 3}
   floatHousePrefab: {fileID: 8358229384984628690, guid: 2b8a63e7433a09a43b256d386e26436f, type: 3}
