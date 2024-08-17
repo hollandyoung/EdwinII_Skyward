@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     private int endScore;
     private int highScore;
     private bool gameActive;
+    [SerializeField] GameObject uIManagerObject;
+    private UIManager uIManagerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         // Stops the game and saves the end score and updates the high score if needed
         gameActive = false;
-        //uIManager.SetActiveRestartButton(true);
+        uIManagerScript.SetActiveRestartButton(true);
         endScore = (int) timeAlive;
         if (endScore > highScore)
         {
