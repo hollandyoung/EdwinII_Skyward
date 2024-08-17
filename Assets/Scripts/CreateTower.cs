@@ -54,7 +54,7 @@ public class CreateTower : MonoBehaviour
         Debug.Log("build");
         TotalBricks = Bricker.GetBrickCount();
         Debug.Log(TotalBricks);
-        if (TotalBricks > TowerCost){
+        if (TotalBricks >= TowerCost){
             Bricker.SetBrickCount(TotalBricks - TowerCost);
             Instantiate(TowerPrefab, new Vector3(centerX, StartY + (Yscaling * NumberOfSegments), 0), Quaternion.identity);
             NumberOfSegments += 1;
