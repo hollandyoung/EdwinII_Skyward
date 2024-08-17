@@ -2096,6 +2096,7 @@ MonoBehaviour:
   floatHousePrefab: {fileID: 8358229384984628690, guid: 2b8a63e7433a09a43b256d386e26436f, type: 3}
   growHousePrefab: {fileID: 0}
   columnPrefab: {fileID: 0}
+  gM: {fileID: 1919727298}
 --- !u!212 &1002702557
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3412,6 +3413,7 @@ MonoBehaviour:
   floatHousePrefab: {fileID: 8358229384984628690, guid: 2b8a63e7433a09a43b256d386e26436f, type: 3}
   growHousePrefab: {fileID: 0}
   columnPrefab: {fileID: 2154798950112618249, guid: bccbac2be86160b44ae16ce15a1c4068, type: 3}
+  gM: {fileID: 1919727298}
 --- !u!212 &1489852126
 SpriteRenderer:
   m_ObjectHideFlags: 0

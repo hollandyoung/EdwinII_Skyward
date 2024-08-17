@@ -18,6 +18,12 @@ public class PanBody : MonoBehaviour
     [SerializeField] GameObject growHousePrefab;
     [SerializeField] GameObject columnPrefab;
 
+    // Objects
+    [SerializeField] GameObject gM; // Game manager
+
+    // Scripts
+    GameManager gMScript;
+
     void Start()
     {
         for (int i = 0; i < positions.Length; i++)
@@ -26,6 +32,8 @@ public class PanBody : MonoBehaviour
         }
         houseCount = 0;
         mainCam = Camera.main;
+
+        gMScript = gM.GetComponent<GameManager>();
     }
 
     private void Update()
@@ -38,6 +46,15 @@ public class PanBody : MonoBehaviour
                 CreateHouse("basic", slot);
             }
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 7)
+        {
+            gMScript.EndGame();
+        }
+        Debug.Log(collision.gameObject.layer);
     }
 
     private void CreateHouse(string type, int slot)
