@@ -4,54 +4,28 @@ using UnityEngine;
 
 public class House : MonoBehaviour
 {
-    public GameObject Bricker;
-    private Bricks Brick;
-    public float WaitTime = 4.0f;
-    public bool MakeBricks = true;
+    public GameObject bricker;
+    private Bricks brick;
+    public float waitTime = 4.0f;
+    public bool makeBricks = true;
 
     // Variables
     private string houseType;
 
-    public string GetHouseType()
-    {
-        return houseType;
-    }
-
-    public void SetHouseType(string type)
-    {
-        houseType = type;
-    }
-
     void Start()
     {
-        Bricker = GameObject.Find("Brick Manager");
-        Brick = Bricker.GetComponent<Bricks>();
+        bricker = GameObject.Find("Brick Manager");
+        brick = bricker.GetComponent<Bricks>();
         StartCoroutine(ProduceBricks());
     }
 
     IEnumerator ProduceBricks()
     {
-        while (MakeBricks) {
-       //Wait for 4 seconds
-        yield return new WaitForSeconds(WaitTime);
-        Brick.AddBrickCount();
-        }
-    }
-
-    public int GetWeight()
-    {
-        switch (this.houseType)
+        // Wait for 4 seconds
+        while (makeBricks)
         {
-            case "color":
-                return 1;
-            case "heavy":
-                return 3;
-            case "float":
-                return 1;
-            case "grow":
-                return 10;
-            default:
-                return 1;
+            yield return new WaitForSeconds(waitTime);
+            brick.AddBrickCount();
         }
     }
 }
