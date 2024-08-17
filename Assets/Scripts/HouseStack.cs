@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HouseStack : MonoBehaviour
 {
-    private List<GameObject> houses = new List<GameObject>();
+    public List<GameObject> houses = new List<GameObject>();
     Transform anchorTrans;
 
     public void AddHouse(GameObject house)

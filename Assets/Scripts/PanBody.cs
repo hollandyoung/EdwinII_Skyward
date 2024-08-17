@@ -9,6 +9,7 @@ public class PanBody : MonoBehaviour
     private int houseCount;
     private Camera mainCam;
 
+    // Prefabs
     [SerializeField] GameObject housePrefab;
     [SerializeField] GameObject houseStack;
     [SerializeField] GameObject colorHousePrefab;
@@ -26,18 +27,14 @@ public class PanBody : MonoBehaviour
         mainCam = Camera.main;
     }
 
-    private void OnMouseOver()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            int slot = GetClosestSlot();
+            int slot = CheckSlotsClicked();
             if (slot != -1)
             {
                 CreateHouse("basic", slot);
-            }
-            else
-            {
-                Debug.Log("Disaster");
             }
         }
     }
@@ -68,29 +65,13 @@ public class PanBody : MonoBehaviour
         houseCount++;
     }
 
-    private int GetClosestSlot()
+    private int CheckSlotsClicked()
     {
-        /*float minDist = (mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[0].position).magnitude;
-        int closest = 0;
-
-        for (int i = 1; i < positions.Length; i++)
+        for (int i = 0; i < positions.Length; i++)
         {
-            if ((mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[i].transform.position).magnitude < minDist)
+            if (positions[i].gameObject.GetComponent<AnnoyingSlot>().clicked)
             {
-                closest = i;
-                minDist = (mainCam.ScreenToWorldPoint(Input.mousePosition) - positions[i].transform.position).magnitude;
-            }
-        }
-        return closest;*/
-        RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector3.forward, 1.0f + mainCam.transform.position.z, 9);
-        if (hit.collider != null)
-        {
-            for (int i = 0; i < positions.Length; i++)
-            {
-                if (hit.collider.transform == positions[i])
-                {
-                    return i;
-                }
+                return i;
             }
         }
         return -1;
