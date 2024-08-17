@@ -31,4 +31,21 @@ public class House : MonoBehaviour
         Brick.AddBrickCount();
         }
     }
+
+    public int GetWeight()
+    {
+        switch (this.houseType)
+        {
+            case "color":
+                return 1;
+            case "heavy":
+                return 3;
+            case "float":
+                return 1;
+            case "grow":
+                return 10;
+            default:
+                return 1;
+        }
+    }
 }
