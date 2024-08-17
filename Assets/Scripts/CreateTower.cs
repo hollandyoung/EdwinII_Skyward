@@ -14,12 +14,13 @@ public class CreateTower : MonoBehaviour
     public float NumberOfSegments = 0;
     public float TotalBricks;
     public float TowerCost = 5;
+    public bool CanBuild;
     // Start is called before the first frame update
     void Start()
     {
         Bricked = GameObject.Find("Brick Manager");
         Bricker = Bricked.GetComponent<Bricks>();
-        StartCoroutine(TowerTest());
+        //StartCoroutine(TowerTest());
         BaseTower();
     }
 
@@ -38,6 +39,8 @@ public class CreateTower : MonoBehaviour
         //if (NumberOfSegments >= 12) {
         //    MakeTower = false;
         //}
+        
+
     }
     void BaseTower()
     {
@@ -48,12 +51,14 @@ public class CreateTower : MonoBehaviour
     public void GenerateTower()
     {
         //a = new gameObject Instantiate(TowerPrefab);
+        //Debug.Log("build");
         TotalBricks = Bricker.GetBrickCount();
-        if (TotalBricks > TowerCost){
+        //Debug.Log(TotalBricks);
+        if (TotalBricks >= TowerCost){
             Bricker.SetBrickCount(TotalBricks - TowerCost);
+            Instantiate(TowerPrefab, new Vector3(centerX, StartY + (Yscaling * NumberOfSegments), 0), Quaternion.identity);
+            NumberOfSegments += 1;
         }
-        Instantiate(TowerPrefab, new Vector3(centerX, StartY + (Yscaling * NumberOfSegments), 0), Quaternion.identity);
-        NumberOfSegments += 1;
     }
     public float GetNumberOfSegments()
     {
