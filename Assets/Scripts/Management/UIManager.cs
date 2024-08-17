@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject startButton;
     [SerializeField] GameObject restartButton;
     [SerializeField] GameObject BuildButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        SetActiveStartButton(true);
         SetActiveRestartButton(false);
     }
 
@@ -19,11 +17,6 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void SetActiveStartButton(bool active)
-    {
-        startButton.SetActive(active);
     }
     public void SetActiveRestartButton(bool active)
     {
