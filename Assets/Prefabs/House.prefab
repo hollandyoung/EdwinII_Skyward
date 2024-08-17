@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7799972673222098420}
   - component: {fileID: 6969223678561723134}
-  - component: {fileID: 3699214237884125453}
+  - component: {fileID: 1117185599476324525}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -49,7 +49,7 @@ MonoBehaviour:
   Bricker: {fileID: 0}
   WaitTime: 4
   MakeBricks: 1
---- !u!61 &3699214237884125453
+--- !u!61 &1117185599476324525
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +81,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.025}
+  m_Offset: {x: 0, y: 0.075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -92,7 +92,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.75}
+  m_Size: {x: 0.14, y: 0.15}
   m_EdgeRadius: 0
 --- !u!1 &8385217604690817966
 GameObject:
@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 8385217604690817966}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
