@@ -13,6 +13,7 @@ public class BeamTilt : MonoBehaviour
     [SerializeField] private GameObject rightPan;
     private PanBody leftPanScript;
     private PanBody rightPanScript;
+    [SerializeField] private float velocityAdapter;
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +41,11 @@ public class BeamTilt : MonoBehaviour
         // Change acceleration by an amount based on the weight in the opposite direction of the velocity
         if (direction == -1)
         {
-            tiltAcceleration += ((1 + rightWeight) / (1 + leftWeight));
+            tiltAcceleration += (velocityAdapter * ((1 + rightWeight) / (1 + leftWeight)));
         }
         else
         {
-            tiltAcceleration -= ((1 + leftWeight) / (1 + rightWeight));
+            tiltAcceleration -= (velocityAdapter * ((1 + leftWeight) / (1 + rightWeight)));
         }
     }
 
