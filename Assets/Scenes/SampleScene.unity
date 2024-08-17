@@ -911,7 +911,7 @@ MonoBehaviour:
   MakeTower: 1
   centerX: 0
   StartY: 0
-  Yscaling: 10
+  Yscaling: 0.8
   NumberOfSegments: 0
 --- !u!4 &712024321
 Transform:
@@ -2625,5 +2625,4 @@ SceneRoots:
   - {fileID: 1708185687}
   - {fileID: 1457957965}
   - {fileID: 1841731412}
-  - {fileID: 1919727300}
   - {fileID: 712024321}
