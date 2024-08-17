@@ -10,6 +10,13 @@ public class CameraBehavior : MonoBehaviour
     private float scrollScale = 1.0f;
     [SerializeField] private GameObject yFocalObject;
     private float yFocalPoint;
+    private Rigidbody2D rb;
+    [SerializeField] private float cameraSpeedAdjust;
+
+    void Start()
+    {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,8 +37,17 @@ public class CameraBehavior : MonoBehaviour
             }
             Pan();
         }
-        //y
-        //gameObject.transform.Translate
+        yFocalPoint = yFocalObject.transform.position.y;
+        if (rb.velocity.y <= 0.1 && rb.velocity.y != 0)
+        {
+            rb.velocity = new Vector2(0, 0);
+            Debug.Log("Stopping");
+        }
+        if (Mathf.Abs(yFocalPoint - transform.position.y) > 0.01)
+        {
+            rb.velocity = new Vector2(0, cameraSpeedAdjust * (yFocalPoint - transform.position.y));
+            Debug.Log("Moving by " + (yFocalPoint - transform.position.y));
+        }
     }
 
     void Pan()
