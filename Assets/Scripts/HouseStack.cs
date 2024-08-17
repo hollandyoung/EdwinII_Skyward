@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HouseStack : MonoBehaviour
 {
-    private GameObject beam;
+    /*private GameObject beam;
     private BeamTilt beamScript;
     public List<GameObject> houses = new List<GameObject>();
     Transform anchorTrans;
@@ -66,5 +66,5 @@ public class HouseStack : MonoBehaviour
             }
         }
         return weight;
-    }
+    }*/
 }
