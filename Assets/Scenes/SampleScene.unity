@@ -930,6 +930,7 @@ MonoBehaviour:
   NumberOfSegments: 0
   TotalBricks: 0
   TowerCost: 5
+  CanBuild: 0
 --- !u!4 &712024321
 Transform:
   m_ObjectHideFlags: 0
@@ -3099,7 +3100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2622dbef41a028c4da6c1b5cb9d55b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BrickCount: 0
+  BrickCount: 70
 --- !u!4 &1914878845
 Transform:
   m_ObjectHideFlags: 0
