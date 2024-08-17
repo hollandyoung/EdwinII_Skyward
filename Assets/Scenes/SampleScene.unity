@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
+  slotType: 
+  panBody: {fileID: 1489852125}
 --- !u!61 &31866648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -427,6 +429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
+  slotType: 
+  panBody: {fileID: 1489852125}
 --- !u!61 &67147252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1000,6 +1004,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
+  slotType: 
+  panBody: {fileID: 1489852125}
 --- !u!61 &504678628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1091,6 +1097,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
+  slotType: 
+  panBody: {fileID: 1489852125}
 --- !u!61 &515602898
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1422,6 +1430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
+  slotType: 
+  panBody: {fileID: 0}
 --- !u!61 &632099350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2084,6 +2094,7 @@ MonoBehaviour:
   heavyHousePrefab: {fileID: 1771130121671953779, guid: 791e5ba7ea4c3d74e8d4c174d21d25a0, type: 3}
   floatHousePrefab: {fileID: 8358229384984628690, guid: 2b8a63e7433a09a43b256d386e26436f, type: 3}
   growHousePrefab: {fileID: 0}
+  columnPrefab: {fileID: 0}
 --- !u!212 &1002702557
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2513,6 +2524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
+  slotType: 
+  panBody: {fileID: 0}
 --- !u!61 &1081029779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3351,6 +3364,7 @@ MonoBehaviour:
   heavyHousePrefab: {fileID: 1771130121671953779, guid: 791e5ba7ea4c3d74e8d4c174d21d25a0, type: 3}
   floatHousePrefab: {fileID: 8358229384984628690, guid: 2b8a63e7433a09a43b256d386e26436f, type: 3}
   growHousePrefab: {fileID: 0}
+  columnPrefab: {fileID: 2154798950112618249, guid: bccbac2be86160b44ae16ce15a1c4068, type: 3}
 --- !u!212 &1489852126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3449,6 +3463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
+  slotType: 
+  panBody: {fileID: 0}
 --- !u!61 &1496639660
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3540,6 +3556,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
+  slotType: 
+  panBody: {fileID: 0}
 --- !u!61 &1529006209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3898,6 +3916,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
+  slotType: 
+  panBody: {fileID: 0}
 --- !u!61 &1729048334
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4410,6 +4430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
+  slotType: 
+  panBody: {fileID: 1489852125}
 --- !u!61 &1897325794
 BoxCollider2D:
   m_ObjectHideFlags: 0

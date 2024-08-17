@@ -16,6 +16,7 @@ public class PanBody : MonoBehaviour
     [SerializeField] GameObject heavyHousePrefab;
     [SerializeField] GameObject floatHousePrefab;
     [SerializeField] GameObject growHousePrefab;
+    [SerializeField] GameObject columnPrefab;
 
     void Start()
     {
@@ -57,11 +58,78 @@ public class PanBody : MonoBehaviour
             case "grow":
                 prefab = growHousePrefab;
                 break;
+            case "column":
+                prefab = columnPrefab;
+                break;
             default:
                 prefab = housePrefab;
                 break;
         }
         positions[slot].GetComponentInChildren<HouseStack>().AddHouse(prefab, gameObject.name);
+        houseCount++;
+    }
+
+    public void CreateHouse(string type, Transform parent)
+    {
+        GameObject prefab;
+        type = type.ToLower();
+        switch (type)
+        {
+            case "color":
+                prefab = colorHousePrefab;
+                break;
+            case "heavy":
+                prefab = heavyHousePrefab;
+                break;
+            case "float":
+                prefab = floatHousePrefab;
+                break;
+            case "grow":
+                prefab = growHousePrefab;
+                break;
+            case "column":
+                prefab = columnPrefab;
+                break;
+            default:
+                prefab = housePrefab;
+                break;
+        }
+        GameObject obj = Instantiate(prefab, parent);
+        AnnoyingSlot slotScript = obj.GetComponentInChildren<AnnoyingSlot>();
+        slotScript.SetType(type);
+        slotScript.SetPanBody(gameObject.GetComponent<PanBody>());
+        houseCount++;
+    }
+
+    public void CreateHouse(string type, Transform parent, bool fromCol)
+    {
+        GameObject prefab;
+        type = type.ToLower();
+        switch (type)
+        {
+            case "color":
+                prefab = colorHousePrefab;
+                break;
+            case "heavy":
+                prefab = heavyHousePrefab;
+                break;
+            case "float":
+                prefab = floatHousePrefab;
+                break;
+            case "grow":
+                prefab = growHousePrefab;
+                break;
+            case "column":
+                prefab = columnPrefab;
+                break;
+            default:
+                prefab = housePrefab;
+                break;
+        }
+        GameObject obj = Instantiate(prefab, parent);
+        AnnoyingSlot slotScript = obj.GetComponentInChildren<AnnoyingSlot>();
+        slotScript.SetType(type);
+        slotScript.SetPanBody(gameObject.GetComponent<PanBody>());
         houseCount++;
     }
 
