@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BeamTilt : MonoBehaviour
 {
+    private float tail;
     private float tiltAcceleration;
     private float tiltVelocity;
     private float leftWeight;
@@ -31,10 +32,11 @@ public class BeamTilt : MonoBehaviour
     {
         leftWeight = leftPanScript.GetWeight();
         rightWeight = rightPanScript.GetWeight();
+        tail = tiltVelocity;
         tiltVelocity += tiltAcceleration; // Adjusts the tilt velocity by the tilt acceleration
         rb.rotation -= (float) tiltVelocity; // Tilts the beam by the tilt velocity
         // If the velocity is near zero, reset acceleration to zero
-        if (Mathf.Abs(GetBeamTiltVelocity()) < 0.0001)
+        if (Mathf.Abs(tiltVelocity) < 0.0001 || Mathf.Abs(tiltVelocity) > Mathf.Abs(tail))
         {
             SetBeamTiltAcceleration(0);
             SetBeamTiltVelocity(0);
@@ -45,6 +47,7 @@ public class BeamTilt : MonoBehaviour
     {
         // Change velocity by set amount in the given direction
         tiltVelocity -= (amount * direction * velocityAdapter);
+        tail = tiltVelocity;
         // Change acceleration by an amount based on the weight in the opposite direction of the velocity
         if (direction == -1)
         {
