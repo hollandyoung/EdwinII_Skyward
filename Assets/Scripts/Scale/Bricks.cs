@@ -36,7 +36,7 @@ public class Bricks : MonoBehaviour
         BrickCount = BrickSet;
         BrickCounter.text = ("You Have: " + BrickCount + " Bricks");
         if (BrickCount == 0) {
-            ("You are broke");
+            BrickCounter.text = ("You are broke");
         }
     }
 }
