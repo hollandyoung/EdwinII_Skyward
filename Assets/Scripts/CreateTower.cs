@@ -45,4 +45,8 @@ public class CreateTower : MonoBehaviour
         Instantiate(TowerPrefab, new Vector3(centerX, StartY + (Yscaling * NumberOfSegments), 0), Quaternion.identity);
         NumberOfSegments += 1;
     }
+    public float GetNumberOfSegments()
+    {
+        return NumberOfSegments;
+    }
 }
