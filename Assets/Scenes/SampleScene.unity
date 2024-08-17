@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 223415712}
   - component: {fileID: 223415713}
   m_Layer: 7
-  m_Name: Body
+  m_Name: Body2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -751,7 +751,7 @@ GameObject:
   - component: {fileID: 649064821}
   - component: {fileID: 649064822}
   m_Layer: 7
-  m_Name: Body
+  m_Name: Body1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

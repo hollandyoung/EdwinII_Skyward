@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         // Stops the game and saves the end score and updates the high score if needed
+        Debug.Log("THE GAME IS OVER!!!!!!!!!!!!!!!!!");
         gameActive = false;
         uIManagerScript.SetActiveRestartButton(true);
         endScore = (int) timeAlive;
