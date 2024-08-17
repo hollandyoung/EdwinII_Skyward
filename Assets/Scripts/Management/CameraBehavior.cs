@@ -41,12 +41,10 @@ public class CameraBehavior : MonoBehaviour
         if (rb.velocity.y <= 0.1 && rb.velocity.y != 0)
         {
             rb.velocity = new Vector2(0, 0);
-            Debug.Log("Stopping");
         }
         if (Mathf.Abs(yFocalPoint - transform.position.y) > 0.01)
         {
             rb.velocity = new Vector2(0, cameraSpeedAdjust * (yFocalPoint - transform.position.y));
-            Debug.Log("Moving by " + (yFocalPoint - transform.position.y));
         }
     }
 
