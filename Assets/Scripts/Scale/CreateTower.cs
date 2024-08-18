@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CreateTower : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class CreateTower : MonoBehaviour
     public float TotalBricks;
     public float TowerCost = 5;
     public bool CanBuild;
+
+    public TextMeshProUGUI TowerCostDisplay;
+    public bool BaseTowering = true;
+    public float AdditionalCost;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +55,7 @@ public class CreateTower : MonoBehaviour
         GenerateTower();
         TotalBricks = Bricker.GetBrickCount();
         }
+        BaseTowering = false;
     }
     public void GenerateTower()
     {
@@ -61,6 +67,11 @@ public class CreateTower : MonoBehaviour
             Bricker.SetBrickCount(TotalBricks - TowerCost);
             Instantiate(TowerPrefab, new Vector3(centerX, StartY + (Yscaling * NumberOfSegments), 0), Quaternion.identity);
             NumberOfSegments += 1;
+            if (!BaseTowering) {
+                AdditionalCost += 1;
+                TowerCost += 1;
+                TowerCostDisplay.text = ("Build tower cost: " + (5 + AdditionalCost) + " bricks");
+            }
         }
     }
     public float GetNumberOfSegments()
