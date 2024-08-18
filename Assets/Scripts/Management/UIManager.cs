@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject HouseButton;
     [SerializeField] GameObject ColumnButton;
     [SerializeField] GameObject PlatformButton;
+    [SerializeField] GameObject KilnButton;
+    [SerializeField] GameObject AgoraButton;
     [SerializeField] GameObject ApartmentButton;
     [SerializeField] TextMeshProUGUI currentTimer;
     [SerializeField] TextMeshProUGUI endTimer;

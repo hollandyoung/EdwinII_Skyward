@@ -9,6 +9,7 @@ public class AnnoyingSlot : MonoBehaviour
     private SpriteRenderer rend;
     public GameObject connection = null;
     private BuildManager buildManager;
+    private SFXManager sFXManager;
 
     // Platform sprites
     [SerializeField] Sprite aloneSprite;
@@ -46,7 +47,7 @@ public class AnnoyingSlot : MonoBehaviour
     private void Awake()
     {
         buildManager = GameObject.Find("GameManager").GetComponent<BuildManager>();
-        //CheckAllAround();
+        sFXManager = GameObject.Find("GameManager").GetComponent<SFXManager>();
     }
 
     private void Start()
@@ -93,10 +94,12 @@ public class AnnoyingSlot : MonoBehaviour
         {
             Bricker.SetBrickCount(TotalBricks - BuildingCost);
             connection = Instantiate(prefab, transform);
+            sFXManager.PlayClip("place");
             type = connection.tag.ToLower();
             connection.GetComponent<House>().SetCoords(coords[0], coords[1]);
             
             buildManager.UpdateWeight(type, rightSide);
+            buildManager.RefreshKilns(rightSide);
             filled = true;
             Refresh();
         }
@@ -105,6 +108,7 @@ public class AnnoyingSlot : MonoBehaviour
     public void DestroyStructure()
     {
         Destroy(connection);
+        sFXManager.PlayClip("destroy");
         connection = null;
         filled = false;
         type = "empty";

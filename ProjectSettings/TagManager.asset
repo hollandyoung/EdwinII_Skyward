@@ -11,6 +11,7 @@ TagManager:
   - Column
   - Shaper
   - Mine
+  - Kiln
   layers:
   - Default
   - TransparentFX
