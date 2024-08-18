@@ -9,7 +9,7 @@ public class CreateTower : MonoBehaviour
     private Bricks Bricker;
     public bool MakeTower = true;
     public float centerX = 0;
-    public float StartY = 0;
+    public float StartY = 1;
     public float Yscaling = 10;
     public float NumberOfSegments = 0;
     public float TotalBricks;
