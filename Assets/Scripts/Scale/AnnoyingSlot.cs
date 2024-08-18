@@ -160,16 +160,6 @@ public class AnnoyingSlot : MonoBehaviour
             connection.GetComponent<House>().SetSide(rightSide);
             connection.GetComponent<House>().SetCol(col);
 
-            string id;
-            if (rightSide)
-            {
-                id = "right";
-            }
-            else
-            {
-                id = "left";
-            }
-            Debug.Log("I think I'm on the " + id + " side.");
             buildManager.UpdateWeight(type, rightSide);
         }
     }
