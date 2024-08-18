@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class BuildManager : MonoBehaviour
 {
     [SerializeField] BeamTilt beamTilt;
+    [SerializeField] GameObject slotPrefab;
     public string currType;
     [SerializeField] Transform pan1;
     [SerializeField] Transform pan2;

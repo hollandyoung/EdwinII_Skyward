@@ -5343,6 +5343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beamTilt: {fileID: 115834247}
+  slotPrefab: {fileID: 9060520121091647316, guid: cccb239e21bd7e243a527d3af45eb4b3, type: 3}
   currType: 
   pan1: {fileID: 1002702555}
   pan2: {fileID: 1489852124}
