@@ -40,21 +40,9 @@ public class CameraBehavior : MonoBehaviour
         }
         yFocalPoint = focalObject.transform.position.y;
         xFocalPoint = focalObject.transform.position.x;
-        if (rb.velocity.y <= 0.1 && rb.velocity.y != 0)
+        if (Mathf.Abs(yFocalPoint - transform.position.y) > 0.01 || Mathf.Abs(xFocalPoint - transform.position.x) > 0.01)
         {
-            rb.velocity = new Vector2(0, 0);
-        }
-        if (Mathf.Abs(yFocalPoint - transform.position.y) > 0.01)
-        {
-            rb.velocity = new Vector2(0, cameraSpeedAdjust * (yFocalPoint - transform.position.y));
-        }
-        if (rb.velocity.x <= 0.1 && rb.velocity.x != 0)
-        {
-            rb.velocity = new Vector2(0, 0);
-        }
-        if (Mathf.Abs(xFocalPoint - transform.position.x) > 0.01)
-        {
-            rb.velocity = new Vector2(cameraSpeedAdjust * (xFocalPoint - transform.position.x), 0);
+            rb.velocity = new Vector2(cameraSpeedAdjust * (xFocalPoint - transform.position.x), cameraSpeedAdjust * (yFocalPoint - transform.position.y));
         }
     }
 
