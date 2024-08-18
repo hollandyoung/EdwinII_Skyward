@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: 6969223678561723134}
   - component: {fileID: 1117185599476324525}
   m_Layer: 0
-  m_Name: Shaper
-  m_TagString: Shaper
+  m_Name: Kiln
+  m_TagString: Kiln
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
