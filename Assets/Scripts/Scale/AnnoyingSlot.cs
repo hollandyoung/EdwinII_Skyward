@@ -93,15 +93,40 @@ public class AnnoyingSlot : MonoBehaviour
             
             buildManager.UpdateWeight(type, rightSide);
             filled = true;
+            Refresh();
         }
     }
 
     public void DestroyStructure()
     {
         Destroy(connection);
+        connection = null;
         filled = false;
         type = "empty";
         buildManager.UpdateWeight(type, !rightSide);
+
+        CheckNeighbors();
+        if (left != null)
+        {
+            SendRefreshMessage(left);
+        }
+        if (right != null)
+        {
+            SendRefreshMessage(right);
+        }
+        if (up != null)
+        {
+            SendRefreshMessage(up);
+        }
+        if (down != null)
+        {
+            SendRefreshMessage(down);
+        }
+    }
+
+    private void SendRefreshMessage(GameObject child)
+    {
+        child.transform.parent.gameObject.GetComponent<AnnoyingSlot>().Refresh();
     }
 
     private void AddAll()
@@ -126,6 +151,7 @@ public class AnnoyingSlot : MonoBehaviour
                 if (Input.GetMouseButton(0) && initialized)
                 {
                     SpawnStructure(structureType);
+                    rend.enabled = false;
                 }
             }
         }
@@ -135,7 +161,7 @@ public class AnnoyingSlot : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 DestroyStructure();
-                Debug.Log("Here");
+                rend.enabled = false;
             }
         }
     }
@@ -174,6 +200,7 @@ public class AnnoyingSlot : MonoBehaviour
             sourceArr = buildManager.leftSide;
         }
 
+        left = null;
         if (coords[1] > 0)
         {
             if (sourceArr[coords[0], coords[1] - 1].GetComponent<AnnoyingSlot>().filled)
@@ -189,6 +216,7 @@ public class AnnoyingSlot : MonoBehaviour
             }
         }
 
+        right = null;
         if (coords[1] < sourceArr.GetLength(1) - 1)
         {
             if (sourceArr[coords[0], coords[1] + 1].GetComponent<AnnoyingSlot>().filled)
@@ -204,6 +232,7 @@ public class AnnoyingSlot : MonoBehaviour
             }
         }
 
+        up = null;
         if (coords[0] < sourceArr.GetLength(0) - 1)
         {
             if (sourceArr[coords[0] + 1, coords[1]].GetComponent<AnnoyingSlot>().filled)
@@ -212,6 +241,7 @@ public class AnnoyingSlot : MonoBehaviour
             }
         }
 
+        down = null;
         if (coords[0] > 0)
         {
             if (sourceArr[coords[0] - 1, coords[1]].GetComponent<AnnoyingSlot>().filled)
@@ -230,11 +260,9 @@ public class AnnoyingSlot : MonoBehaviour
                         break;
                 }
 
-                if (connection != null && connection.CompareTag("Platform"))
+                if (filled && connection.CompareTag("Platform"))
                 {
-                    Debug.Log("I am a platform above something");
                     connection.GetComponent<SpriteRenderer>().sprite = joinedSprite;
-                    
                 }
             }
             else if (filled && connection.CompareTag("Platform"))
@@ -270,6 +298,7 @@ public class AnnoyingSlot : MonoBehaviour
     public void Refresh()
     {
         CheckNeighbors();
+        
         if (validTypes.Count == 0)
         {
             DestroyStructure();
