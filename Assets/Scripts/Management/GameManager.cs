@@ -51,12 +51,13 @@ public class GameManager : MonoBehaviour
         // Stops the game and saves the end score and updates the high score if needed
         //Debug.Log("THE GAME IS OVER!!!!!!!!!!!!!!!!!");
         timerRunning = false;
-        uIManagerScript.SetActiveRestartButton(true);
         endScore = (int) timeAlive;
         if (endScore > highScore)
         {
             highScore = endScore;
+            uIManagerScript.newHighScore = true;
         }
+        uIManagerScript.UpdateScores();
     }
 
     public int GetEndScore()
@@ -65,7 +66,11 @@ public class GameManager : MonoBehaviour
     }
     public string GetEndScoreDisplayValue()
     {
-        return (Mathf.Floor(endScore / 60) + ":" + (endScore % 60));
+        return (Mathf.Floor(endScore / 60) + ":" + ((int) endScore % 60));
+    }
+    public string GetTimeAliveDisplayValue()
+    {
+        return (Mathf.Floor((float) timeAlive / 60) + ":" + ((int) timeAlive % 60));
     }
     public int GetHighScore()
     {
@@ -73,7 +78,7 @@ public class GameManager : MonoBehaviour
     }
     public string GetHighScoreDisplayValue()
     {
-        return (Mathf.Floor(highScore / 60) + ":" + (endScore % 60));
+        return (Mathf.Floor(highScore / 60) + ":" + ((int) endScore % 60));
     }
     public bool GetTimerRunning()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,20 +11,52 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject ColumnButton;
     [SerializeField] GameObject PlatformButton;
     [SerializeField] GameObject ApartmentButton;
+    [SerializeField] TextMeshProUGUI currentTimer;
+    [SerializeField] TextMeshProUGUI endTimer;
+    [SerializeField] TextMeshProUGUI highScoreObject;
+    public bool newHighScore;
+    [SerializeField] GameObject gM;
+    private GameManager gMScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        gMScript = gM.GetComponent<GameManager>();
         SetActiveRestartButton(false);
+        SetActiveEndTimer(false);
+        SetActiveHighScore(false);
+        newHighScore = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        currentTimer.text = gMScript.GetTimeAliveDisplayValue();
     }
+
+    public void UpdateScores()
+    {
+        if(newHighScore == true)
+        {
+            highScoreObject.text = "NEW HIGH SCORE";
+        }
+        else
+        {
+            highScoreObject.text = gMScript.GetHighScoreDisplayValue();
+        }
+        endTimer.text = gMScript.GetEndScoreDisplayValue();
+    }
+
     public void SetActiveRestartButton(bool active)
     {
         restartButton.SetActive(active);
+    }
+    public void SetActiveEndTimer(bool active)
+    {
+        endTimer.enabled = active;
+    }
+    public void SetActiveHighScore(bool active)
+    {
+        highScoreObject.enabled = active;
     }
 }
