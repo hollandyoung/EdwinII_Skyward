@@ -25,7 +25,7 @@ public class PleaseRise : MonoBehaviour
 
     public float FixFloat;
 
-    public Vector2 FixMovementMore; 
+    public float FixMovementMore; 
     public float WaveSpeed = 5.0f;
 
     // Start is called before the first frame update
@@ -54,8 +54,8 @@ public class PleaseRise : MonoBehaviour
     void MoveTide(Vector2 Fix){
         FixFloat = (float)tiltVelocity;
         TrueSpeed = (float)Mathf.Abs(BaseSpeed * (FixFloat + 1));
-        FixMovementMore = new Vector2(WaveSpeed, TrueSpeed * Tidescale * TideDirection);
-        rb.velocity = FixMovementMore * Time.deltaTime * 60;
+        FixMovementMore = (TrueSpeed * Tidescale * Time.deltaTime * 60);
+        rb.velocity = new Vector2(WaveSpeed, FixMovementMore * TideDirection) ;
     }
     /*private void OnCollisionEnter2D(Collision2D collision) {
         GameOver();
