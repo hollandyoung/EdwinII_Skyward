@@ -143,3 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f141c720142932c4a945d1975ae32506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EdwinCreator: {fileID: 0}
+  DeLoadGap: 29
