@@ -38,6 +38,13 @@ public class Bricks : MonoBehaviour
     }
     public void UpdateCount()
     {
-        BrickCounter.text = (BrickCount + "");
+        if (BrickCount >= 1000)
+        {
+            // Truncates Brick Count text if over 1000 (e.g. 1234 -> 1.2K)
+            BrickCounter.text = (Mathf.Floor(BrickCount / 100) / 10 + "K");
+        } else
+        {
+            BrickCounter.text = (BrickCount + "");
+        }
     }
 }
