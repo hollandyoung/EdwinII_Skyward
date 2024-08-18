@@ -72,6 +72,10 @@ public class BeamTilt : MonoBehaviour
         {
             tiltAcceleration *= -1;
         }
+        if (tiltAcceleration == 0)
+        {
+            tiltVelocity = 0;
+        }
     }
 
     public void WeightAdded(int amount, int direction) // -1 for right, 1 for left
