@@ -5755,8 +5755,8 @@ MonoBehaviour:
   beamTilt: {fileID: 115834247}
   slotPrefab: {fileID: 9060520121091647316, guid: cccb239e21bd7e243a527d3af45eb4b3, type: 3}
   currType: 
-  pan1: {fileID: 1683057642}
-  pan2: {fileID: 1040493122}
+  pan1: {fileID: 1002702555}
+  pan2: {fileID: 1489852124}
 --- !u!1 &1939780091
 GameObject:
   m_ObjectHideFlags: 0
