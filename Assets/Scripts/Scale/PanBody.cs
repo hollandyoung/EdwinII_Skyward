@@ -15,21 +15,29 @@ public class PanBody : MonoBehaviour
         gMScript = gM.GetComponent<GameManager>();
     }
 
-    /*void OnTriggerEnter2D(Collision2D collision)
+    private void Update()
     {
-        if(collision.gameObject.layer == 7)
+        int mask = LayerMask.GetMask("Tower");
+        int tideMask = LayerMask.GetMask("Tide");
+
+        float halfLength = gameObject.GetComponent<BoxCollider2D>().bounds.size.x / 2;
+        float halfHeight = gameObject.GetComponent<BoxCollider2D>().bounds.size.y / 2;
+
+        RaycastHit2D hitL = Physics2D.Raycast(transform.position + Vector3.left * halfLength, Vector2.left, 0.1f, mask);
+        if (hitL.collider != null)
         {
             gMScript.EndGame();
         }
-        Debug.Log(collision.gameObject.layer);
-    }*/
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Got here at least");
-        if (collision.gameObject.layer == 7)
+        RaycastHit2D hitR = Physics2D.Raycast(transform.position + Vector3.right * halfLength, Vector2.right, 0.1f, mask);
+        if (hitR.collider != null)
         {
-            Debug.Log("Game Over");
+            gMScript.EndGame();
+        }
+
+        RaycastHit2D hitB = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 0.2f, tideMask);
+        if (hitB.collider != null)
+        {
             gMScript.EndGame();
         }
     }
