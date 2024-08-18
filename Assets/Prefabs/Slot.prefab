@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c077a6f64135847a8f16efdacb8f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connection: {fileID: 0}
+  aloneSprite: {fileID: 21300000, guid: 17cadabb1d455a3428e5f157185a11bd, type: 3}
+  joinedSprite: {fileID: 21300000, guid: e800f6e809470f7498529e4cccc44ed8, type: 3}
   filled: 0
   validTypes: []
   housePrefab: {fileID: 1106297124404046687, guid: f0617d24a2b0c21488d771a8fbd93181, type: 3}
