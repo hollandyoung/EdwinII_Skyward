@@ -150,7 +150,7 @@ public class AnnoyingSlot : MonoBehaviour
             rend.enabled = true;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             clicked = true;
         }
