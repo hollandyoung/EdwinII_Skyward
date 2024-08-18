@@ -13,6 +13,8 @@ public class House : MonoBehaviour
     private string houseType;
     private bool rightSide;
     private int col = -1;
+    private int row = -1;
+    private int[] cords;
     public bool initialized = false;
     private int initHelp = 0; // Two when finished
 
