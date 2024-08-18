@@ -11,7 +11,7 @@ public class House : MonoBehaviour
 
     public bool isShaper = false;
     public float Xcoord;
-    public float Ycoords;
+    public float Ycoord;
     // Variables
     public int[] coords = new int[2];
 
@@ -19,9 +19,10 @@ public class House : MonoBehaviour
     {
         bricker = GameObject.Find("Brick Manager");
         brick = bricker.GetComponent<Bricks>();
+        transform.Translate(Vector3.forward * 0.001f);
         StartCoroutine(ProduceBricks());
         if (isShaper) {
-            StartCoroutine(findMines());
+            
         }
     }
 
@@ -34,12 +35,16 @@ public class House : MonoBehaviour
             brick.AddBrickCount();
         }
     }
-    IEnumerator findMines() {
-        yield return new WaitForSeconds(1);
+    public void findMines() {
+        for (int side = 0; side <= 4; side++) {
+            //GetStructureType()
+        }
     }
 
     public void SetCoords(int row, int col)
     {
+        Xcoord = row;
+        Ycoord = col;
         coords[0] = row;
         coords[1] = col;
     }
