@@ -32,6 +32,8 @@ public class AnnoyingSlot : MonoBehaviour
     [SerializeField] GameObject housePrefab;
     [SerializeField] GameObject platformPrefab;
     [SerializeField] GameObject columnPrefab;
+    [SerializeField] GameObject minePrefab;
+    [SerializeField] GameObject shaperPrefab;
 
     private float BuildingCost;
     public GameObject Bricked;
@@ -68,6 +70,14 @@ public class AnnoyingSlot : MonoBehaviour
                 prefab = platformPrefab;
                 BuildingCost = 1.0f;
                 break;
+            case "shaper":
+                prefab = shaperPrefab;
+                BuildingCost = 30.0f;
+                break;
+            case "mine":
+                prefab = minePrefab;
+                BuildingCost = 10.0f;
+                break;
             default:
                 prefab = housePrefab;
                 BuildingCost = 3.0f;
@@ -99,6 +109,8 @@ public class AnnoyingSlot : MonoBehaviour
         AddValidType("column");
         AddValidType("house");
         AddValidType("platform");
+        AddValidType("shaper");
+        AddValidType("mine");
     }
 
     private void OnMouseOver()
@@ -210,6 +222,8 @@ public class AnnoyingSlot : MonoBehaviour
                     case "Platform":
                         AddValidType("column");
                         AddValidType("house");
+                        AddValidType("shaper");
+                        AddValidType("mine");
                         break;
                     case "Column":
                         AddAll();
