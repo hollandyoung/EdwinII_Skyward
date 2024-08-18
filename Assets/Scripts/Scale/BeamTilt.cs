@@ -74,7 +74,7 @@ public class BeamTilt : MonoBehaviour
         }
     }
 
-    public void WeightAdded(int amount, int direction) // -1 for left, 1 for right
+    public void WeightAdded(int amount, int direction) // -1 for right, 1 for left
     {
         // Change velocity by set amount in the given direction
         tiltVelocity -= (amount * direction * velocityAdapter);
@@ -83,12 +83,12 @@ public class BeamTilt : MonoBehaviour
         if (direction == -1)
         {
             tiltAcceleration -= (accelerationAdapter * ((1 + leftWeight) / (1 + rightWeight)));
-            Debug.Log("Left from beam");
+            Debug.Log("Right from beam");
         }
         else
         {
             tiltAcceleration += (accelerationAdapter * ((1 + rightWeight) / (1 + leftWeight)));
-            Debug.Log("Right from beam");
+            Debug.Log("Left from beam");
         }
     }
 
