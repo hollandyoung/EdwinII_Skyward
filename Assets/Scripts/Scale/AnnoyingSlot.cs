@@ -12,7 +12,6 @@ public class AnnoyingSlot : MonoBehaviour
 
     // Instance Variables
     public bool filled;
-    private bool clicked;
     [SerializeField] List<string> validTypes = new List<string>();
     private bool rightSide;
     private int[] coords = new int[2];
@@ -49,27 +48,6 @@ public class AnnoyingSlot : MonoBehaviour
         rend = gameObject.GetComponent<SpriteRenderer>();
         rend.enabled = false;
         filled = false;
-    }
-
-    private void Update()
-    {
-        if (initialized && clicked)
-        {
-            //Debug.Log("Here");
-            if (connection == null)
-            {
-                CheckNeighbors();
-                string structureType = buildManager.GetBuildType();
-                if (validTypes.Contains(structureType))
-                {
-                    SpawnStructure(structureType);
-                }
-            }
-            else if (buildManager.GetBuildType().Equals("destroy"))
-            {
-                DestroyStructure();
-            }
-        }
     }
 
     private void SpawnStructure(string type)
@@ -118,25 +96,33 @@ public class AnnoyingSlot : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (connection == null)
+        string structureType = buildManager.GetBuildType();
+
+        if (!filled)
+        {
+            CheckNeighbors();
+            if (validTypes.Contains(structureType))
+            {
+                rend.enabled = true;
+                if (Input.GetMouseButton(0) && initialized)
+                {
+                    SpawnStructure(structureType);
+                }
+            }
+        }
+        else if (buildManager.GetBuildType().Equals("destroy"))
         {
             rend.enabled = true;
-        }
-        Debug.Log("Here");
-        if (Input.GetMouseButton(0))
-        {
-            
-            clicked = true;
-        }
-        else
-        {
-            clicked = false;
+            if (Input.GetMouseButton(0))
+            {
+                DestroyStructure();
+                Debug.Log("Here");
+            }
         }
     }
 
     private void OnMouseExit()
     {
-        clicked = false;
         rend.enabled = false;
     }
 
