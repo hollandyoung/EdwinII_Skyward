@@ -45,8 +45,10 @@ public class CreateTower : MonoBehaviour
     }
     void BaseTower()
     {
-        while (NumberOfSegments <= 12 && TotalBricks <= 5) {
+        TotalBricks = Bricker.GetBrickCount();
+        while (NumberOfSegments <= 12 && TotalBricks >= 5) {
         GenerateTower();
+        TotalBricks = Bricker.GetBrickCount();
         }
     }
     public void GenerateTower()
