@@ -19,6 +19,7 @@ public class House : MonoBehaviour
     {
         bricker = GameObject.Find("Brick Manager");
         brick = bricker.GetComponent<Bricks>();
+        transform.Translate(Vector3.forward * 0.001f);
         StartCoroutine(ProduceBricks());
         if (isShaper) {
             StartCoroutine(findMines());

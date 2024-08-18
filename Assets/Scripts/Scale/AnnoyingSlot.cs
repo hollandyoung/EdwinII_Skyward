@@ -129,7 +129,7 @@ public class AnnoyingSlot : MonoBehaviour
                 }
             }
         }
-        else /*if (buildManager.GetBuildType().Equals("destroy"))*/
+        else if (buildManager.GetBuildType().Equals("destroy"))
         {
             rend.enabled = true;
             if (Input.GetMouseButton(0))
@@ -156,7 +156,7 @@ public class AnnoyingSlot : MonoBehaviour
         targY = 0.16f + 0.16f * row;
         targX = -0.32f + 0.16f * col;
 
-        transform.localPosition = new Vector3(targX, targY, 0f);
+        transform.localPosition = new Vector3(targX, targY, -0.001f);
         initialized = true;
     }
 
