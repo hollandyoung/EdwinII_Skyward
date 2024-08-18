@@ -12,6 +12,9 @@ public class House : MonoBehaviour
     // Variables
     private string houseType;
     private bool rightSide;
+    private int col = -1;
+    public bool initialized = false;
+    private int initHelp = 0; // Two when finished
 
     void Start()
     {
@@ -30,13 +33,33 @@ public class House : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!initialized && initHelp > 1)
+        {
+            initialized = true;
+        }
+    }
+
     public void SetSide(bool side)
     {
         rightSide = side;
+        initHelp++;
     }
 
     public bool GetSide()
     {
         return rightSide;
+    }
+
+    public int GetCol()
+    {
+        return col;
+    }
+
+    public void SetCol(int col)
+    {
+        this.col = col;
+        initHelp++;
     }
 }

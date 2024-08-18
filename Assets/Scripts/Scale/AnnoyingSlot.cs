@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class AnnoyingSlot : MonoBehaviour
@@ -13,8 +14,9 @@ public class AnnoyingSlot : MonoBehaviour
     // Instance Variables
     private bool clicked;
     private List<string> validTypes = new List<string>();
-    private bool rightSide;
-    private int col = -1;
+    [SerializeField] bool rightSide;
+    [SerializeField] int col = -1;
+    private bool initialized = false;
 
     // Prefabs
     [SerializeField] GameObject housePrefab;
@@ -62,6 +64,7 @@ public class AnnoyingSlot : MonoBehaviour
 
         if (source.tag.Equals("Pan"))
         {
+            initialized = true;
             if (source.name.Equals("Body1"))
             {
                 rightSide = false;
@@ -90,20 +93,42 @@ public class AnnoyingSlot : MonoBehaviour
                     break;
             }
         }
-        else
-        {
-            rightSide = source.GetComponent<House>().GetSide();
-        }
     }
 
     private void Update()
     {
-        if (clicked && connection == null)
+        if (initialized)
         {
-            string structureType = buildManager.GetBuildType();
-            if (validTypes.Contains(structureType))
+            if (clicked && connection == null)
             {
-                GenerateConnection(structureType);
+                string structureType = buildManager.GetBuildType();
+                if (validTypes.Contains(structureType))
+                {
+                    GenerateConnection(structureType);
+                }
+            }
+        }
+        else
+        {
+            if (source.GetComponent<House>().initialized)
+            {
+                initialized |= true;
+                rightSide = source.GetComponent<House>().GetSide();
+                col = source.GetComponent<House>().GetCol();
+
+                if (gameObject.name.Equals("LTerminal"))
+                {
+                    col--;
+                }
+                else if (gameObject.name.Equals("RTerminal"))
+                {
+                    col++;
+                }
+
+                if (col > 4 || col < 0)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
@@ -133,6 +158,7 @@ public class AnnoyingSlot : MonoBehaviour
             Bricker.SetBrickCount(TotalBricks - BuildingCost);
             connection = Instantiate(prefab, transform);
             connection.GetComponent<House>().SetSide(rightSide);
+            connection.GetComponent<House>().SetCol(col);
 
             string id;
             if (rightSide)
@@ -189,6 +215,11 @@ public class AnnoyingSlot : MonoBehaviour
         else if (gameObject.name.Equals("RTerminal"))
         {
             col++;
+        }
+
+        if (col > 4 ||  col < 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
