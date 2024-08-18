@@ -55,7 +55,7 @@ public class PleaseRise : MonoBehaviour
         FixFloat = (float)tiltVelocity;
         TrueSpeed = (float)Mathf.Abs(BaseSpeed * (FixFloat + 1));
         FixMovementMore = new Vector2(WaveSpeed, TrueSpeed * Tidescale * TideDirection);
-        rb.velocity = FixMovementMore;
+        rb.velocity = FixMovementMore * deltaTime;
     }
     /*private void OnCollisionEnter2D(Collision2D collision) {
         GameOver();
