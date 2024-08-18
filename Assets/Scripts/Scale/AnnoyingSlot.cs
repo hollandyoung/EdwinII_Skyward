@@ -15,8 +15,7 @@ public class AnnoyingSlot : MonoBehaviour
     [SerializeField] List<string> validTypes = new List<string>();
     private bool rightSide;
     private int[] coords = new int[2];
-    /*private int col = -1;
-    private int row = -1;*/
+    private string type;
     private bool initialized = false;
 
     // Neighbors
@@ -48,6 +47,7 @@ public class AnnoyingSlot : MonoBehaviour
         rend = gameObject.GetComponent<SpriteRenderer>();
         rend.enabled = false;
         filled = false;
+        type = "empty";
     }
 
     private void SpawnStructure(string type)
@@ -74,6 +74,7 @@ public class AnnoyingSlot : MonoBehaviour
         {
             Bricker.SetBrickCount(TotalBricks - BuildingCost);
             connection = Instantiate(prefab, transform);
+            type = connection.tag.ToLower();
             connection.GetComponent<House>().SetCoords(coords[0], coords[1]);
             
             buildManager.UpdateWeight(type, rightSide);
@@ -85,13 +86,15 @@ public class AnnoyingSlot : MonoBehaviour
     {
         Destroy(transform.GetChild(0).gameObject);
         filled = false;
+        type = "empty";
+        buildManager.UpdateWeight(type, !rightSide);
     }
 
     private void AddAll()
     {
-        validTypes.Add("column");
-        validTypes.Add("house");
-        validTypes.Add("platform");
+        AddValidType("column");
+        AddValidType("house");
+        AddValidType("platform");
     }
 
     private void OnMouseOver()
@@ -110,7 +113,7 @@ public class AnnoyingSlot : MonoBehaviour
                 }
             }
         }
-        else if (buildManager.GetBuildType().Equals("destroy"))
+        else /*if (buildManager.GetBuildType().Equals("destroy"))*/
         {
             rend.enabled = true;
             if (Input.GetMouseButton(0))
@@ -162,7 +165,7 @@ public class AnnoyingSlot : MonoBehaviour
                 switch (left.tag)
                 {
                     case "Platform":
-                        validTypes.Add("platform");
+                        AddValidType("platform");
                         break;
                 }
             }
@@ -177,7 +180,7 @@ public class AnnoyingSlot : MonoBehaviour
                 switch (right.tag)
                 {
                     case "Platform":
-                        validTypes.Add("platform");
+                        AddValidType("platform");
                         break;
                 }
             }
@@ -199,8 +202,8 @@ public class AnnoyingSlot : MonoBehaviour
                 switch (down.tag)
                 {
                     case "Platform":
-                        validTypes.Add("column");
-                        validTypes.Add("house");
+                        AddValidType("column");
+                        AddValidType("house");
                         break;
                     case "Column":
                         AddAll();
@@ -217,5 +220,19 @@ public class AnnoyingSlot : MonoBehaviour
     public void SetSide(bool side)
     {
         rightSide = side;
+    }
+
+    // Returns empty if not filled, otherwise returns standardized string for type
+    public string GetStructureType()
+    {
+        return type;
+    }
+
+    private void AddValidType(string type)
+    {
+        if (!validTypes.Contains(type))
+        {
+            validTypes.Add(type);
+        }
     }
 }
