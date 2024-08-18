@@ -63,9 +63,17 @@ public class GameManager : MonoBehaviour
     {
         return endScore;
     }
+    public string GetEndScoreDisplayValue()
+    {
+        return (Mathf.Floor(endScore / 60) + ":" + (endScore % 60));
+    }
     public int GetHighScore()
     {
         return highScore;
+    }
+    public string GetHighScoreDisplayValue()
+    {
+        return (Mathf.Floor(highScore / 60) + ":" + (endScore % 60));
     }
     public bool GetTimerRunning()
     {
