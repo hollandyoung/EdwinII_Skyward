@@ -2955,7 +2955,7 @@ MonoBehaviour:
   TideDirection: 0
   FixFloat: 0
   FixMovementMore: {x: 0, y: 0}
-  WaveSpeed: 5
+  WaveSpeed: 1
 --- !u!50 &1032884843
 Rigidbody2D:
   serializedVersion: 4
@@ -3869,7 +3869,7 @@ MonoBehaviour:
   TideDirection: 0
   FixFloat: 0
   FixMovementMore: {x: 0, y: 0}
-  WaveSpeed: 5
+  WaveSpeed: 1
 --- !u!50 &1272828763
 Rigidbody2D:
   serializedVersion: 4
@@ -5034,7 +5034,7 @@ MonoBehaviour:
   TideDirection: 0
   FixFloat: 0
   FixMovementMore: {x: 0, y: 0}
-  WaveSpeed: 5
+  WaveSpeed: 1
 --- !u!50 &1598806122
 Rigidbody2D:
   serializedVersion: 4
@@ -5219,7 +5219,7 @@ MonoBehaviour:
   TideDirection: 0
   FixFloat: 0
   FixMovementMore: {x: 0, y: 0}
-  WaveSpeed: 5
+  WaveSpeed: 1
 --- !u!50 &1605911120
 Rigidbody2D:
   serializedVersion: 4
