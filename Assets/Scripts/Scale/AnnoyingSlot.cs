@@ -97,6 +97,7 @@ public class AnnoyingSlot : MonoBehaviour
             connection.GetComponent<House>().SetCoords(coords[0], coords[1]);
             
             buildManager.UpdateWeight(type, rightSide);
+            buildManager.RefreshKilns(rightSide);
             filled = true;
             Refresh();
         }

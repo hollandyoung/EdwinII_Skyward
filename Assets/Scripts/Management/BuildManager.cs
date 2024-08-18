@@ -144,30 +144,17 @@ public class BuildManager : MonoBehaviour
 
     public int GetMineCount(int row, int col, bool side)
     {
+        GameObject[,] arr;
+
         if (side)
         {
-            return CheckSideForMines(rightSide, row, col);
+            arr = rightSide;
         }
         else
         {
-            return CheckSideForMines(leftSide, row, col);
+            arr = leftSide;
         }
-    }
 
-    public int GetMineCount(int[] coords, bool side)
-    {
-        if (side)
-        {
-            return CheckSideForMines(rightSide, coords[0], coords[1]);
-        }
-        else
-        {
-            return CheckSideForMines(leftSide, coords[0], coords[1]);
-        }
-    }
-
-    private int CheckSideForMines(GameObject[,] arr, int row, int col)
-    {
         int mines = 0;
         // Check my row
         for (int r = 0; r < arr.GetLength(0); r++)
@@ -189,5 +176,67 @@ public class BuildManager : MonoBehaviour
             }
         }
         return mines;
+    }
+
+    public int GetMineCount(int[] coords, bool side)
+    {
+        GameObject[,] arr;
+
+        if (side)
+        {
+            arr = rightSide;
+        }
+        else
+        {
+            arr = leftSide;
+        }
+
+        int mines = 0;
+        // Check my row
+        for (int r = 0; r < arr.GetLength(0); r++)
+        {
+            GameObject targSlot = arr[r, coords[1]];
+            if (targSlot.GetComponent<AnnoyingSlot>().filled && targSlot.transform.GetChild(0).CompareTag("Mine"))
+            {
+                mines++;
+            }
+        }
+
+        // Check my column
+        for (int c = 0; c < arr.GetLength(1); c++)
+        {
+            GameObject targSlot = arr[coords[0], c];
+            if (targSlot.GetComponent<AnnoyingSlot>().filled && targSlot.transform.GetChild(0).CompareTag("Mine"))
+            {
+                mines++;
+            }
+        }
+        return mines;
+    }
+
+    public void RefreshKilns(bool side)
+    {
+        GameObject[,] arr;
+
+        if (side)
+        {
+            arr = rightSide;
+        }
+        else
+        {
+            arr = leftSide;
+        }
+
+        for (int r = 0; r < arr.GetLength(0); r++)
+        {
+            for (int c = 0; c < arr.GetLength(1); c++)
+            {
+                GameObject targSlot = arr[r, c];
+                if (targSlot.GetComponent<AnnoyingSlot>().filled && targSlot.transform.GetChild(0).CompareTag("Kiln"))
+                {
+                    targSlot.GetComponent<AnnoyingSlot>().Refresh();
+                }
+            }
+        }
     }
 }
