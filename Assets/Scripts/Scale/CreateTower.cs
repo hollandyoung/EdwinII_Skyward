@@ -29,6 +29,7 @@ public class CreateTower : MonoBehaviour
         while (MakeTower) {
        //Wait for 1 seconds
         yield return new WaitForSeconds(1);
+        TotalBricks = Bricker.GetBrickCount();
         GenerateTower();
         }
     }
@@ -44,7 +45,7 @@ public class CreateTower : MonoBehaviour
     }
     void BaseTower()
     {
-        while (NumberOfSegments <= 12) {
+        while (NumberOfSegments <= 12 && TotalBricks <= 5) {
         GenerateTower();
         }
     }
