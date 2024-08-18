@@ -19,6 +19,7 @@ public class BuildManager : MonoBehaviour
 
     public GameObject[,] leftSide = new GameObject[8, 5];
     public GameObject[,] rightSide = new GameObject[8, 5];
+    public bool initialized = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,10 @@ public class BuildManager : MonoBehaviour
         currType = "house";
         weightL = 0;
         weightR = 0;
+        initialized = false;
         
         GenerateSlots();
+        initialized = true;
     }
 
     public void SetType(string type)
@@ -52,6 +55,11 @@ public class BuildManager : MonoBehaviour
     public void SetApartment()
     {
         currType = "apartment";
+    }
+
+    public void SetDestroy()
+    {
+        currType = "destroy";
     }
 
     public string GetBuildType()
@@ -106,17 +114,20 @@ public class BuildManager : MonoBehaviour
         return weightR;
     }
 
+    // Generated from the bottom left to the top right
     private void GenerateSlots()
     {
         for (int row = 0; row < leftSide.GetLength(0); row++)
         {
             for (int col = 0; col < leftSide.GetLength(1); col++)
             {
-                GameObject objL = Instantiate(slotPrefab, pan1);
-                objL.GetComponent<AnnoyingSlot>().SetCoords(row, col);
+                leftSide[row, col] = Instantiate(slotPrefab, pan1);
+                leftSide[row, col].GetComponent<AnnoyingSlot>().SetCoords(row, col);
+                leftSide[row, col].GetComponent<AnnoyingSlot>().SetSide(false);
 
-                GameObject objR = Instantiate(slotPrefab, pan2);
-                objR.GetComponent<AnnoyingSlot>().SetCoords(row, col);
+                rightSide[row, col] = Instantiate(slotPrefab, pan2);
+                rightSide[row, col].GetComponent<AnnoyingSlot>().SetCoords(row, col);
+                rightSide[row, col].GetComponent<AnnoyingSlot>().SetSide(true);
             }
         }
     }

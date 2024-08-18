@@ -148,6 +148,7 @@ MonoBehaviour:
   bricker: {fileID: 0}
   waitTime: 4
   makeBricks: 0
+  initialized: 0
 --- !u!1001 &3148950001614714788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,6 +274,10 @@ PrefabInstance:
     - target: {fileID: 9060520121091647316, guid: cccb239e21bd7e243a527d3af45eb4b3, type: 3}
       propertyPath: m_Name
       value: TTerminal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060520121091647316, guid: cccb239e21bd7e243a527d3af45eb4b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

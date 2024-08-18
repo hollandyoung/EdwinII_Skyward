@@ -7,19 +7,24 @@ public class AnnoyingSlot : MonoBehaviour
 {
     // Variables for external components
     private SpriteRenderer rend;
-    private GameObject source;
     private GameObject connection = null;
     private BuildManager buildManager;
 
     // Instance Variables
     public bool filled;
     private bool clicked;
-    private List<string> validTypes = new List<string>();
+    [SerializeField] List<string> validTypes = new List<string>();
     private bool rightSide;
     private int[] coords = new int[2];
-    private int col = -1;
-    private int row = -1;
+    /*private int col = -1;
+    private int row = -1;*/
     private bool initialized = false;
+
+    // Neighbors
+    GameObject left = null;
+    GameObject right = null;
+    GameObject up = null;
+    GameObject down = null;
 
     // Prefabs
     [SerializeField] GameObject housePrefab;
@@ -31,6 +36,11 @@ public class AnnoyingSlot : MonoBehaviour
     private Bricks Bricker;
     public float TotalBricks;
 
+    private void Awake()
+    {
+        buildManager = GameObject.Find("GameManager").GetComponent<BuildManager>();
+    }
+
     private void Start()
     {
         Bricked = GameObject.Find("Brick Manager");
@@ -38,113 +48,28 @@ public class AnnoyingSlot : MonoBehaviour
 
         rend = gameObject.GetComponent<SpriteRenderer>();
         rend.enabled = false;
-        //source = transform.parent.gameObject;
-        buildManager = GameObject.Find("GameManager").GetComponent<BuildManager>();
-
-        // MAKE THIS CHECK NEIGHBORS
-        CheckNeighbors();
-        /*switch (source.tag)
-        {
-            case "Column":
-                if (gameObject.name == "TTerminal")
-                {
-                    AddAll();
-                }
-                break;
-            case "Platform":
-                if (gameObject.name == "TTerminal")
-                {
-                    validTypes.Add("column");
-                    validTypes.Add("house");
-                }
-                else if (gameObject.name == "LTerminal" || gameObject.name == "RTerminal")
-                {
-                    validTypes.Add("platform");
-                }
-                break;
-            case "Pan":
-                AddAll();
-                break;
-        }*/
-
-        /*if (source.tag.Equals("Pan"))
-        {
-            initialized = true;
-            if (source.name.Equals("Body1"))
-            {
-                rightSide = false;
-            }
-            else
-            {
-                rightSide = true;
-            }
-
-            switch (gameObject.name)
-            {
-                case "Slot0":
-                    col = 0;
-                    break;
-                case "Slot1":
-                    col = 1;
-                    break;
-                case "Slot2":
-                    col = 2;
-                    break;
-                case "Slot3":
-                    col = 3;
-                    break;
-                case "Slot4":
-                    col = 4;
-                    break;
-            }
-        }*/
+        filled = false;
     }
 
     private void Update()
     {
-        if (clicked && connection == null)
+        if (initialized && clicked)
         {
-            string structureType = buildManager.GetBuildType();
-            if (validTypes.Contains(structureType))
+            //Debug.Log("Here");
+            if (connection == null)
             {
-                SpawnStructure(structureType);
-            }
-        }
-
-        /*if (initialized)
-        {
-            if (clicked && connection == null)
-            {
+                CheckNeighbors();
                 string structureType = buildManager.GetBuildType();
                 if (validTypes.Contains(structureType))
                 {
                     SpawnStructure(structureType);
                 }
             }
-        }
-        else
-        {
-            if (source.GetComponent<House>().initialized)
+            else if (buildManager.GetBuildType().Equals("destroy"))
             {
-                initialized |= true;
-                rightSide = source.GetComponent<House>().GetSide();
-                col = source.GetComponent<House>().GetCol();
-
-                if (gameObject.name.Equals("LTerminal"))
-                {
-                    col--;
-                }
-                else if (gameObject.name.Equals("RTerminal"))
-                {
-                    col++;
-                }
-
-                if (col > 4 || col < 0)
-                {
-                    Destroy(gameObject);
-                }
+                DestroyStructure();
             }
-        }*/
+        }
     }
 
     private void SpawnStructure(string type)
@@ -171,19 +96,25 @@ public class AnnoyingSlot : MonoBehaviour
         {
             Bricker.SetBrickCount(TotalBricks - BuildingCost);
             connection = Instantiate(prefab, transform);
-            connection.GetComponent<House>().SetSide(rightSide);
             connection.GetComponent<House>().SetCoords(coords[0], coords[1]);
             
             buildManager.UpdateWeight(type, rightSide);
+            filled = true;
         }
     }
 
-    /*private void AddAll()
+    public void DestroyStructure()
+    {
+        Destroy(transform.GetChild(0).gameObject);
+        filled = false;
+    }
+
+    private void AddAll()
     {
         validTypes.Add("column");
         validTypes.Add("house");
         validTypes.Add("platform");
-    }*/
+    }
 
     private void OnMouseOver()
     {
@@ -191,9 +122,10 @@ public class AnnoyingSlot : MonoBehaviour
         {
             rend.enabled = true;
         }
-
+        Debug.Log("Here");
         if (Input.GetMouseButton(0))
         {
+            
             clicked = true;
         }
         else
@@ -220,6 +152,7 @@ public class AnnoyingSlot : MonoBehaviour
         targX = -0.32f + 0.16f * col;
 
         transform.localPosition = new Vector3(targX, targY, 0f);
+        initialized = true;
     }
 
     private void CheckNeighbors()
@@ -234,28 +167,69 @@ public class AnnoyingSlot : MonoBehaviour
             sourceArr = buildManager.leftSide;
         }
 
-        GameObject left;
-        if (col > 0)
+        if (coords[1] > 0)
         {
-            left = sourceArr[row, col - 1];
+            if (sourceArr[coords[0], coords[1] - 1].GetComponent<AnnoyingSlot>().filled)
+            {
+                left = sourceArr[coords[0], coords[1] - 1].transform.GetChild(0).gameObject;
+
+                switch (left.tag)
+                {
+                    case "Platform":
+                        validTypes.Add("platform");
+                        break;
+                }
+            }
         }
 
-        GameObject right;
-        if (col < 4)
+        if (coords[1] < sourceArr.GetLength(1) - 1)
         {
-            right = sourceArr[row, col + 1];
+            if (sourceArr[coords[0], coords[1] + 1].GetComponent<AnnoyingSlot>().filled)
+            {
+                right = sourceArr[coords[0], coords[1] + 1].transform.GetChild(0).gameObject;
+
+                switch (right.tag)
+                {
+                    case "Platform":
+                        validTypes.Add("platform");
+                        break;
+                }
+            }
         }
 
-        GameObject up;
-        if (col > 0)
+        if (coords[0] < sourceArr.GetLength(0) - 1)
         {
-            left = sourceArr[row + 1, col];
+            if (sourceArr[coords[0] + 1, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                up = sourceArr[coords[0] + 1, coords[1]].transform.GetChild(0).gameObject;
+            }
         }
 
-        GameObject down;
-        if (col > 0)
+        if (coords[0] > 0)
         {
-            left = sourceArr[row - 1, col];
+            if (sourceArr[coords[0] - 1, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                down = sourceArr[coords[0] - 1, coords[1]].transform.GetChild(0).gameObject;
+                switch (down.tag)
+                {
+                    case "Platform":
+                        validTypes.Add("column");
+                        validTypes.Add("house");
+                        break;
+                    case "Column":
+                        AddAll();
+                        break;
+                }
+            }
         }
+        else
+        {
+            AddAll();
+        }
+    }
+
+    public void SetSide(bool side)
+    {
+        rightSide = side;
     }
 }
