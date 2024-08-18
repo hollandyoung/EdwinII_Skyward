@@ -50,24 +50,13 @@ public class GameManager : MonoBehaviour
     {
         // Stops the game and saves the end score and updates the high score if needed
         //Debug.Log("THE GAME IS OVER!!!!!!!!!!!!!!!!!");
+        Debug.Log("Fury");
         timerRunning = false;
         uIManagerScript.SetActiveRestartButton(true);
         endScore = (int) timeAlive;
         if (endScore > highScore)
         {
             highScore = endScore;
-        }
-        //SceneManager.LoadScene (sceneName:"Game Over");
-        EndSequence();
-    }
-
-    public void EndSequence()
-    {
-        int pleaseNoCrash = 0;
-        while(cameraObject.transform.position.y > 0 && pleaseNoCrash < 100000)
-        {
-            cameraObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (0, -1);
-            pleaseNoCrash ++;
         }
     }
 
