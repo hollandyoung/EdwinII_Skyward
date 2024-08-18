@@ -9,6 +9,8 @@ TagManager:
   - House
   - Platform
   - Column
+  - Shaper
+  - Mine
   layers:
   - Default
   - TransparentFX

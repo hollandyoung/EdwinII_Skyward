@@ -29,14 +29,15 @@ public class Bricks : MonoBehaviour
     public void AddBrickCount()
     {
         BrickCount += 1;
-        BrickCounter.text = ("You Have: " + BrickCount + " Bricks");
+        UpdateCount();
     }
     public void SetBrickCount(float BrickSet)
     {
         BrickCount = BrickSet;
-        BrickCounter.text = ("You Have: " + BrickCount + " Bricks");
-        if (BrickCount == 0) {
-            BrickCounter.text = ("You are broke");
-        }
+        UpdateCount();
+    }
+    public void UpdateCount()
+    {
+        BrickCounter.text = (BrickCount + "");
     }
 }

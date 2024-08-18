@@ -40,9 +40,13 @@ public class AnnoyingSlot : MonoBehaviour
     private Bricks Bricker;
     public float TotalBricks;
 
+    public bool isShaper = false;
+    public float shaperBoost;
+
     private void Awake()
     {
         buildManager = GameObject.Find("GameManager").GetComponent<BuildManager>();
+        //CheckAllAround();
     }
 
     private void Start()
@@ -55,7 +59,7 @@ public class AnnoyingSlot : MonoBehaviour
         filled = false;
         type = "empty";
     }
-
+    
     private void SpawnStructure(string type)
     {
         GameObject prefab;
@@ -73,6 +77,7 @@ public class AnnoyingSlot : MonoBehaviour
             case "shaper":
                 prefab = shaperPrefab;
                 BuildingCost = 30.0f;
+                isShaper = true;
                 break;
             case "mine":
                 prefab = minePrefab;
@@ -95,12 +100,13 @@ public class AnnoyingSlot : MonoBehaviour
             filled = true;
         }
     }
-
+    
     public void DestroyStructure()
     {
         Destroy(connection);
         filled = false;
         type = "empty";
+        isShaper = false;
         buildManager.UpdateWeight(type, !rightSide);
     }
 
@@ -112,7 +118,7 @@ public class AnnoyingSlot : MonoBehaviour
         AddValidType("shaper");
         AddValidType("mine");
     }
-
+    
     private void OnMouseOver()
     {
         string structureType = buildManager.GetBuildType();
@@ -129,7 +135,7 @@ public class AnnoyingSlot : MonoBehaviour
                 }
             }
         }
-        else /*if (buildManager.GetBuildType().Equals("destroy"))*/
+        else if (buildManager.GetBuildType().Equals("destroy"))
         {
             rend.enabled = true;
             if (Input.GetMouseButton(0))
@@ -139,7 +145,7 @@ public class AnnoyingSlot : MonoBehaviour
             }
         }
     }
-
+    
     private void OnMouseExit()
     {
         rend.enabled = false;
@@ -154,15 +160,16 @@ public class AnnoyingSlot : MonoBehaviour
         float targY;
 
         targY = 0.16f + 0.16f * row;
-        targX = -0.32f + 0.16f * col;
+        targX = -0.4f + 0.16f * col;
 
-        transform.localPosition = new Vector3(targX, targY, 0f);
+        transform.localPosition = new Vector3(targX, targY, -0.001f);
         initialized = true;
     }
-
+    
     private void CheckNeighbors()
     {
         validTypes.Clear();
+        shaperBoost = 5;
 
         GameObject[,] sourceArr;
         if (rightSide)
@@ -173,22 +180,30 @@ public class AnnoyingSlot : MonoBehaviour
         {
             sourceArr = buildManager.leftSide;
         }
-
+        
         if (coords[1] > 0)
         {
             if (sourceArr[coords[0], coords[1] - 1].GetComponent<AnnoyingSlot>().filled)
             {
                 left = sourceArr[coords[0], coords[1] - 1].transform.GetChild(0).gameObject;
 
+                Debug.Log("got to checking");
                 switch (left.tag)
                 {
                     case "Platform":
                         AddValidType("platform");
                         break;
+                    case "Mine":
+                        Debug.Log("Found a mine");
+                        if (isShaper) {
+                            Debug.Log("Tried to boost");
+                            shaperBoost += 1;
+                        }
+                        break;
                 }
             }
         }
-
+        
         if (coords[1] < sourceArr.GetLength(1) - 1)
         {
             if (sourceArr[coords[0], coords[1] + 1].GetComponent<AnnoyingSlot>().filled)
@@ -200,6 +215,11 @@ public class AnnoyingSlot : MonoBehaviour
                     case "Platform":
                         AddValidType("platform");
                         break;
+                    case "Mine":
+                    if (isShaper) {
+                        shaperBoost += 1;
+                    }
+                        break;
                 }
             }
         }
@@ -209,6 +229,14 @@ public class AnnoyingSlot : MonoBehaviour
             if (sourceArr[coords[0] + 1, coords[1]].GetComponent<AnnoyingSlot>().filled)
             {
                 up = sourceArr[coords[0] + 1, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                    if (isShaper) {
+                        shaperBoost += 1;
+                    }
+                        break;
+                }
             }
         }
 
@@ -228,6 +256,12 @@ public class AnnoyingSlot : MonoBehaviour
                     case "Column":
                         AddAll();
                         break;
+                    case "Mine":
+                        if (isShaper)
+                        {
+                            shaperBoost += 1;
+                        }
+                        break;
                 }
 
                 if (connection != null && connection.CompareTag("Platform"))
@@ -246,8 +280,11 @@ public class AnnoyingSlot : MonoBehaviour
         {
             AddAll();
         }
+        if (isShaper) {
+            //CheckAllAround();
+        }
     }
-
+    
     public void SetSide(bool side)
     {
         rightSide = side;
@@ -273,6 +310,110 @@ public class AnnoyingSlot : MonoBehaviour
         if (validTypes.Count == 0)
         {
             DestroyStructure();
+        }
+    }
+
+    private void CheckAllAround()
+    {
+        
+        validTypes.Clear();
+
+        GameObject[,] sourceArr;
+        if (rightSide)
+        {
+            sourceArr = buildManager.rightSide;
+        }
+        else
+        {
+            sourceArr = buildManager.leftSide;
+        }
+
+        if (coords[1] > 0)
+        {
+            if (sourceArr[coords[0], coords[1] - 2].GetComponent<AnnoyingSlot>().filled)
+            {
+                left = sourceArr[coords[0], coords[1] - 2].transform.GetChild(0).gameObject;
+
+                switch (left.tag)
+                {
+                    case "Platform":
+                        AddValidType("platform");
+                        break;
+                    case "Mine":
+                    shaperBoost += 1;
+                        break;
+                }
+            }
+        }
+
+        if (coords[1] < sourceArr.GetLength(1) - 2)
+        {
+            if (sourceArr[coords[0], coords[1] + 2].GetComponent<AnnoyingSlot>().filled)
+            {
+                right = sourceArr[coords[0], coords[1] + 2].transform.GetChild(0).gameObject;
+
+                switch (right.tag)
+                {
+                    case "Platform":
+                        AddValidType("platform");
+                        break;
+                    case "Mine":
+                        shaperBoost += 1;
+                        break;
+                }
+            }
+        }
+
+        if (coords[0] < sourceArr.GetLength(0) - 2)
+        {
+            if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                up = sourceArr[coords[0] + 2, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                        shaperBoost += 1;
+                        break;
+                }
+            }
+        }
+
+        if (coords[0] > 0)
+        {
+            if (sourceArr[coords[0] - 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                down = sourceArr[coords[0] - 2, coords[1]].transform.GetChild(0).gameObject;
+                switch (down.tag)
+                {
+                    case "Platform":
+                        AddValidType("column");
+                        AddValidType("house");
+                        AddValidType("shaper");
+                        AddValidType("mine");
+                        break;
+                    case "Column":
+                        AddAll();
+                        break;
+                    case "Mine":
+                        shaperBoost += 1;
+                        break;
+                }
+
+                if (connection != null && connection.CompareTag("Platform"))
+                {
+                    Debug.Log("I am a platform above something");
+                    connection.GetComponent<SpriteRenderer>().sprite = joinedSprite;
+                    
+                }
+            }
+            else if (filled && connection.CompareTag("Platform"))
+            {
+                connection.GetComponent<SpriteRenderer>().sprite = aloneSprite;
+            }
+        }
+        else
+        {
+            AddAll();
         }
     }
 }
