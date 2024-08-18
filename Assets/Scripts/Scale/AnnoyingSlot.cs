@@ -33,15 +33,15 @@ public class AnnoyingSlot : MonoBehaviour
     [SerializeField] GameObject platformPrefab;
     [SerializeField] GameObject columnPrefab;
     [SerializeField] GameObject minePrefab;
-    [SerializeField] GameObject shaperPrefab;
+    [SerializeField] GameObject kilnPrefab;
 
     private float BuildingCost;
     public GameObject Bricked;
     private Bricks Bricker;
     public float TotalBricks;
 
-    public bool isShaper = false;
-    public float shaperBoost;
+    public bool isKiln = false;
+    public float kilnBoost;
 
     private void Awake()
     {
@@ -74,10 +74,10 @@ public class AnnoyingSlot : MonoBehaviour
                 prefab = platformPrefab;
                 BuildingCost = 1.0f;
                 break;
-            case "shaper":
-                prefab = shaperPrefab;
+            case "kiln":
+                prefab = kilnPrefab;
                 BuildingCost = 30.0f;
-                isShaper = true;
+                isKiln = true;
                 break;
             case "mine":
                 prefab = minePrefab;
@@ -108,7 +108,7 @@ public class AnnoyingSlot : MonoBehaviour
         connection = null;
         filled = false;
         type = "empty";
-        isShaper = false;
+        isKiln = false;
         buildManager.UpdateWeight(type, !rightSide);
 
         CheckNeighbors();
@@ -140,7 +140,7 @@ public class AnnoyingSlot : MonoBehaviour
         AddValidType("column");
         AddValidType("house");
         AddValidType("platform");
-        AddValidType("shaper");
+        AddValidType("kiln");
         AddValidType("mine");
     }
     
@@ -195,7 +195,7 @@ public class AnnoyingSlot : MonoBehaviour
     private void CheckNeighbors()
     {
         validTypes.Clear();
-        shaperBoost = 5;
+        kilnBoost = 5;
 
         GameObject[,] sourceArr;
         if (rightSide)
@@ -222,9 +222,9 @@ public class AnnoyingSlot : MonoBehaviour
                         break;
                     case "Mine":
                         Debug.Log("Found a mine");
-                        if (isShaper) {
+                        if (isKiln) {
                             Debug.Log("Tried to boost");
-                            shaperBoost += 1;
+                            kilnBoost += 1;
                         }
                         break;
                 }
@@ -241,9 +241,9 @@ public class AnnoyingSlot : MonoBehaviour
                 {
                     case "Mine":
                         Debug.Log("Found a second mine");
-                        if (isShaper) {
+                        if (isKiln) {
                             Debug.Log("Tried to boost");
-                            shaperBoost += 1;
+                            kilnBoost += 1;
                         }
                         break;
                 }
@@ -263,8 +263,8 @@ public class AnnoyingSlot : MonoBehaviour
                         AddValidType("platform");
                         break;
                     case "Mine":
-                    if (isShaper) {
-                        shaperBoost += 1;
+                    if (isKiln) {
+                        kilnBoost += 1;
                     }
                         break;
                 }
@@ -279,8 +279,8 @@ public class AnnoyingSlot : MonoBehaviour
                 switch (right.tag)
                 {
                     case "Mine":
-                    if (isShaper) {
-                        shaperBoost += 1;
+                    if (isKiln) {
+                        kilnBoost += 1;
                     }
                         break;
                 }
@@ -296,8 +296,8 @@ public class AnnoyingSlot : MonoBehaviour
                 switch (up.tag)
                 {
                     case "Mine":
-                    if (isShaper) {
-                        shaperBoost += 1;
+                    if (isKiln) {
+                        kilnBoost += 1;
                     }
                         break;
                 }
@@ -311,8 +311,8 @@ public class AnnoyingSlot : MonoBehaviour
                 switch (up.tag)
                 {
                     case "Mine":
-                    if (isShaper) {
-                        shaperBoost += 1;
+                    if (isKiln) {
+                        kilnBoost += 1;
                     }
                         break;
                 }
@@ -330,16 +330,16 @@ public class AnnoyingSlot : MonoBehaviour
                     case "Platform":
                         AddValidType("column");
                         AddValidType("house");
-                        AddValidType("shaper");
+                        AddValidType("kiln");
                         AddValidType("mine");
                         break;
                     case "Column":
                         AddAll();
                         break;
                     case "Mine":
-                        if (isShaper)
+                        if (isKiln)
                         {
-                            shaperBoost += 1;
+                            kilnBoost += 1;
                         }
                         break;
                 }
@@ -373,8 +373,8 @@ public class AnnoyingSlot : MonoBehaviour
                 switch (up.tag)
                 {
                     case "Mine":
-                    if (isShaper) {
-                        shaperBoost += 1;
+                    if (isKiln) {
+                        kilnBoost += 1;
                     }
                         break;
                 }
@@ -410,5 +410,4 @@ public class AnnoyingSlot : MonoBehaviour
             DestroyStructure();
         }
     }
-
 }
