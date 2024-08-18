@@ -26,12 +26,11 @@ public class PanBody : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Got here at least");
         if (collision.gameObject.layer == 7)
         {
             Debug.Log("Game Over");
             gMScript.EndGame();
         }
-
-        Debug.Log("Got here at least");
     }
 }
