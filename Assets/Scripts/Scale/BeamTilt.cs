@@ -17,6 +17,8 @@ public class BeamTilt : MonoBehaviour
     [SerializeField] private float velocityAdapter;
     [SerializeField] private float accelerationAdapter;
     [SerializeField] BuildManager buildManager;
+    private string velocityDirection;
+    private string accelerationDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +39,39 @@ public class BeamTilt : MonoBehaviour
         tiltVelocity += tiltAcceleration; // Adjusts the tilt velocity by the tilt acceleration
         rb.rotation -= (float) tiltVelocity; // Tilts the beam by the tilt velocity
         // If the velocity is near zero, reset acceleration to zero
+        if (tiltVelocity > 0)
+        {
+            velocityDirection = "Left";
+        }
+        else if (tiltVelocity < 0)
+        {
+            velocityDirection = "Right";
+        }
+        else
+        {
+            velocityDirection = "None";
+        }
+        if (tiltAcceleration > 0)
+        {
+            accelerationDirection = "Left";
+        }
+        else if (tiltVelocity < 0)
+        {
+            accelerationDirection = "Right";
+        }
+        else
+        {
+            accelerationDirection = "None";
+        }
         if (Mathf.Abs(tiltVelocity) < 0.0001 /*|| Mathf.Abs(tiltVelocity) > Mathf.Abs(tail)*/)
         {
             SetBeamTiltAcceleration(0);
             SetBeamTiltVelocity(0);
-        } 
+        }
+        if (velocityDirection == accelerationDirection)
+        {
+            tiltAcceleration *= -1;
+        }
     }
 
     public void WeightAdded(int amount, int direction) // -1 for left, 1 for right
