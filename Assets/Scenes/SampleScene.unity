@@ -2059,11 +2059,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerPrefab: {fileID: 4141647870960665684, guid: e3ffbe46087c1da44b01ee528cf77966, type: 3}
-  Bricked: {fileID: 0}
+  Bricked: {fileID: 1914878843}
   MakeTower: 1
   centerX: 0
-  StartY: -13.5
-  Yscaling: 0.8
+  StartY: 1
+  Yscaling: 10
   NumberOfSegments: 0
   TotalBricks: 0
   TowerCost: 5
@@ -5001,9 +5001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc8d36d7734f6441b3f0036ad94f733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerBuilder: {fileID: 0}
-  Height: 0
-  Yscaling: 0.8
 --- !u!4 &1810978436
 Transform:
   m_ObjectHideFlags: 0
