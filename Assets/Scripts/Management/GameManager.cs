@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private double timeAlive;
     private int endScore;
     private int highScore;
-    private bool gameActive;
+    private bool timerRunning;
     [SerializeField] GameObject uIManagerObject;
     private UIManager uIManagerScript;
 
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // Counts up the score if the game is running
-        if (gameActive == true)
+        if (timerRunning == true)
         {
             timeAlive += Time.deltaTime;
         }
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         // Starts the game and resets values for scores
-        gameActive = true;
+        timerRunning = true;
         timeAlive = 0;
         endScore = 0;
     }
@@ -41,14 +41,14 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         // Reloads the scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void EndGame()
     {
         // Stops the game and saves the end score and updates the high score if needed
         //Debug.Log("THE GAME IS OVER!!!!!!!!!!!!!!!!!");
-        gameActive = false;
+        timerRunning = false;
         uIManagerScript.SetActiveRestartButton(true);
         endScore = (int) timeAlive;
         if (endScore > highScore)
