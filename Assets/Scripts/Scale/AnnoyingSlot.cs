@@ -154,7 +154,7 @@ public class AnnoyingSlot : MonoBehaviour
         float targY;
 
         targY = 0.16f + 0.16f * row;
-        targX = -0.32f + 0.16f * col;
+        targX = -0.4f + 0.16f * col;
 
         transform.localPosition = new Vector3(targX, targY, -0.001f);
         initialized = true;
