@@ -2351,6 +2351,9 @@ MonoBehaviour:
   TotalBricks: 0
   TowerCost: 5
   CanBuild: 0
+  TowerCostDisplay: {fileID: 1596798984}
+  BaseTowering: 1
+  AdditionalCost: 0
 --- !u!4 &712024321
 Transform:
   m_ObjectHideFlags: 0
@@ -2863,7 +2866,7 @@ MonoBehaviour:
   Beam: {fileID: 115834244}
   ScaleTide: 1
   Tidescale: 1
-  TideScaleSpeed: 1.4
+  TideScaleSpeed: 1.2
   TideWavy: 1
   TideDirection: 0
   FixFloat: 0
@@ -3777,7 +3780,7 @@ MonoBehaviour:
   Beam: {fileID: 115834244}
   ScaleTide: 1
   Tidescale: 1
-  TideScaleSpeed: 1.4
+  TideScaleSpeed: 1.2
   TideWavy: 1
   TideDirection: 0
   FixFloat: 0
@@ -4780,9 +4783,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Build tower
-
-    cost: 5 bricks'
+  m_text: 'Build tower cost: 5 bricks'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 046e9c07c1056e042887d1a9b44154ab, type: 2}
   m_sharedMaterial: {fileID: -8421423467362020286, guid: 046e9c07c1056e042887d1a9b44154ab, type: 2}
@@ -4944,7 +4945,7 @@ MonoBehaviour:
   Beam: {fileID: 115834244}
   ScaleTide: 1
   Tidescale: 1
-  TideScaleSpeed: 1.4
+  TideScaleSpeed: 1.2
   TideWavy: 1
   TideDirection: 0
   FixFloat: 0
@@ -5129,7 +5130,7 @@ MonoBehaviour:
   Beam: {fileID: 115834244}
   ScaleTide: 1
   Tidescale: 1
-  TideScaleSpeed: 1.4
+  TideScaleSpeed: 1.2
   TideWavy: 1
   TideDirection: 0
   FixFloat: 0
