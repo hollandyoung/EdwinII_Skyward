@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3569785f8da58f84f868da987d18e9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bricker: {fileID: 0}
-  WaitTime: 4
-  MakeBricks: 1
+  bricker: {fileID: 0}
+  waitTime: 4
+  makeBricks: 1
 --- !u!61 &1117185599476324525
 BoxCollider2D:
   m_ObjectHideFlags: 0
