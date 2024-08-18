@@ -58,7 +58,7 @@ public class BuildManager : MonoBehaviour
     }
     public void SetShaper()
     {
-        currType = "shaper";
+        currType = "kiln";
     }
 
     public void SetDestroy()

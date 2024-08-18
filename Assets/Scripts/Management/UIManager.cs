@@ -9,7 +9,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject HouseButton;
     [SerializeField] GameObject ColumnButton;
     [SerializeField] GameObject PlatformButton;
-    [SerializeField] GameObject ApartmentButton;
+    [SerializeField] GameObject KilnButton;
+    [SerializeField] GameObject AgoraButton;
 
     // Start is called before the first frame update
     void Start()
