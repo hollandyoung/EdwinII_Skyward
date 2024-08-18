@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private int highScore;
     private bool timerRunning;
     [SerializeField] GameObject uIManagerObject;
+    [SerializeField] GameObject cameraObject;
+    [SerializeField] GameObject towerObject;
     private UIManager uIManagerScript;
 
     // Start is called before the first frame update
@@ -55,7 +57,18 @@ public class GameManager : MonoBehaviour
         {
             highScore = endScore;
         }
-        SceneManager.LoadScene (sceneName:"Game Over");
+        //SceneManager.LoadScene (sceneName:"Game Over");
+        EndSequence();
+    }
+
+    public void EndSequence()
+    {
+        int pleaseNoCrash = 0;
+        while(cameraObject.transform.position.y > 0 && pleaseNoCrash < 100000)
+        {
+            cameraObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (0, -1);
+            pleaseNoCrash ++;
+        }
     }
 
     int GetEndScore()
