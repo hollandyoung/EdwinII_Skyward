@@ -52,9 +52,13 @@ public class BuildManager : MonoBehaviour
     {
         currType = "column";
     }
-    public void SetApartment()
+    public void SetMine()
     {
-        currType = "apartment";
+        currType = "mine";
+    }
+    public void SetShaper()
+    {
+        currType = "shaper";
     }
 
     public void SetDestroy()
@@ -81,6 +85,12 @@ public class BuildManager : MonoBehaviour
                 weightMod = 1;
                 break;
             case "house":
+                weightMod = 1;
+                break;
+            case "mine":
+                weightMod = 1;
+                break;
+            case "shaper":
                 weightMod = 1;
                 break;
             default:
