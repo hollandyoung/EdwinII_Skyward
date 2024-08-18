@@ -24,6 +24,10 @@ public class PleaseRise : MonoBehaviour
     public float TideDirection;
 
     public float FixFloat;
+
+    public Vector2 FixMovementMore; 
+    public float WaveSpeed = 5.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,12 +37,15 @@ public class PleaseRise : MonoBehaviour
         Tilt = Beam.GetComponent<BeamTilt>();
         StartCoroutine(TideScale());
         StartCoroutine(WavyTide());
+        FixMovement = new Vector2(0,1);
     }
 
     // Update is called once per frame
     void Update()
     {
-       FixMovement = new Vector2(0,1);
+        if (transform.position.x >= 40) {
+            transform.Translate(-80, 0, 0);
+        }
         tiltVelocity = Tilt.GetBeamTiltVelocity();
     }
     void FixedUpdate(){
@@ -47,7 +54,8 @@ public class PleaseRise : MonoBehaviour
     void MoveTide(Vector2 Fix){
         FixFloat = (float)tiltVelocity;
         TrueSpeed = (float)Mathf.Abs(BaseSpeed * (FixFloat + 1));
-        rb.velocity = Fix * TrueSpeed * Tidescale * TideDirection;
+        FixMovementMore = new Vector2(WaveSpeed, TrueSpeed * Tidescale * TideDirection);
+        rb.velocity = FixMovementMore;
     }
     /*private void OnCollisionEnter2D(Collision2D collision) {
         GameOver();
