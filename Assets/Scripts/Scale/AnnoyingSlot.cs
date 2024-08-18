@@ -14,8 +14,9 @@ public class AnnoyingSlot : MonoBehaviour
     // Instance Variables
     private bool clicked;
     private List<string> validTypes = new List<string>();
-    [SerializeField] bool rightSide;
-    [SerializeField] int col = -1;
+    private bool rightSide;
+    private int col = -1;
+    private int row = -1;
     private bool initialized = false;
 
     // Prefabs
@@ -159,7 +160,7 @@ public class AnnoyingSlot : MonoBehaviour
             connection = Instantiate(prefab, transform);
             connection.GetComponent<House>().SetSide(rightSide);
             connection.GetComponent<House>().SetCol(col);
-
+            
             buildManager.UpdateWeight(type, rightSide);
         }
     }
@@ -192,24 +193,5 @@ public class AnnoyingSlot : MonoBehaviour
     {
         clicked = false;
         rend.enabled = false;
-    }
-
-    public void SetCol(int col)
-    {
-        this.col = col;
-
-        if (gameObject.name.Equals("LTerminal"))
-        {
-            col--;
-        }
-        else if (gameObject.name.Equals("RTerminal"))
-        {
-            col++;
-        }
-
-        if (col > 4 ||  col < 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }

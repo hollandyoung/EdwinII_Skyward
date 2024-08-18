@@ -7,12 +7,17 @@ public class BuildManager : MonoBehaviour
 {
     [SerializeField] BeamTilt beamTilt;
     public string currType;
+    [SerializeField] Transform pan1;
+    [SerializeField] Transform pan2;
 
     private int weightL;
     private int weightR;
 
     private int countL;
     private int countR;
+
+    public GameObject[,] leftSide = new GameObject[8, 5];
+    public GameObject[,] rightSide = new GameObject[8, 5];
 
     // Start is called before the first frame update
     void Start()

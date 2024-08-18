@@ -5344,6 +5344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beamTilt: {fileID: 115834247}
   currType: 
+  pan1: {fileID: 1002702555}
+  pan2: {fileID: 1489852124}
 --- !u!1 &1939780091
 GameObject:
   m_ObjectHideFlags: 0
