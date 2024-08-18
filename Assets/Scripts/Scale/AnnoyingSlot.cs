@@ -216,9 +216,9 @@ public class AnnoyingSlot : MonoBehaviour
                         break;
                 }
 
-                Debug.Log("HEre");
-                if (filled && connection.CompareTag("Platform"))
+                if (connection != null && connection.CompareTag("Platform"))
                 {
+                    Debug.Log("I am a platform above something");
                     connection.GetComponent<SpriteRenderer>().sprite = joinedSprite;
                     
                 }
