@@ -26,6 +26,8 @@ public class BuildManager : MonoBehaviour
         currType = "house";
         weightL = 0;
         weightR = 0;
+        
+        GenerateSlots();
     }
 
     public void SetType(string type)
@@ -102,5 +104,20 @@ public class BuildManager : MonoBehaviour
     public int GetWeightRight()
     {
         return weightR;
+    }
+
+    private void GenerateSlots()
+    {
+        for (int row = 0; row < leftSide.GetLength(0); row++)
+        {
+            for (int col = 0; col < leftSide.GetLength(1); col++)
+            {
+                GameObject objL = Instantiate(slotPrefab, pan1);
+                objL.GetComponent<AnnoyingSlot>().SetCoords(row, col);
+
+                GameObject objR = Instantiate(slotPrefab, pan2);
+                objR.GetComponent<AnnoyingSlot>().SetCoords(row, col);
+            }
+        }
     }
 }

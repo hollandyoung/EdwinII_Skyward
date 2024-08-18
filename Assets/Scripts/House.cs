@@ -14,7 +14,7 @@ public class House : MonoBehaviour
     private bool rightSide;
     private int col = -1;
     private int row = -1;
-    private int[] cords;
+    private int[] coords = new int[2];
     public bool initialized = false;
     private int initHelp = 0; // Two when finished
 
@@ -63,5 +63,19 @@ public class House : MonoBehaviour
     {
         this.col = col;
         initHelp++;
+    }
+
+    public void SetCoords(int row, int col)
+    {
+        coords[0] = row;
+        coords[1] = col;
+
+        float targX;
+        float targY;
+
+        targY = 0.16f + 0.16f * row;
+        targX = -0.32f + 0.16f * col;
+
+        transform.localPosition = new Vector3(targX, targY, 0f);
     }
 }
