@@ -58,3 +58,6 @@ TagManager:
   - name: Tide
     uniqueID: 550939809
     locked: 0
+  - name: Slot
+    uniqueID: 820201235
+    locked: 0
