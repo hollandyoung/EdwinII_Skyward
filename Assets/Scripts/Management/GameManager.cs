@@ -71,12 +71,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    int GetEndScore()
+    public int GetEndScore()
     {
         return endScore;
     }
-    int GetHighScore()
+    public int GetHighScore()
     {
         return highScore;
+    }
+    public bool GetTimerRunning()
+    {
+        return timerRunning;
     }
 }

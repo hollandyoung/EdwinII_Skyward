@@ -40,9 +40,13 @@ public class AnnoyingSlot : MonoBehaviour
     private Bricks Bricker;
     public float TotalBricks;
 
+    public bool isShaper = false;
+    public float shaperBoost;
+
     private void Awake()
     {
         buildManager = GameObject.Find("GameManager").GetComponent<BuildManager>();
+        //CheckAllAround();
     }
 
     private void Start()
@@ -55,7 +59,7 @@ public class AnnoyingSlot : MonoBehaviour
         filled = false;
         type = "empty";
     }
-
+    
     private void SpawnStructure(string type)
     {
         GameObject prefab;
@@ -73,6 +77,7 @@ public class AnnoyingSlot : MonoBehaviour
             case "shaper":
                 prefab = shaperPrefab;
                 BuildingCost = 30.0f;
+                isShaper = true;
                 break;
             case "mine":
                 prefab = minePrefab;
@@ -96,13 +101,14 @@ public class AnnoyingSlot : MonoBehaviour
             Refresh();
         }
     }
-
+    
     public void DestroyStructure()
     {
         Destroy(connection);
         connection = null;
         filled = false;
         type = "empty";
+        isShaper = false;
         buildManager.UpdateWeight(type, !rightSide);
 
         CheckNeighbors();
@@ -137,7 +143,7 @@ public class AnnoyingSlot : MonoBehaviour
         AddValidType("shaper");
         AddValidType("mine");
     }
-
+    
     private void OnMouseOver()
     {
         string structureType = buildManager.GetBuildType();
@@ -165,7 +171,7 @@ public class AnnoyingSlot : MonoBehaviour
             }
         }
     }
-
+    
     private void OnMouseExit()
     {
         rend.enabled = false;
@@ -185,10 +191,11 @@ public class AnnoyingSlot : MonoBehaviour
         transform.localPosition = new Vector3(targX, targY, -0.001f);
         initialized = true;
     }
-
+    
     private void CheckNeighbors()
     {
         validTypes.Clear();
+        shaperBoost = 5;
 
         GameObject[,] sourceArr;
         if (rightSide)
@@ -207,10 +214,37 @@ public class AnnoyingSlot : MonoBehaviour
             {
                 left = sourceArr[coords[0], coords[1] - 1].transform.GetChild(0).gameObject;
 
+                Debug.Log("got to checking");
                 switch (left.tag)
                 {
                     case "Platform":
                         AddValidType("platform");
+                        break;
+                    case "Mine":
+                        Debug.Log("Found a mine");
+                        if (isShaper) {
+                            Debug.Log("Tried to boost");
+                            shaperBoost += 1;
+                        }
+                        break;
+                }
+            }
+        }
+        if (coords[1] > 1)
+        {
+            if (sourceArr[coords[0], coords[1] - 2].GetComponent<AnnoyingSlot>().filled)
+            {
+                left = sourceArr[coords[0], coords[1] - 2].transform.GetChild(0).gameObject;
+
+                Debug.Log("got to second checking");
+                switch (left.tag)
+                {
+                    case "Mine":
+                        Debug.Log("Found a second mine");
+                        if (isShaper) {
+                            Debug.Log("Tried to boost");
+                            shaperBoost += 1;
+                        }
                         break;
                 }
             }
@@ -228,6 +262,27 @@ public class AnnoyingSlot : MonoBehaviour
                     case "Platform":
                         AddValidType("platform");
                         break;
+                    case "Mine":
+                    if (isShaper) {
+                        shaperBoost += 1;
+                    }
+                        break;
+                }
+            }
+        }
+        if (coords[1] < sourceArr.GetLength(1) - 2)
+        {
+            if (sourceArr[coords[0], coords[1] + 2].GetComponent<AnnoyingSlot>().filled)
+            {
+                right = sourceArr[coords[0], coords[1] + 2].transform.GetChild(0).gameObject;
+
+                switch (right.tag)
+                {
+                    case "Mine":
+                    if (isShaper) {
+                        shaperBoost += 1;
+                    }
+                        break;
                 }
             }
         }
@@ -238,6 +293,29 @@ public class AnnoyingSlot : MonoBehaviour
             if (sourceArr[coords[0] + 1, coords[1]].GetComponent<AnnoyingSlot>().filled)
             {
                 up = sourceArr[coords[0] + 1, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                    if (isShaper) {
+                        shaperBoost += 1;
+                    }
+                        break;
+                }
+            }
+        }
+        if (coords[0] < sourceArr.GetLength(0) - 2)
+        {
+            if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                up = sourceArr[coords[0] + 2, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                    if (isShaper) {
+                        shaperBoost += 1;
+                    }
+                        break;
+                }
             }
         }
 
@@ -258,6 +336,12 @@ public class AnnoyingSlot : MonoBehaviour
                     case "Column":
                         AddAll();
                         break;
+                    case "Mine":
+                        if (isShaper)
+                        {
+                            shaperBoost += 1;
+                        }
+                        break;
                 }
 
                 if (filled && connection.CompareTag("Platform"))
@@ -274,8 +358,22 @@ public class AnnoyingSlot : MonoBehaviour
         {
             AddAll();
         }
+        if (coords[0] > 6)
+            if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                up = sourceArr[coords[0] + 2, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                    if (isShaper) {
+                        shaperBoost += 1;
+                    }
+                        break;
+                }
+            }
+        
     }
-
+    
     public void SetSide(bool side)
     {
         rightSide = side;
@@ -304,4 +402,5 @@ public class AnnoyingSlot : MonoBehaviour
             DestroyStructure();
         }
     }
+
 }
