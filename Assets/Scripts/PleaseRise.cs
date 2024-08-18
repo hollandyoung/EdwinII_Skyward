@@ -49,12 +49,12 @@ public class PleaseRise : MonoBehaviour
         TrueSpeed = (float)Mathf.Abs(BaseSpeed * (FixFloat + 1));
         rb.velocity = Fix * TrueSpeed * Tidescale * TideDirection;
     }
-    private void OnCollisionEnter2D(Collision2D collision) {
+    /*private void OnCollisionEnter2D(Collision2D collision) {
         GameOver();
     }
     void GameOver() {
         GameMan.EndGame();
-    }
+    }*/
         
     IEnumerator TideScale()
     {
