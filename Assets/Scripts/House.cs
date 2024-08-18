@@ -35,7 +35,7 @@ public class House : MonoBehaviour
         }
     }
     IEnumerator findMines() {
-
+        yield return new WaitForSeconds(1);
     }
 
     public void SetCoords(int row, int col)
