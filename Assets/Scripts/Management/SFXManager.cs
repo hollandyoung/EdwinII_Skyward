@@ -7,7 +7,7 @@ public class SFXManager : MonoBehaviour
     // Sound effects
     [SerializeField] AudioClip sPlace;
     [SerializeField] AudioClip sClick;
-    [SerializeField] AudioClip sLose;
+    [SerializeField] AudioClip sHitWall;
     [SerializeField] AudioClip sDestroy;
 
     private AudioSource audioSource;
@@ -29,8 +29,8 @@ public class SFXManager : MonoBehaviour
             case "click":
                 audioSource.clip = sClick;
                 break;
-            case "lose":
-                audioSource.clip = sLose;
+            case "hit wall":
+                audioSource.clip = sHitWall;
                 break;
             case "destroy":
                 audioSource.clip = sDestroy;
