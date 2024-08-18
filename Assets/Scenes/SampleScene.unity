@@ -4957,7 +4957,7 @@ GameObject:
   - component: {fileID: 1598806122}
   - component: {fileID: 1598806121}
   - component: {fileID: 1598806120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tide (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5142,7 +5142,7 @@ GameObject:
   - component: {fileID: 1605911120}
   - component: {fileID: 1605911119}
   - component: {fileID: 1605911118}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tide (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
