@@ -15,25 +15,22 @@ public class PanBody : MonoBehaviour
         gMScript = gM.GetComponent<GameManager>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    /*void OnTriggerEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == 7)
         {
             gMScript.EndGame();
         }
         Debug.Log(collision.gameObject.layer);
-    }
+    }*/
 
-    // NEED TO FIX PLEASE
-    #region
-    public float GetWeight()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        float weight = 0f;
-        /*for (int i = 0; i < positions.Length; i++)
+        Debug.Log("Got here at least");
+        if (collision.gameObject.layer == 7)
         {
-            weight += positions[i].GetComponentInChildren<HouseStack>().GetWeight();
-        }*/
-        return weight;
+            Debug.Log("Game Over");
+            gMScript.EndGame();
+        }
     }
-    #endregion
 }
