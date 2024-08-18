@@ -6,7 +6,7 @@ public class RaiseTower : MonoBehaviour
 {
     public GameObject TowerBuilder;
     private CreateTower Builder;
-    public float Height;
+    public float Height = 0;
     public float Yscaling = 0.8f;
     // Start is called before the first frame update
     void Start()
