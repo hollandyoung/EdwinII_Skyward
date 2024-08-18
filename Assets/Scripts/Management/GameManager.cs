@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         // Reloads the scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("IntroScreen");
     }
 
     public void EndGame()
