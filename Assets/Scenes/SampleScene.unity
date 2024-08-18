@@ -1850,6 +1850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraMoveable: 1
   focalObject: {fileID: 1810978433}
+  gameManagerObject: {fileID: 1919727298}
   cameraSpeedAdjust: 3
 --- !u!50 &519420034
 Rigidbody2D:
