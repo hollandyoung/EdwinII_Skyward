@@ -17,8 +17,8 @@ public class BuildManager : MonoBehaviour
     private int countL;
     private int countR;
 
-    public GameObject[,] leftSide = new GameObject[8, 5];
-    public GameObject[,] rightSide = new GameObject[8, 5];
+    public GameObject[,] leftSide = new GameObject[7, 6];
+    public GameObject[,] rightSide = new GameObject[7, 6];
     public bool initialized = false;
 
     // Start is called before the first frame update

@@ -9,14 +9,20 @@ public class House : MonoBehaviour
     public float waitTime = 4.0f;
     public bool makeBricks = true;
 
+    public bool isShaper = false;
+    public float Xcoord;
+    public float Ycoords;
     // Variables
-    private int[] coords = new int[2];
+    public int[] coords = new int[2];
 
     void Start()
     {
         bricker = GameObject.Find("Brick Manager");
         brick = bricker.GetComponent<Bricks>();
         StartCoroutine(ProduceBricks());
+        if (isShaper) {
+            StartCoroutine(findMines());
+        }
     }
 
     IEnumerator ProduceBricks()
@@ -27,6 +33,9 @@ public class House : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             brick.AddBrickCount();
         }
+    }
+    IEnumerator findMines() {
+
     }
 
     public void SetCoords(int row, int col)
