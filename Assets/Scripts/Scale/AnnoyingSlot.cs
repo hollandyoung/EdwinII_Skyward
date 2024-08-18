@@ -97,6 +97,7 @@ public class AnnoyingSlot : MonoBehaviour
             connection.GetComponent<House>().SetCoords(coords[0], coords[1]);
             
             buildManager.UpdateWeight(type, rightSide);
+            buildManager.RefreshKilns(rightSide);
             filled = true;
             Refresh();
         }
@@ -242,7 +243,45 @@ public class AnnoyingSlot : MonoBehaviour
                     case "Mine":
                         Debug.Log("Found a second mine");
                         if (isKiln) {
-                            Debug.Log("Tried to boost");
+                            Debug.Log("Tried to boost 2");
+                            kilnBoost += 1;
+                        }
+                        break;
+                }
+            }
+        }
+        if (coords[1] > 2)
+        {
+            if (sourceArr[coords[0], coords[1] - 3].GetComponent<AnnoyingSlot>().filled)
+            {
+                left = sourceArr[coords[0], coords[1] - 3].transform.GetChild(0).gameObject;
+
+                Debug.Log("got to third checking");
+                switch (left.tag)
+                {
+                    case "Mine":
+                        Debug.Log("Found a third mine");
+                        if (isKiln) {
+                            Debug.Log("Tried to boost 3");
+                            kilnBoost += 1;
+                        }
+                        break;
+                }
+            }
+        }
+        if (coords[1] > 3)
+        {
+            if (sourceArr[coords[0], coords[1] - 4].GetComponent<AnnoyingSlot>().filled)
+            {
+                left = sourceArr[coords[0], coords[1] - 4].transform.GetChild(0).gameObject;
+
+                Debug.Log("got to fourth checking");
+                switch (left.tag)
+                {
+                    case "Mine":
+                        Debug.Log("Found a fourth mine");
+                        if (isKiln) {
+                            Debug.Log("Tried to boost 4");
                             kilnBoost += 1;
                         }
                         break;
@@ -286,6 +325,38 @@ public class AnnoyingSlot : MonoBehaviour
                 }
             }
         }
+        if (coords[1] < sourceArr.GetLength(1) - 3)
+        {
+            if (sourceArr[coords[0], coords[1] + 3].GetComponent<AnnoyingSlot>().filled)
+            {
+                right = sourceArr[coords[0], coords[1] + 3].transform.GetChild(0).gameObject;
+
+                switch (right.tag)
+                {
+                    case "Mine":
+                    if (isKiln) {
+                        kilnBoost += 1;
+                    }
+                        break;
+                }
+            }
+        }
+        if (coords[1] < sourceArr.GetLength(1) - 4)
+        {
+            if (sourceArr[coords[0], coords[1] + 4].GetComponent<AnnoyingSlot>().filled)
+            {
+                right = sourceArr[coords[0], coords[1] + 4].transform.GetChild(0).gameObject;
+
+                switch (right.tag)
+                {
+                    case "Mine":
+                    if (isKiln) {
+                        kilnBoost += 1;
+                    }
+                        break;
+                }
+            }
+        }
 
         up = null;
         if (coords[0] < sourceArr.GetLength(0) - 1)
@@ -308,6 +379,36 @@ public class AnnoyingSlot : MonoBehaviour
             if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
             {
                 up = sourceArr[coords[0] + 2, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                    if (isKiln) {
+                        kilnBoost += 1;
+                    }
+                        break;
+                }
+            }
+        }
+        if (coords[0] < sourceArr.GetLength(0) - 4)
+        {
+            if (sourceArr[coords[0] + 4, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                up = sourceArr[coords[0] + 4, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                    if (isKiln) {
+                        kilnBoost += 1;
+                    }
+                        break;
+                }
+            }
+        }
+        if (coords[0] < sourceArr.GetLength(0) - 6)
+        {
+            if (sourceArr[coords[0] + 6, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                up = sourceArr[coords[0] + 6, coords[1]].transform.GetChild(0).gameObject;
                 switch (up.tag)
                 {
                     case "Mine":
@@ -370,6 +471,32 @@ public class AnnoyingSlot : MonoBehaviour
             if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
             {
                 up = sourceArr[coords[0] + 2, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                    if (isKiln) {
+                        kilnBoost += 1;
+                    }
+                        break;
+                }
+            }
+        if (coords[0] > 8)
+            if (sourceArr[coords[0] + 4, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                up = sourceArr[coords[0] + 4, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                    if (isKiln) {
+                        kilnBoost += 1;
+                    }
+                        break;
+                }
+            }
+        if (coords[0] > 10)
+            if (sourceArr[coords[0] + 6, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                up = sourceArr[coords[0] + 6, coords[1]].transform.GetChild(0).gameObject;
                 switch (up.tag)
                 {
                     case "Mine":
