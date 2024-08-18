@@ -83,12 +83,10 @@ public class BeamTilt : MonoBehaviour
         if (direction == -1)
         {
             tiltAcceleration -= (accelerationAdapter * ((1 + leftWeight) / (1 + rightWeight)));
-            Debug.Log("Right from beam");
         }
         else
         {
             tiltAcceleration += (accelerationAdapter * ((1 + rightWeight) / (1 + leftWeight)));
-            Debug.Log("Left from beam");
         }
     }
 
