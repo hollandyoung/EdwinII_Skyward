@@ -2062,12 +2062,12 @@ MonoBehaviour:
   Bricked: {fileID: 1914878843}
   MakeTower: 1
   centerX: 0
-  StartY: 1
-  Yscaling: 10
+  StartY: -13.4
+  Yscaling: 0.8
   NumberOfSegments: 0
   TotalBricks: 0
   TowerCost: 5
-  CanBuild: 0
+  CanBuild: 1
 --- !u!4 &712024321
 Transform:
   m_ObjectHideFlags: 0
@@ -5001,6 +5001,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc8d36d7734f6441b3f0036ad94f733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerBuilder: {fileID: 0}
+  Height: 0
+  Yscaling: 0.8
 --- !u!4 &1810978436
 Transform:
   m_ObjectHideFlags: 0
