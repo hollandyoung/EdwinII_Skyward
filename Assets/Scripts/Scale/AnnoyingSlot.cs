@@ -128,11 +128,23 @@ public class AnnoyingSlot : MonoBehaviour
                 break;
         }
         TotalBricks = Bricker.GetBrickCount();
-        if (TotalBricks >= BuildingCost){
-        Bricker.SetBrickCount(TotalBricks - BuildingCost);
-        connection = Instantiate(prefab, transform);
-        connection.GetComponent<House>().SetSide(rightSide);
-        buildManager.UpdateWeight(type, rightSide);
+        if (TotalBricks >= BuildingCost)
+        {
+            Bricker.SetBrickCount(TotalBricks - BuildingCost);
+            connection = Instantiate(prefab, transform);
+            connection.GetComponent<House>().SetSide(rightSide);
+
+            string id;
+            if (rightSide)
+            {
+                id = "right";
+            }
+            else
+            {
+                id = "left";
+            }
+            Debug.Log("I think I'm on the " + id + " side.");
+            buildManager.UpdateWeight(type, rightSide);
         }
     }
 

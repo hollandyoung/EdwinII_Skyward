@@ -58,24 +58,26 @@ public class PleaseRise : MonoBehaviour
         
     IEnumerator TideScale()
     {
-        while (ScaleTide) {
-       //Wait for 1 seconds
-        yield return new WaitForSeconds(10);
-        Scaling();
-        
+        // Wait for 1 second
+        while (ScaleTide)
+        {
+            yield return new WaitForSeconds(10);
+            Scaling();
         }
     }
     IEnumerator WavyTide()
     {
-        while (TideWavy) {
-        TideDirection = 2;
-        yield return new WaitForSeconds(1);
-        TideDirection = -1;
-        yield return new WaitForSeconds(1);
-        
+        while (TideWavy)
+        {
+            TideDirection = 2;
+            yield return new WaitForSeconds(1);
+            TideDirection = -1;
+            yield return new WaitForSeconds(1);
         }
     }
-    void Scaling(){
+
+    void Scaling()
+    {
         Tidescale = (Tidescale * TideScaleSpeed);
     }
 
