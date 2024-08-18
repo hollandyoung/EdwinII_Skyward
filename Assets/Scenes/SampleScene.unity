@@ -2866,7 +2866,7 @@ MonoBehaviour:
   Beam: {fileID: 115834244}
   ScaleTide: 1
   Tidescale: 1
-  TideScaleSpeed: 1.2
+  TideScaleSpeed: 1.14
   TideWavy: 1
   TideDirection: 0
   FixFloat: 0
@@ -3780,7 +3780,7 @@ MonoBehaviour:
   Beam: {fileID: 115834244}
   ScaleTide: 1
   Tidescale: 1
-  TideScaleSpeed: 1.2
+  TideScaleSpeed: 1.14
   TideWavy: 1
   TideDirection: 0
   FixFloat: 0
@@ -4945,7 +4945,7 @@ MonoBehaviour:
   Beam: {fileID: 115834244}
   ScaleTide: 1
   Tidescale: 1
-  TideScaleSpeed: 1.2
+  TideScaleSpeed: 1.14
   TideWavy: 1
   TideDirection: 0
   FixFloat: 0
@@ -5130,7 +5130,7 @@ MonoBehaviour:
   Beam: {fileID: 115834244}
   ScaleTide: 1
   Tidescale: 1
-  TideScaleSpeed: 1.2
+  TideScaleSpeed: 1.14
   TideWavy: 1
   TideDirection: 0
   FixFloat: 0
