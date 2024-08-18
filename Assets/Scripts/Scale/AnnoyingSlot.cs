@@ -7,8 +7,12 @@ public class AnnoyingSlot : MonoBehaviour
 {
     // Variables for external components
     private SpriteRenderer rend;
-    private GameObject connection = null;
+    public GameObject connection = null;
     private BuildManager buildManager;
+
+    // Platform sprites
+    [SerializeField] Sprite aloneSprite;
+    [SerializeField] Sprite joinedSprite;
 
     // Instance Variables
     public bool filled;
@@ -84,7 +88,7 @@ public class AnnoyingSlot : MonoBehaviour
 
     public void DestroyStructure()
     {
-        Destroy(transform.GetChild(0).gameObject);
+        Destroy(connection);
         filled = false;
         type = "empty";
         buildManager.UpdateWeight(type, !rightSide);
@@ -146,6 +150,8 @@ public class AnnoyingSlot : MonoBehaviour
 
     private void CheckNeighbors()
     {
+        validTypes.Clear();
+
         GameObject[,] sourceArr;
         if (rightSide)
         {
@@ -209,6 +215,17 @@ public class AnnoyingSlot : MonoBehaviour
                         AddAll();
                         break;
                 }
+
+                Debug.Log("HEre");
+                if (filled && connection.CompareTag("Platform"))
+                {
+                    connection.GetComponent<SpriteRenderer>().sprite = joinedSprite;
+                    
+                }
+            }
+            else if (filled && connection.CompareTag("Platform"))
+            {
+                connection.GetComponent<SpriteRenderer>().sprite = aloneSprite;
             }
         }
         else
@@ -233,6 +250,15 @@ public class AnnoyingSlot : MonoBehaviour
         if (!validTypes.Contains(type))
         {
             validTypes.Add(type);
+        }
+    }
+
+    public void Refresh()
+    {
+        CheckNeighbors();
+        if (validTypes.Count == 0)
+        {
+            DestroyStructure();
         }
     }
 }
