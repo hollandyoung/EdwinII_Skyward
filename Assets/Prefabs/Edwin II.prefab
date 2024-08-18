@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4366215935550664201}
   - component: {fileID: 8214635986240596568}
   - component: {fileID: 2339060262142039797}
+  - component: {fileID: -4730826603438726838}
   m_Layer: 7
   m_Name: Edwin II
   m_TagString: Untagged
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.12, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &-4730826603438726838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141647870960665684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f141c720142932c4a945d1975ae32506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
