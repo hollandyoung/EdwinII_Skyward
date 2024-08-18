@@ -98,16 +98,41 @@ public class AnnoyingSlot : MonoBehaviour
             
             buildManager.UpdateWeight(type, rightSide);
             filled = true;
+            Refresh();
         }
     }
     
     public void DestroyStructure()
     {
         Destroy(connection);
+        connection = null;
         filled = false;
         type = "empty";
         isShaper = false;
         buildManager.UpdateWeight(type, !rightSide);
+
+        CheckNeighbors();
+        if (left != null)
+        {
+            SendRefreshMessage(left);
+        }
+        if (right != null)
+        {
+            SendRefreshMessage(right);
+        }
+        if (up != null)
+        {
+            SendRefreshMessage(up);
+        }
+        if (down != null)
+        {
+            SendRefreshMessage(down);
+        }
+    }
+
+    private void SendRefreshMessage(GameObject child)
+    {
+        child.transform.parent.gameObject.GetComponent<AnnoyingSlot>().Refresh();
     }
 
     private void AddAll()
@@ -132,6 +157,7 @@ public class AnnoyingSlot : MonoBehaviour
                 if (Input.GetMouseButton(0) && initialized)
                 {
                     SpawnStructure(structureType);
+                    rend.enabled = false;
                 }
             }
         }
@@ -141,7 +167,7 @@ public class AnnoyingSlot : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 DestroyStructure();
-                Debug.Log("Here");
+                rend.enabled = false;
             }
         }
     }
@@ -180,7 +206,8 @@ public class AnnoyingSlot : MonoBehaviour
         {
             sourceArr = buildManager.leftSide;
         }
-        
+
+        left = null;
         if (coords[1] > 0)
         {
             if (sourceArr[coords[0], coords[1] - 1].GetComponent<AnnoyingSlot>().filled)
@@ -203,7 +230,27 @@ public class AnnoyingSlot : MonoBehaviour
                 }
             }
         }
-        
+        if (coords[1] > 1)
+        {
+            if (sourceArr[coords[0], coords[1] - 2].GetComponent<AnnoyingSlot>().filled)
+            {
+                left = sourceArr[coords[0], coords[1] - 2].transform.GetChild(0).gameObject;
+
+                Debug.Log("got to second checking");
+                switch (left.tag)
+                {
+                    case "Mine":
+                        Debug.Log("Found a second mine");
+                        if (isShaper) {
+                            Debug.Log("Tried to boost");
+                            shaperBoost += 1;
+                        }
+                        break;
+                }
+            }
+        }
+
+        right = null;
         if (coords[1] < sourceArr.GetLength(1) - 1)
         {
             if (sourceArr[coords[0], coords[1] + 1].GetComponent<AnnoyingSlot>().filled)
@@ -223,7 +270,24 @@ public class AnnoyingSlot : MonoBehaviour
                 }
             }
         }
+        if (coords[1] < sourceArr.GetLength(1) - 2)
+        {
+            if (sourceArr[coords[0], coords[1] + 2].GetComponent<AnnoyingSlot>().filled)
+            {
+                right = sourceArr[coords[0], coords[1] + 2].transform.GetChild(0).gameObject;
 
+                switch (right.tag)
+                {
+                    case "Mine":
+                    if (isShaper) {
+                        shaperBoost += 1;
+                    }
+                        break;
+                }
+            }
+        }
+
+        up = null;
         if (coords[0] < sourceArr.GetLength(0) - 1)
         {
             if (sourceArr[coords[0] + 1, coords[1]].GetComponent<AnnoyingSlot>().filled)
@@ -239,7 +303,23 @@ public class AnnoyingSlot : MonoBehaviour
                 }
             }
         }
+        if (coords[0] < sourceArr.GetLength(0) - 2)
+        {
+            if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                up = sourceArr[coords[0] + 2, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                    if (isShaper) {
+                        shaperBoost += 1;
+                    }
+                        break;
+                }
+            }
+        }
 
+        down = null;
         if (coords[0] > 0)
         {
             if (sourceArr[coords[0] - 1, coords[1]].GetComponent<AnnoyingSlot>().filled)
@@ -264,11 +344,9 @@ public class AnnoyingSlot : MonoBehaviour
                         break;
                 }
 
-                if (connection != null && connection.CompareTag("Platform"))
+                if (filled && connection.CompareTag("Platform") && down.CompareTag("Column"))
                 {
-                    Debug.Log("I am a platform above something");
                     connection.GetComponent<SpriteRenderer>().sprite = joinedSprite;
-                    
                 }
             }
             else if (filled && connection.CompareTag("Platform"))
@@ -279,10 +357,29 @@ public class AnnoyingSlot : MonoBehaviour
         else
         {
             AddAll();
+            if (filled && connection.CompareTag("Platform"))
+            {
+                connection.GetComponent<SpriteRenderer>().sprite = joinedSprite;
+            }
+            else if (filled && connection.CompareTag("Platform"))
+            {
+                connection.GetComponent<SpriteRenderer>().sprite = aloneSprite;
+            }
         }
-        if (isShaper) {
-            //CheckAllAround();
-        }
+        if (coords[0] > 6)
+            if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
+            {
+                up = sourceArr[coords[0] + 2, coords[1]].transform.GetChild(0).gameObject;
+                switch (up.tag)
+                {
+                    case "Mine":
+                    if (isShaper) {
+                        shaperBoost += 1;
+                    }
+                        break;
+                }
+            }
+        
     }
     
     public void SetSide(bool side)
@@ -307,113 +404,11 @@ public class AnnoyingSlot : MonoBehaviour
     public void Refresh()
     {
         CheckNeighbors();
+        
         if (validTypes.Count == 0)
         {
             DestroyStructure();
         }
     }
 
-    private void CheckAllAround()
-    {
-        
-        validTypes.Clear();
-
-        GameObject[,] sourceArr;
-        if (rightSide)
-        {
-            sourceArr = buildManager.rightSide;
-        }
-        else
-        {
-            sourceArr = buildManager.leftSide;
-        }
-
-        if (coords[1] > 0)
-        {
-            if (sourceArr[coords[0], coords[1] - 2].GetComponent<AnnoyingSlot>().filled)
-            {
-                left = sourceArr[coords[0], coords[1] - 2].transform.GetChild(0).gameObject;
-
-                switch (left.tag)
-                {
-                    case "Platform":
-                        AddValidType("platform");
-                        break;
-                    case "Mine":
-                    shaperBoost += 1;
-                        break;
-                }
-            }
-        }
-
-        if (coords[1] < sourceArr.GetLength(1) - 2)
-        {
-            if (sourceArr[coords[0], coords[1] + 2].GetComponent<AnnoyingSlot>().filled)
-            {
-                right = sourceArr[coords[0], coords[1] + 2].transform.GetChild(0).gameObject;
-
-                switch (right.tag)
-                {
-                    case "Platform":
-                        AddValidType("platform");
-                        break;
-                    case "Mine":
-                        shaperBoost += 1;
-                        break;
-                }
-            }
-        }
-
-        if (coords[0] < sourceArr.GetLength(0) - 2)
-        {
-            if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
-            {
-                up = sourceArr[coords[0] + 2, coords[1]].transform.GetChild(0).gameObject;
-                switch (up.tag)
-                {
-                    case "Mine":
-                        shaperBoost += 1;
-                        break;
-                }
-            }
-        }
-
-        if (coords[0] > 0)
-        {
-            if (sourceArr[coords[0] - 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
-            {
-                down = sourceArr[coords[0] - 2, coords[1]].transform.GetChild(0).gameObject;
-                switch (down.tag)
-                {
-                    case "Platform":
-                        AddValidType("column");
-                        AddValidType("house");
-                        AddValidType("shaper");
-                        AddValidType("mine");
-                        break;
-                    case "Column":
-                        AddAll();
-                        break;
-                    case "Mine":
-                        shaperBoost += 1;
-                        break;
-                }
-
-                if (connection != null && connection.CompareTag("Platform"))
-                {
-                    Debug.Log("I am a platform above something");
-                    connection.GetComponent<SpriteRenderer>().sprite = joinedSprite;
-                    
-                }
-            }
-            else if (filled && connection.CompareTag("Platform"))
-            {
-                connection.GetComponent<SpriteRenderer>().sprite = aloneSprite;
-            }
-        }
-        else
-        {
-            AddAll();
-        }
-    }
 }
