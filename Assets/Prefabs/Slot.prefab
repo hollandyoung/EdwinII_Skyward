@@ -55,9 +55,11 @@ MonoBehaviour:
   platformPrefab: {fileID: 1450121812817806315, guid: ec0111587955ff6498594375ef2f36aa, type: 3}
   columnPrefab: {fileID: 2154798950112618249, guid: bccbac2be86160b44ae16ce15a1c4068, type: 3}
   minePrefab: {fileID: 1106297124404046687, guid: 7e97b40d695cde4428389e8c06fcfe61, type: 3}
-  shaperPrefab: {fileID: 1106297124404046687, guid: 13948120fd3c0574b8a51b58ac7526be, type: 3}
+  kilnPrefab: {fileID: 1106297124404046687, guid: 13948120fd3c0574b8a51b58ac7526be, type: 3}
   Bricked: {fileID: 0}
   TotalBricks: 0
+  isKiln: 0
+  kilnBoost: 0
 --- !u!61 &3155871054004312325
 BoxCollider2D:
   m_ObjectHideFlags: 0
