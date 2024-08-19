@@ -41,6 +41,9 @@ public class SFXManager : MonoBehaviour
                 case "proximity increasing":
                     audioSource.clip = sProxIncr;
                     break;
+                case "waves":
+                    audioSource.clip = sProxIncr;
+                    break;
             }
             audioSource.Play();
         }
