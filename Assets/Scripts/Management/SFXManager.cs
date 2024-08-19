@@ -9,6 +9,7 @@ public class SFXManager : MonoBehaviour
     [SerializeField] AudioClip sClick;
     [SerializeField] AudioClip sHitWall;
     [SerializeField] AudioClip sDestroy;
+    [SerializeField] AudioClip sProxIncr;
 
     private AudioSource audioSource;
 
@@ -36,6 +37,9 @@ public class SFXManager : MonoBehaviour
                     break;
                 case "destroy":
                     audioSource.clip = sDestroy;
+                    break;
+                case "proximity increasing":
+                    audioSource.clip = sProxIncr;
                     break;
             }
             audioSource.Play();
