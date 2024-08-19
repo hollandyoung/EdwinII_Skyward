@@ -44,8 +44,8 @@ public class PleaseRise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x >= 40) {
-            transform.Translate(-80, 0, 0);
+        if (transform.position.x >= 20) {
+            transform.Translate(-40, 0, 0);
         }
         tiltVelocity = Tilt.GetBeamTiltVelocity();
     }

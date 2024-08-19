@@ -2890,8 +2890,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1032884845}
   - component: {fileID: 1032884844}
-  - component: {fileID: 1032884843}
-  - component: {fileID: 1032884842}
   - component: {fileID: 1032884846}
   m_Layer: 10
   m_Name: Tide (2)
@@ -2900,59 +2898,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1032884842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032884841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 465d2c45bc1b1a14097d7afc2d729a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManager: {fileID: 0}
-  BaseSpeed: 0.1
-  TrueSpeed: 0
-  rb: {fileID: 1032884843}
-  FixMovement: {x: 0, y: 0}
-  Beam: {fileID: 115834244}
-  ScaleTide: 1
-  Tidescale: 1
-  TideScaleSpeed: 1.08
-  TideWavy: 1
-  TideDirection: 0
-  FixFloat: 0
-  FixMovementMore: 0
-  WaveSpeed: 1
---- !u!50 &1032884843
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032884841}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!212 &1032884844
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3018,7 +2963,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1818398928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1032884846
 BoxCollider2D:
@@ -3780,8 +3725,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1272828765}
   - component: {fileID: 1272828764}
-  - component: {fileID: 1272828763}
-  - component: {fileID: 1272828762}
   - component: {fileID: 1272828761}
   m_Layer: 10
   m_Name: Tide (1)
@@ -3835,59 +3778,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 3.9}
   m_EdgeRadius: 0
---- !u!114 &1272828762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272828760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 465d2c45bc1b1a14097d7afc2d729a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManager: {fileID: 0}
-  BaseSpeed: 0.1
-  TrueSpeed: 0
-  rb: {fileID: 1272828763}
-  FixMovement: {x: 0, y: 0}
-  Beam: {fileID: 115834244}
-  ScaleTide: 1
-  Tidescale: 1
-  TideScaleSpeed: 1.08
-  TideWavy: 1
-  TideDirection: 0
-  FixFloat: 0
-  FixMovementMore: 0
-  WaveSpeed: 1
---- !u!50 &1272828763
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272828760}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!212 &1272828764
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3953,7 +3843,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1818398928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327114118
 GameObject:
@@ -4686,8 +4576,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1598806124}
   - component: {fileID: 1598806123}
-  - component: {fileID: 1598806122}
-  - component: {fileID: 1598806121}
   - component: {fileID: 1598806120}
   m_Layer: 10
   m_Name: Tide (3)
@@ -4741,59 +4629,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 3.9}
   m_EdgeRadius: 0
---- !u!114 &1598806121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598806119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 465d2c45bc1b1a14097d7afc2d729a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManager: {fileID: 0}
-  BaseSpeed: 0.1
-  TrueSpeed: 0
-  rb: {fileID: 1598806122}
-  FixMovement: {x: 0, y: 0}
-  Beam: {fileID: 115834244}
-  ScaleTide: 1
-  Tidescale: 1
-  TideScaleSpeed: 1.08
-  TideWavy: 1
-  TideDirection: 0
-  FixFloat: 0
-  FixMovementMore: 0
-  WaveSpeed: 1
---- !u!50 &1598806122
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598806119}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!212 &1598806123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4859,7 +4694,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1818398928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1605911117
 GameObject:
@@ -4871,8 +4706,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1605911122}
   - component: {fileID: 1605911121}
-  - component: {fileID: 1605911120}
-  - component: {fileID: 1605911119}
   - component: {fileID: 1605911118}
   m_Layer: 10
   m_Name: Tide (4)
@@ -4926,59 +4759,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 3.9}
   m_EdgeRadius: 0
---- !u!114 &1605911119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605911117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 465d2c45bc1b1a14097d7afc2d729a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManager: {fileID: 0}
-  BaseSpeed: 0.1
-  TrueSpeed: 0
-  rb: {fileID: 1605911120}
-  FixMovement: {x: 0, y: 0}
-  Beam: {fileID: 115834244}
-  ScaleTide: 1
-  Tidescale: 1
-  TideScaleSpeed: 1.08
-  TideWavy: 1
-  TideDirection: 0
-  FixFloat: 0
-  FixMovementMore: 0
-  WaveSpeed: 1
---- !u!50 &1605911120
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605911117}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!212 &1605911121
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5044,7 +4824,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1818398928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614503046
 GameObject:
@@ -5531,6 +5311,96 @@ Transform:
   - {fileID: 1683057642}
   - {fileID: 1040493122}
   - {fileID: 885653426}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1818398925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818398928}
+  - component: {fileID: 1818398927}
+  - component: {fileID: 1818398926}
+  m_Layer: 0
+  m_Name: CollectiveTide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!50 &1818398926
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818398925}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1818398927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818398925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465d2c45bc1b1a14097d7afc2d729a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 0}
+  BaseSpeed: 0.1
+  TrueSpeed: 0
+  rb: {fileID: 0}
+  FixMovement: {x: 0, y: 0}
+  Beam: {fileID: 0}
+  ScaleTide: 1
+  Tidescale: 1
+  TideScaleSpeed: 1.08
+  TideWavy: 1
+  TideDirection: 0
+  FixFloat: 0
+  FixMovementMore: 0
+  WaveSpeed: 1
+--- !u!4 &1818398928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818398925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1272828765}
+  - {fileID: 1032884845}
+  - {fileID: 1598806124}
+  - {fileID: 1605911122}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1841731409
@@ -6343,10 +6213,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1919727300}
   - {fileID: 519420032}
-  - {fileID: 1272828765}
-  - {fileID: 1032884845}
-  - {fileID: 1598806124}
-  - {fileID: 1605911122}
   - {fileID: 428965315}
   - {fileID: 1914878845}
   - {fileID: 1708185687}
@@ -6358,3 +6224,4 @@ SceneRoots:
   - {fileID: 532595000}
   - {fileID: 415513736}
   - {fileID: 118396188}
+  - {fileID: 1818398928}
