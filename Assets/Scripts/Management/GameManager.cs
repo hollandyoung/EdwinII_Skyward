@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     private double timeAlive;
     private int endScore;
-    private int highScore;
+    private int highScore = 0;
     private bool timerRunning;
     [SerializeField] GameObject uIManagerObject;
     [SerializeField] GameObject createTowerObject;
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         timerRunning = true;
         timeAlive = 0;
         endScore = 0;
+        highScore = PlayerPrefs.GetInt("Highscore", 0);
     }
 
     public void RestartGame()
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
         {
             highScore = endScore;
             uIManagerScript.newHighScore = true;
+            PlayerPrefs.SetInt("Highscore", highScore);
         }
         uIManagerScript.UpdateScores();
         edwinManager.TowerBackDown();
@@ -83,7 +85,7 @@ public class GameManager : MonoBehaviour
     }
     public string GetHighScoreDisplayValue()
     {
-        return string.Format("{0:0}:{1:00}", Mathf.FloorToInt(highScore / 60), (Mathf.FloorToInt(endScore % 60)));
+        return string.Format("{0:0}:{1:00}", Mathf.FloorToInt(highScore / 60), (Mathf.FloorToInt(highScore % 60)));
     }
     public int GetHighScore()
     {
