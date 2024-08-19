@@ -11,6 +11,11 @@ public class IntroScreen : MonoBehaviour
     [SerializeField] GameObject instructionsScreen;
     [SerializeField] GameObject titleScreen;
     [SerializeField] TextMeshProUGUI instructionsText;
+
+    // Vars for image
+    [SerializeField] Image instructionsPic;
+
+    [SerializeField] Sprite[] images;
     int page = 0;
 
     public void StartGame()
@@ -34,6 +39,17 @@ public class IntroScreen : MonoBehaviour
     public void NextInstruction()
     {
         instructionsText.text = instructions[page];
+
+        if (images[page] == null)
+        {
+            instructionsPic.enabled = false;
+        }
+        else
+        {
+            instructionsPic.enabled = true;
+            instructionsPic.sprite = images[page];
+        }
+
         if (page < instructions.Length - 1)
         {
             page++;
