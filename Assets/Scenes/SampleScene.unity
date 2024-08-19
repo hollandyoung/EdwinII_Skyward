@@ -1867,7 +1867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &589609791
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2361,7 +2361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &723311135
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5339,7 +5339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1749228019
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5965,6 +5965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIManagerObject: {fileID: 1708185685}
+  createTowerObject: {fileID: 712024319}
   cameraObject: {fileID: 519420028}
   towerObject: {fileID: 1810978433}
 --- !u!4 &1919727300
