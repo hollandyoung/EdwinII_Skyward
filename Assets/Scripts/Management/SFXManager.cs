@@ -32,12 +32,19 @@ public class SFXManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
             currClip = mus1;
-            StartCoroutine(PlayMusic(currClip));
         }
         else
         {
             currClip = musIntro;
-            StartCoroutine(PlayMusic(currClip));
+        }
+    }
+
+    private void Update()
+    {
+        if (!music.isPlaying)
+        {
+            music.clip = currClip;
+            music.Play();
         }
     }
 
@@ -47,6 +54,7 @@ public class SFXManager : MonoBehaviour
         {
             str = str.ToLower();
             AudioClip clip;
+
             switch (str)
             {
                 case "place":
@@ -61,15 +69,16 @@ public class SFXManager : MonoBehaviour
                 case "destroy":
                     clip = sDestroy;
                     break;
-                case "creak":
-                    clip = sCreak;
-                    break;
                 default:
                     clip = sPlace;
                     break;
             }
-
             audioSource.PlayOneShot(clip);
+        }
+
+        if (str.Equals("creak"))
+        {
+            audioSource.PlayOneShot(sCreak);
         }
     }
 
@@ -89,11 +98,12 @@ public class SFXManager : MonoBehaviour
         }
     }
 
-    private IEnumerator PlayMusic(AudioClip current)
+    /*private IEnumerator PlayMusic()
     {
-        music.clip = current;
+        music.clip = currClip;
         music.Play();
         yield return new WaitUntil(() => music.time >= currClip.length);
-        StartCoroutine(PlayMusic(currClip));
-    }
+        Debug.Log("PlayAgain");
+        StartCoroutine(PlayMusic());
+    }*/
 }

@@ -2799,6 +2799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gM: {fileID: 1919727298}
+  bM: {fileID: 1919727301}
 --- !u!212 &1002702557
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4700,6 +4701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gM: {fileID: 1919727298}
+  bM: {fileID: 1919727301}
 --- !u!212 &1489852126
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -239,4 +239,16 @@ public class BuildManager : MonoBehaviour
             }
         }
     }
+
+    public bool LowerSide()
+    {
+        if (pan1.position.y < pan2.position.y)
+        {
+            return false; // Left side is lower
+        }
+        else
+        {
+            return true;
+        }
+    }
 }
