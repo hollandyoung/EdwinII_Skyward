@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScores()
     {
+        SetActiveRestartButton(true);
         if(newHighScore == true)
         {
             highScoreObject.text = "NEW HIGH SCORE";
