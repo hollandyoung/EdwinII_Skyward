@@ -169,7 +169,7 @@ public class AnnoyingSlot : MonoBehaviour
         else if (buildManager.GetBuildType().Equals("destroy"))
         {
             rend.enabled = true;
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(1))
             {
                 DestroyStructure();
                 rend.enabled = false;
