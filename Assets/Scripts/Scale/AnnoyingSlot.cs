@@ -454,10 +454,6 @@ public class AnnoyingSlot : MonoBehaviour
                 {
                     connection.GetComponent<SpriteRenderer>().sprite = joinedSprite;
                 }
-                else
-                {
-                    connection.GetComponent<SpriteRenderer>().sprite = aloneSprite;
-                }
             }
             else if (filled && connection.CompareTag("Platform"))
             {
@@ -471,10 +467,10 @@ public class AnnoyingSlot : MonoBehaviour
             {
                 connection.GetComponent<SpriteRenderer>().sprite = joinedSprite;
             }
-            else if (filled && connection.CompareTag("Platform"))
+            /*else if (filled && connection.CompareTag("Platform"))
             {
                 connection.GetComponent<SpriteRenderer>().sprite = aloneSprite;
-            }
+            }*/
         }
         if (coords[0] > 6)
             if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
