@@ -100,6 +100,10 @@ public class AnnoyingSlot : MonoBehaviour
             connection.GetComponent<House>().SetCoords(coords[0], coords[1]);
             
             buildManager.UpdateWeight(type, rightSide);
+            if (Random.Range(0, 1) > 0.67)
+            {
+                sFXManager.PlayClip("creak");
+            }
             buildManager.RefreshKilns(rightSide);
             filled = true;
             Refresh();
@@ -115,6 +119,10 @@ public class AnnoyingSlot : MonoBehaviour
         type = "empty";
         isKiln = false;
         buildManager.UpdateWeight(type, !rightSide);
+        if (Random.Range(0, 1) > 0.67)
+        {
+            sFXManager.PlayClip("creak");
+        }
 
         CheckNeighbors();
         if (left != null)
