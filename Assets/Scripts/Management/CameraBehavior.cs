@@ -44,9 +44,9 @@ public class CameraBehavior : MonoBehaviour
             {
                 Zoom();
             }
-            else if (transform.position.z >= -1)
+            else if (transform.position.z >= -7)
             {
-                transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
+                transform.position = new Vector3 (transform.position.x, transform.position.y, -7);
             }
             else
             {
