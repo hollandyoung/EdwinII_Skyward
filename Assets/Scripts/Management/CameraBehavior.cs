@@ -40,7 +40,7 @@ public class CameraBehavior : MonoBehaviour
         }
         if (cameraMoveable)
         {
-            if (transform.position.z <= -1 && transform.position.z >= -16)
+            if (transform.position.z <= -7 && transform.position.z >= -16)
             {
                 Zoom();
             }
