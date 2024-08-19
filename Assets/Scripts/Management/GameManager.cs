@@ -66,19 +66,19 @@ public class GameManager : MonoBehaviour
     }
     public string GetEndScoreDisplayValue()
     {
-        return (Mathf.Floor(endScore / 60) + ":" + ((int) endScore % 60));
+        return string.Format("{0:0}:{1:00}", Mathf.FloorToInt(endScore / 60), (Mathf.FloorToInt(endScore % 60)));
     }
     public string GetTimeAliveDisplayValue()
     {
-        return (Mathf.Floor((float) timeAlive / 60) + ":" + ((int) timeAlive % 60));
+        return string.Format("{0:0}:{1:00}", Mathf.FloorToInt((float)timeAlive / 60), (Mathf.FloorToInt((float)timeAlive % 60)));
+    }
+    public string GetHighScoreDisplayValue()
+    {
+        return string.Format("{0:0}:{1:00}", Mathf.FloorToInt(highScore / 60), (Mathf.FloorToInt(endScore % 60)));
     }
     public int GetHighScore()
     {
         return highScore;
-    }
-    public string GetHighScoreDisplayValue()
-    {
-        return (Mathf.Floor(highScore / 60) + ":" + ((int) endScore % 60));
     }
     public bool GetTimerRunning()
     {
