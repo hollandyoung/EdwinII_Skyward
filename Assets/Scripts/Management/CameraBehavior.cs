@@ -28,6 +28,10 @@ public class CameraBehavior : MonoBehaviour
         if(gameManagerScript.GetTimerRunning() == true)
         {
             cameraMoveable = true;
+            if (rb.velocity.y < 0.01 && rb.velocity.x < 0.01)
+            {
+                rb.velocity = new Vector2(0, 0); // Stops the camera if it's not moving much
+            }
         }
         else
         {
