@@ -11,6 +11,8 @@ public class PanBody : MonoBehaviour
     GameManager gMScript;
     private SFXManager sFXManager;
 
+    // Instance Variables
+    bool prox = false;
     void Start()
     {
         gMScript = gM.GetComponent<GameManager>();
@@ -48,7 +50,15 @@ public class PanBody : MonoBehaviour
         RaycastHit2D hitClose = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 4f, tideMask);
         if (hitClose.collider != null)
         {
-            sFXManager.PlayClip("proximity increasing");
+            if (prox == false)
+            {
+                sFXManager.PlayClip("proximity increasing");
+            }
+            prox = true;
+        }
+        else
+        {
+            prox = false;
         }
     }
 }

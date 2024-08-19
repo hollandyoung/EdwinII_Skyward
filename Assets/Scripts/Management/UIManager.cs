@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            highScoreObject.text = gMScript.GetHighScoreDisplayValue();
+            highScoreObject.text = ("BEST: " + gMScript.GetHighScoreDisplayValue());
         }
         endTimer.text = gMScript.GetEndScoreDisplayValue();
     }
