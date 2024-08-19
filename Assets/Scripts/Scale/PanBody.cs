@@ -60,14 +60,14 @@ public class PanBody : MonoBehaviour
 
         if (bM.LowerSide() == rightSide)
         {
-            RaycastHit2D hitStage3 = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 3.5f, tideMask);
+            RaycastHit2D hitStage3 = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 3f, tideMask);
             if (hitStage3.collider != null)
             {
                 sFXManager.SetStage(3);
             }
             else
             {
-                RaycastHit2D hitStage2 = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 6.5f, tideMask);
+                RaycastHit2D hitStage2 = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 6f, tideMask);
                 if (hitStage2.collider != null)
                 {
                     sFXManager.SetStage(2);

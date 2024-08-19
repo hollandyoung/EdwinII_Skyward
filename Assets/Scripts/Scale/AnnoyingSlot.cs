@@ -209,7 +209,6 @@ public class AnnoyingSlot : MonoBehaviour
     private void CheckNeighbors()
     {
         validTypes.Clear();
-        kilnBoost = 0;
 
         GameObject[,] sourceArr;
         if (rightSide)
@@ -236,15 +235,15 @@ public class AnnoyingSlot : MonoBehaviour
                         break;
                     case "Mine":
                         //Debug.Log("Found a mine");
-                        if (isKiln) {
+                        /*if (isKiln) {
                             //Debug.Log("Tried to boost");
                             kilnBoost += 1;
-                        }
+                        }*/
                         break;
                 }
             }
         }
-        if (coords[1] > 1)
+        /*if (coords[1] > 1)
         {
             if (sourceArr[coords[0], coords[1] - 2].GetComponent<AnnoyingSlot>().filled)
             {
@@ -300,7 +299,7 @@ public class AnnoyingSlot : MonoBehaviour
                         break;
                 }
             }
-        }
+        }*/
 
         right = null;
         if (coords[1] < sourceArr.GetLength(1) - 1)
@@ -315,14 +314,14 @@ public class AnnoyingSlot : MonoBehaviour
                         AddValidType("platform");
                         break;
                     case "Mine":
-                    if (isKiln) {
+                    /*if (isKiln) {
                         kilnBoost += 1;
-                    }
+                    }*/
                         break;
                 }
             }
         }
-        if (coords[1] < sourceArr.GetLength(1) - 2)
+        /*if (coords[1] < sourceArr.GetLength(1) - 2)
         {
             if (sourceArr[coords[0], coords[1] + 2].GetComponent<AnnoyingSlot>().filled)
             {
@@ -369,7 +368,7 @@ public class AnnoyingSlot : MonoBehaviour
                         break;
                 }
             }
-        }
+        }*/
 
         up = null;
         if (coords[0] < sourceArr.GetLength(0) - 1)
@@ -380,14 +379,15 @@ public class AnnoyingSlot : MonoBehaviour
                 switch (up.tag)
                 {
                     case "Mine":
-                    if (isKiln) {
+                    /*if (isKiln) {
                         kilnBoost += 1;
-                    }
+                    }*/
                         break;
                 }
             }
         }
-        if (coords[0] < sourceArr.GetLength(0) - 2)
+
+        /*if (coords[0] < sourceArr.GetLength(0) - 2)
         {
             if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
             {
@@ -431,7 +431,7 @@ public class AnnoyingSlot : MonoBehaviour
                         break;
                 }
             }
-        }
+        }*/
 
         down = null;
         if (coords[0] > 0)
@@ -451,10 +451,10 @@ public class AnnoyingSlot : MonoBehaviour
                         AddAll();
                         break;
                     case "Mine":
-                        if (isKiln)
+                        /*if (isKiln)
                         {
                             kilnBoost += 1;
-                        }
+                        }*/
                         break;
                 }
 
@@ -480,7 +480,7 @@ public class AnnoyingSlot : MonoBehaviour
                 connection.GetComponent<SpriteRenderer>().sprite = aloneSprite;
             }*/
         }
-        if (coords[0] > 6)
+        /*if (coords[0] > 6)
             if (sourceArr[coords[0] + 2, coords[1]].GetComponent<AnnoyingSlot>().filled)
             {
                 up = sourceArr[coords[0] + 2, coords[1]].transform.GetChild(0).gameObject;
@@ -507,6 +507,7 @@ public class AnnoyingSlot : MonoBehaviour
                 }
             }
         if (coords[0] > 10)
+        {
             if (sourceArr[coords[0] + 6, coords[1]].GetComponent<AnnoyingSlot>().filled)
             {
                 up = sourceArr[coords[0] + 6, coords[1]].transform.GetChild(0).gameObject;
@@ -519,7 +520,7 @@ public class AnnoyingSlot : MonoBehaviour
                         break;
                 }
             }
-        
+        }*/
     }
     
     public void SetSide(bool side)
@@ -555,8 +556,9 @@ public class AnnoyingSlot : MonoBehaviour
         // Wait for 4 seconds
         while (isKiln)
         {
-            yield return new WaitForSeconds(2);
-            //Debug.Log("I am the Kiln and I am making" + (kilnBoost * kilnBoost));
+            yield return new WaitForSeconds(4);
+            kilnBoost = buildManager.GetMineCount(coords, rightSide);
+            Debug.Log("I am the Kiln and I am making" + (kilnBoost * kilnBoost));
             TotalBricks = Bricker.GetBrickCount();
             Bricker.SetBrickCount(TotalBricks + (kilnBoost * kilnBoost));
         }

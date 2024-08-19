@@ -192,7 +192,7 @@ public class BuildManager : MonoBehaviour
         }
 
         int mines = 0;
-        // Check my row
+        // Check my column
         for (int r = 0; r < arr.GetLength(0); r++)
         {
             GameObject targSlot = arr[r, coords[1]];
@@ -202,7 +202,7 @@ public class BuildManager : MonoBehaviour
             }
         }
 
-        // Check my column
+        // Check my row
         for (int c = 0; c < arr.GetLength(1); c++)
         {
             GameObject targSlot = arr[coords[0], c];
