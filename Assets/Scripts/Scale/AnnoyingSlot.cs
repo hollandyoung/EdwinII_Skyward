@@ -79,6 +79,7 @@ public class AnnoyingSlot : MonoBehaviour
                 prefab = kilnPrefab;
                 BuildingCost = 30.0f;
                 isKiln = true;
+                StartCoroutine(ProduceKilnBricks());
                 break;
             case "mine":
                 prefab = minePrefab;
@@ -168,11 +169,12 @@ public class AnnoyingSlot : MonoBehaviour
         else if (buildManager.GetBuildType().Equals("destroy"))
         {
             rend.enabled = true;
-            if (Input.GetMouseButton(0))
-            {
-                DestroyStructure();
-                rend.enabled = false;
-            }
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            DestroyStructure();
+            rend.enabled = false;
         }
     }
     
@@ -199,7 +201,7 @@ public class AnnoyingSlot : MonoBehaviour
     private void CheckNeighbors()
     {
         validTypes.Clear();
-        kilnBoost = 5;
+        kilnBoost = 0;
 
         GameObject[,] sourceArr;
         if (rightSide)
@@ -538,6 +540,16 @@ public class AnnoyingSlot : MonoBehaviour
         if (validTypes.Count == 0)
         {
             DestroyStructure();
+        }
+    }
+    IEnumerator ProduceKilnBricks()
+    {
+        // Wait for 4 seconds
+        while (isKiln)
+        {
+            yield return new WaitForSeconds(2);
+            TotalBricks = Bricker.GetBrickCount();
+            Bricker.SetBrickCount(TotalBricks + (kilnBoost * kilnBoost));
         }
     }
 }

@@ -2906,7 +2906,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.16}
+  m_Size: {x: 0.9, y: 0.16}
   m_EdgeRadius: 0
 --- !u!1 &1030709030
 GameObject:
@@ -4749,7 +4749,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.16}
+  m_Size: {x: 0.9, y: 0.16}
   m_EdgeRadius: 0
 --- !u!1001 &1555712909
 PrefabInstance:
@@ -6020,7 +6020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sPlace: {fileID: 8300000, guid: fa354baaf1cb8344187776aec297c12a, type: 3}
-  sClick: {fileID: 8300000, guid: d2dd9cf0e1b6419409bf90854c1a04fa, type: 3}
+  sClick: {fileID: 8300000, guid: 1978e6d6f9d38dd43a18ff1c228e504f, type: 3}
   sHitWall: {fileID: 8300000, guid: daa8d50ccb971f545aaebec25c53dcd3, type: 3}
   sDestroy: {fileID: 8300000, guid: c34972999febc54479d63c3891703236, type: 3}
 --- !u!82 &1919727303
