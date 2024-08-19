@@ -11,14 +11,17 @@ public class GameManager : MonoBehaviour
     private int highScore;
     private bool timerRunning;
     [SerializeField] GameObject uIManagerObject;
+    [SerializeField] GameObject createTowerObject;
     [SerializeField] GameObject cameraObject;
     [SerializeField] GameObject towerObject;
     private UIManager uIManagerScript;
+    private CreateTower edwinManager;
 
     // Start is called before the first frame update
     void Start()
     {
         uIManagerScript = uIManagerObject.GetComponent<UIManager>();
+        edwinManager = createTowerObject.GetComponent<CreateTower>();
         StartGame();
     }
 
@@ -58,6 +61,7 @@ public class GameManager : MonoBehaviour
             uIManagerScript.newHighScore = true;
         }
         uIManagerScript.UpdateScores();
+        edwinManager.TowerBackDown();
     }
 
     public int GetEndScore()
