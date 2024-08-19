@@ -294,12 +294,14 @@ MonoBehaviour:
     a distant ancestor long ago.
   - The Tide is rising, leaving you only one minute to prepare before you must compete
     to escape it.
-  - Click to select the different buildings.
+  - Click the buttons at the top of the screen to select the different buildings,
+    and then click where you want them to be built.
   - Each icon has a number with its cost.
   - The hammer icon builds Edwin II upward to help you escape the Tide. It becomes
     more expensive as you progress.
   - Basic houses produce bricks, the currency for everything in the game.
-  - Use columns and platforms to expand upwards.
+  - Columns allow you to build above them, and platforms allow you to build horizontally
+    to create another row for building.
   - The Agora is used to boost the Kiln.
   - The Kiln gets exponentially stronger the more Agoras are in the same row or column.
   - Both the Kiln and the Agora are twice as heavy as the other structures.
