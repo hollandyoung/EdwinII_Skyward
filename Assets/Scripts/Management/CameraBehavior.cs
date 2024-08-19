@@ -28,21 +28,25 @@ public class CameraBehavior : MonoBehaviour
         if(gameManagerScript.GetTimerRunning() == true)
         {
             cameraMoveable = true;
+            if (rb.velocity.y < 0.01 && rb.velocity.x < 0.01)
+            {
+                rb.velocity = new Vector2(0, 0); // Stops the camera if it's not moving much
+            }
         }
         else
         {
             cameraMoveable = false;
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (0, 0, transform.position.z), Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (0, 0, transform.position.z), 5 * Time.deltaTime);
         }
         if (cameraMoveable)
         {
-            if (transform.position.z <= -1 && transform.position.z >= -16)
+            if (transform.position.z <= -7 && transform.position.z >= -16)
             {
                 Zoom();
             }
-            else if (transform.position.z >= -1)
+            else if (transform.position.z >= -7)
             {
-                transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
+                transform.position = new Vector3 (transform.position.x, transform.position.y, -7);
             }
             else
             {

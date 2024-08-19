@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
 {
     private double timeAlive;
     private int endScore;
-    private int highScore;
+    private int highScore = 0;
     private bool timerRunning;
     [SerializeField] GameObject uIManagerObject;
     [SerializeField] GameObject createTowerObject;
     [SerializeField] GameObject cameraObject;
     [SerializeField] GameObject towerObject;
+    [SerializeField] GameObject beamObject;
+    private BeamTilt beamTilter;
     private UIManager uIManagerScript;
     private CreateTower edwinManager;
 
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         uIManagerScript = uIManagerObject.GetComponent<UIManager>();
         edwinManager = createTowerObject.GetComponent<CreateTower>();
+        beamTilter = beamObject.GetComponent<BeamTilt>();
         StartGame();
     }
 
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
         timerRunning = true;
         timeAlive = 0;
         endScore = 0;
+        highScore = PlayerPrefs.GetInt("Highscore", 0);
     }
 
     public void RestartGame()
@@ -59,9 +63,12 @@ public class GameManager : MonoBehaviour
         {
             highScore = endScore;
             uIManagerScript.newHighScore = true;
+            PlayerPrefs.SetInt("Highscore", highScore);
         }
         uIManagerScript.UpdateScores();
         edwinManager.TowerBackDown();
+        beamTilter.SetBeamTiltVelocity(0);
+        beamTilter.SetBeamTiltAcceleration(0);
     }
 
     public int GetEndScore()
@@ -78,7 +85,7 @@ public class GameManager : MonoBehaviour
     }
     public string GetHighScoreDisplayValue()
     {
-        return string.Format("{0:0}:{1:00}", Mathf.FloorToInt(highScore / 60), (Mathf.FloorToInt(endScore % 60)));
+        return string.Format("{0:0}:{1:00}", Mathf.FloorToInt(highScore / 60), (Mathf.FloorToInt(highScore % 60)));
     }
     public int GetHighScore()
     {
