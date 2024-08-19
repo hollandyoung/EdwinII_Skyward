@@ -10,42 +10,53 @@ public class SFXManager : MonoBehaviour
     [SerializeField] AudioClip sHitWall;
     [SerializeField] AudioClip sDestroy;
     [SerializeField] AudioClip sProxIncr;
+    [SerializeField] AudioClip sWaves;
 
     private AudioSource audioSource;
 
-    // Start is called before the first frame update
     void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
+        Ambience();
     }
 
-    public void PlayClip(string clip)
+    public void PlayClip(string str)
     {
         if (!audioSource.isPlaying)
         {
-            clip = clip.ToLower();
-            switch (clip)
+            str = str.ToLower();
+            AudioClip clip;
+            switch (str)
             {
                 case "place":
-                    audioSource.clip = sPlace;
+                    clip = sPlace;
                     break;
                 case "click":
-                    audioSource.clip = sClick;
+                    clip = sClick;
                     break;
                 case "hit wall":
-                    audioSource.clip = sHitWall;
+                    clip = sHitWall;
                     break;
                 case "destroy":
-                    audioSource.clip = sDestroy;
+                    clip = sDestroy;
                     break;
                 case "proximity increasing":
-                    audioSource.clip = sProxIncr;
+                    clip = sProxIncr;
                     break;
-                case "waves":
-                    audioSource.clip = sProxIncr;
+                default:
+                    clip = sPlace;
                     break;
             }
-            audioSource.Play();
+
+            audioSource.PlayOneShot(clip);
         }
+    }
+
+    private IEnumerator Ambience()
+    {
+        Debug.Log("HEre?");
+        yield return new WaitForSeconds(Random.Range(1, 2));
+        audioSource.PlayOneShot(sWaves);
+        Ambience();
     }
 }
