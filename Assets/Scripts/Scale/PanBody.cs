@@ -44,5 +44,12 @@ public class PanBody : MonoBehaviour
         {
             gMScript.EndGame();
         }
+
+        RaycastHit2D hitClose = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 1f, tideMask);
+        if (hitB.collider != null)
+        {
+            gMScript.EndGame();
+            sFXManager.PlayClip("proximity increasing");
+        }
     }
 }
