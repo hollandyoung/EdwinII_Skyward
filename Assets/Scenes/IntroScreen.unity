@@ -292,11 +292,11 @@ MonoBehaviour:
   - The Tide is coming and you have 1 minute to prepare
   - 'Click to select the different buildings '
   - 'The leftmost option builds the base tower '
-  - 'Houses will make bricks '
-  - 'Use columns and platforms to expand upwards '
-  - 'As you build dont let the scales touch the tower '
+  - Houses will make bricks.
+  - Use columns and platforms to expand upwards.
+  - As you build dont let the scales touch the tower.
   - 'Tip: The kiln (30) gets exponentially better for each agora (10) in the same
-    row and column '
+    row and column.'
   - Good Luck!
   instructionsScreen: {fileID: 1174420688}
   titleScreen: {fileID: 1798801966}
