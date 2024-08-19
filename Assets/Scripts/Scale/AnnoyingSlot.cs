@@ -220,16 +220,16 @@ public class AnnoyingSlot : MonoBehaviour
             {
                 left = sourceArr[coords[0], coords[1] - 1].transform.GetChild(0).gameObject;
 
-                Debug.Log("got to checking");
+                //Debug.Log("got to checking");
                 switch (left.tag)
                 {
                     case "Platform":
                         AddValidType("platform");
                         break;
                     case "Mine":
-                        Debug.Log("Found a mine");
+                        //Debug.Log("Found a mine");
                         if (isKiln) {
-                            Debug.Log("Tried to boost");
+                            //Debug.Log("Tried to boost");
                             kilnBoost += 1;
                         }
                         break;
@@ -242,13 +242,13 @@ public class AnnoyingSlot : MonoBehaviour
             {
                 left = sourceArr[coords[0], coords[1] - 2].transform.GetChild(0).gameObject;
 
-                Debug.Log("got to second checking");
+                //Debug.Log("got to second checking");
                 switch (left.tag)
                 {
                     case "Mine":
-                        Debug.Log("Found a second mine");
+                        //Debug.Log("Found a second mine");
                         if (isKiln) {
-                            Debug.Log("Tried to boost 2");
+                            //Debug.Log("Tried to boost 2");
                             kilnBoost += 1;
                         }
                         break;
@@ -261,13 +261,13 @@ public class AnnoyingSlot : MonoBehaviour
             {
                 left = sourceArr[coords[0], coords[1] - 3].transform.GetChild(0).gameObject;
 
-                Debug.Log("got to third checking");
+                //Debug.Log("got to third checking");
                 switch (left.tag)
                 {
                     case "Mine":
-                        Debug.Log("Found a third mine");
+                        //Debug.Log("Found a third mine");
                         if (isKiln) {
-                            Debug.Log("Tried to boost 3");
+                            //Debug.Log("Tried to boost 3");
                             kilnBoost += 1;
                         }
                         break;
@@ -280,13 +280,13 @@ public class AnnoyingSlot : MonoBehaviour
             {
                 left = sourceArr[coords[0], coords[1] - 4].transform.GetChild(0).gameObject;
 
-                Debug.Log("got to fourth checking");
+                //Debug.Log("got to fourth checking");
                 switch (left.tag)
                 {
                     case "Mine":
-                        Debug.Log("Found a fourth mine");
+                        //Debug.Log("Found a fourth mine");
                         if (isKiln) {
-                            Debug.Log("Tried to boost 4");
+                            //Debug.Log("Tried to boost 4");
                             kilnBoost += 1;
                         }
                         break;
@@ -548,7 +548,7 @@ public class AnnoyingSlot : MonoBehaviour
         while (isKiln)
         {
             yield return new WaitForSeconds(2);
-            Debug.Log("I am the Kiln and I am making" + (kilnBoost * kilnBoost));
+            //Debug.Log("I am the Kiln and I am making" + (kilnBoost * kilnBoost));
             TotalBricks = Bricker.GetBrickCount();
             Bricker.SetBrickCount(TotalBricks + (kilnBoost * kilnBoost));
         }
