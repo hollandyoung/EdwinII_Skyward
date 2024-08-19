@@ -88,10 +88,10 @@ public class BuildManager : MonoBehaviour
                 weightMod = 1;
                 break;
             case "mine":
-                weightMod = 1;
+                weightMod = 2;
                 break;
-            case "shaper":
-                weightMod = 1;
+            case "kiln":
+                weightMod = 2;
                 break;
             default:
                 weightMod = 1;

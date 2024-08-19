@@ -6049,7 +6049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sPlace: {fileID: 8300000, guid: 9ddba60b00770e344b9dcd3469c71409, type: 3}
-  sClick: {fileID: 8300000, guid: 1978e6d6f9d38dd43a18ff1c228e504f, type: 3}
+  sClick: {fileID: 8300000, guid: 2067c33f70cd2084a8569f4d277f474b, type: 3}
   sHitWall: {fileID: 8300000, guid: 9df25bd54ff062e4ea0ec739b7ea86f8, type: 3}
   sDestroy: {fileID: 8300000, guid: c34972999febc54479d63c3891703236, type: 3}
   sCreak: {fileID: 8300000, guid: 74df72cdb8cef624e8e9b530b869f3bd, type: 3}
