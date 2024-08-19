@@ -5833,6 +5833,7 @@ MonoBehaviour:
   createTowerObject: {fileID: 712024319}
   cameraObject: {fileID: 519420028}
   towerObject: {fileID: 1810978433}
+  beamObject: {fileID: 115834244}
 --- !u!4 &1919727300
 Transform:
   m_ObjectHideFlags: 0
