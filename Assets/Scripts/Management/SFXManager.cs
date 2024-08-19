@@ -20,22 +20,25 @@ public class SFXManager : MonoBehaviour
 
     public void PlayClip(string clip)
     {
-        clip = clip.ToLower();
-        switch (clip)
+        if (!audioSource.isPlaying)
         {
-            case "place":
-                audioSource.clip = sPlace;
-                break;
-            case "click":
-                audioSource.clip = sClick;
-                break;
-            case "hit wall":
-                audioSource.clip = sHitWall;
-                break;
-            case "destroy":
-                audioSource.clip = sDestroy;
-                break;
+            clip = clip.ToLower();
+            switch (clip)
+            {
+                case "place":
+                    audioSource.clip = sPlace;
+                    break;
+                case "click":
+                    audioSource.clip = sClick;
+                    break;
+                case "hit wall":
+                    audioSource.clip = sHitWall;
+                    break;
+                case "destroy":
+                    audioSource.clip = sDestroy;
+                    break;
+            }
+            audioSource.Play();
         }
-        audioSource.Play();
     }
 }
