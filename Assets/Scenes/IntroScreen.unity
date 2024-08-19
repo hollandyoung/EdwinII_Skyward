@@ -308,6 +308,7 @@ MonoBehaviour:
   - Additionally, if either of the sides of your scale end up hitting Edwin II, he
     will die and your quest will be over.
   - Right click to delete buildings if you make a mistake.
+  - Scroll to zoom in and out.
   - Remember anything? Good luck! (Press close to return to the title)
   instructionsScreen: {fileID: 1174420688}
   titleScreen: {fileID: 1798801966}
@@ -324,6 +325,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ddf4c37d43ab7e44b353c892fb25de2, type: 3}
   - {fileID: 21300000, guid: a1a13ff8cb0e0a448a0dc6edecbcd590, type: 3}
   - {fileID: 21300000, guid: 1445beaa1614d4942be48abe26f72c64, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

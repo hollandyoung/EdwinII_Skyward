@@ -39,9 +39,6 @@ public class SFXManager : MonoBehaviour
             currClip = musIntro;
             StartCoroutine(PlayMusic(currClip));
         }
-
-
-
     }
 
     public void PlayClip(string str)
@@ -94,7 +91,7 @@ public class SFXManager : MonoBehaviour
 
     private IEnumerator PlayMusic(AudioClip current)
     {
-        music.clip = currClip;
+        music.clip = current;
         music.Play();
         yield return new WaitUntil(() => music.time >= currClip.length);
         StartCoroutine(PlayMusic(currClip));
