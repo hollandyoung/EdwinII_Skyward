@@ -49,7 +49,15 @@ public class PleaseRise : MonoBehaviour
         tiltVelocity = Tilt.GetBeamTiltVelocity();
     }
     void FixedUpdate(){
-        MoveTide(FixMovement);
+        if(GameMan.GetTimerRunning() == true)
+        {
+            MoveTide(FixMovement);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, 0);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (0, -50, 0), 3 * Time.deltaTime);
+        }
     }
     void MoveTide(Vector2 Fix){
         FixFloat = (float)tiltVelocity;
