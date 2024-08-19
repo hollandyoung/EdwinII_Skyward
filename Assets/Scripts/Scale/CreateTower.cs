@@ -69,7 +69,7 @@ public class CreateTower : MonoBehaviour
         TotalBricks = Bricker.GetBrickCount();
         backToBase = NumberOfSegments;
         NumberOfSegments = 0;
-        while (NumberOfSegments <= (backToBase - 5) && TotalBricks >= 5) {
+        while (NumberOfSegments <= (backToBase - 1) && TotalBricks >= 5) {
         TowerCost = 0;
         GenerateTower();
         TotalBricks = Bricker.GetBrickCount();
