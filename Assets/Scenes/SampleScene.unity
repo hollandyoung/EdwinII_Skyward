@@ -5965,6 +5965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIManagerObject: {fileID: 1708185685}
+  createTowerObject: {fileID: 712024319}
   cameraObject: {fileID: 519420028}
   towerObject: {fileID: 1810978433}
 --- !u!4 &1919727300
