@@ -65,14 +65,15 @@ public class CreateTower : MonoBehaviour
     }
     public void TowerBackDown()
     {
-        ImmortalTower = true;
-        TotalBricks = Bricker.GetBrickCount();
-        backToBase = NumberOfSegments;
-        NumberOfSegments = 0;
-        while (NumberOfSegments <= (backToBase - 1) && TotalBricks >= 5) {
-        TowerCost = 0;
-        GenerateTower();
-        TotalBricks = Bricker.GetBrickCount();
+        if (!ImmortalTower) {
+            ImmortalTower = true;
+            TotalBricks = Bricker.GetBrickCount();
+            backToBase = NumberOfSegments;
+            NumberOfSegments = 0;
+            while (NumberOfSegments <= (backToBase - 1) && TotalBricks >= 5) {
+            TowerCost = 0;
+            GenerateTower();
+            }
         }
         
     }
