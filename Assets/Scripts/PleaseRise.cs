@@ -7,8 +7,8 @@ public class PleaseRise : MonoBehaviour
     public GameObject GameManager;
     private GameManager GameMan;
 
-    public float BaseSpeed = .05f;
-    public float TrueSpeed;
+    public float BaseSpeed = .1f;
+    public float TrueSpeed = 0.0f;
     public Rigidbody2D rb;
     public Vector2 FixMovement;
 
@@ -18,7 +18,7 @@ public class PleaseRise : MonoBehaviour
 
     public bool ScaleTide = true;
     public float Tidescale = 1.0f;
-    public float TideScaleSpeed = 1.4f;
+    public float TideScaleSpeed = 1.08f;
 
     public bool TideWavy = true;
     public float TideDirection;
@@ -26,11 +26,12 @@ public class PleaseRise : MonoBehaviour
     public float FixFloat;
 
     public float FixMovementMore; 
-    public float WaveSpeed = 5.0f;
+    public float WaveSpeed = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        Beam = GameObject.Find("Beam");
         GameManager = GameObject.Find("GameManager");
         GameMan = GameManager.GetComponent<GameManager>();
         rb = this.GetComponent<Rigidbody2D>();
@@ -43,8 +44,8 @@ public class PleaseRise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x >= 40) {
-            transform.Translate(-80, 0, 0);
+        if (transform.position.x >= 20) {
+            transform.Translate(-40, 0, 0);
         }
         tiltVelocity = Tilt.GetBeamTiltVelocity();
     }
