@@ -23,6 +23,7 @@ public class CreateTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TowerCostDisplay.text = (5 + "");
         Bricked = GameObject.Find("Brick Manager");
         Bricker = Bricked.GetComponent<Bricks>();
         //StartCoroutine(TowerTest());
@@ -70,7 +71,7 @@ public class CreateTower : MonoBehaviour
             if (!BaseTowering) {
                 AdditionalCost += 1;
                 TowerCost += 1;
-                TowerCostDisplay.text = ("Build tower cost: " + (5 + AdditionalCost) + " bricks");
+                TowerCostDisplay.text = (5 + AdditionalCost + "");
             }
         }
     }
