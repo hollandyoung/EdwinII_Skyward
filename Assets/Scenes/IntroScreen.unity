@@ -290,11 +290,13 @@ MonoBehaviour:
   instructions:
   - In this game, you are attempting to build on a weight scale.
   - The Tide is coming and you have 1 minute to prepare
-  - Click on the scale pans when you have enough resources to place houses, which
-    will stack when placed on the same location.
-  - Houses will produce resources which can then be used to build up the center tower
-    and escape the tide.
-  - Have fun!
+  - 'Click to select the different buildings '
+  - 'The leftmost option builds the base tower '
+  - 'Houses will make bricks '
+  - 'Use columns and platforms to expand upwards '
+  - 'As you build dont let the scales touch the tower '
+  - 'Tip: The kiln (30) gets exponentially better for each agora (10) in the same
+    row and column '
   instructionsScreen: {fileID: 1174420688}
   titleScreen: {fileID: 1798801966}
   instructionsText: {fileID: 374831530}
@@ -330,6 +332,7 @@ MonoBehaviour:
   sHitWall: {fileID: 8300000, guid: daa8d50ccb971f545aaebec25c53dcd3, type: 3}
   sDestroy: {fileID: 8300000, guid: c34972999febc54479d63c3891703236, type: 3}
   sProxIncr: {fileID: 0}
+  sWaves: {fileID: 0}
 --- !u!82 &337924015
 AudioSource:
   m_ObjectHideFlags: 0
