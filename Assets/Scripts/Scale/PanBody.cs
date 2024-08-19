@@ -11,8 +11,6 @@ public class PanBody : MonoBehaviour
     GameManager gMScript;
     private SFXManager sFXManager;
 
-    // Instance Variables
-    bool prox = false;
     void Start()
     {
         gMScript = gM.GetComponent<GameManager>();
@@ -28,37 +26,43 @@ public class PanBody : MonoBehaviour
         float halfHeight = gameObject.GetComponent<BoxCollider2D>().bounds.size.y / 2;
 
         RaycastHit2D hitL = Physics2D.Raycast(transform.position + Vector3.left * halfLength, Vector2.left, 0.1f, mask);
-        if (hitL.collider != null)
+        if (hitL.collider != null && gMScript.GetTimerRunning())
         {
             gMScript.EndGame();
             sFXManager.PlayClip("hit wall");
         }
 
         RaycastHit2D hitR = Physics2D.Raycast(transform.position + Vector3.right * halfLength, Vector2.right, 0.1f, mask);
-        if (hitR.collider != null)
+        if (hitR.collider != null && gMScript.GetTimerRunning())
         {
             gMScript.EndGame();
             sFXManager.PlayClip("hit wall");
         }
 
         RaycastHit2D hitB = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 0.2f, tideMask);
-        if (hitB.collider != null)
+        if (hitB.collider != null && gMScript.GetTimerRunning())
         {
             gMScript.EndGame();
         }
 
-        RaycastHit2D hitClose = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 4f, tideMask);
-        if (hitClose.collider != null)
+        RaycastHit2D hitStage3 = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 4f, tideMask);
+        if (hitStage3.collider != null)
         {
-            if (prox == false)
-            {
-                sFXManager.PlayClip("proximity increasing");
-            }
-            prox = true;
+            sFXManager.SetStage(3);
         }
         else
         {
-            prox = false;
+            RaycastHit2D hitStage2 = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 8f, tideMask);
+            if (hitStage2.collider != null)
+            {
+                sFXManager.SetStage(2);
+            }
+            else
+            {
+                sFXManager.SetStage(1);
+            }
         }
+
+        
     }
 }
