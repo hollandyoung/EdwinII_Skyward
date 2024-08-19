@@ -6,6 +6,7 @@ using TMPro;
 public class CreateTower : MonoBehaviour
 {
     public GameObject TowerPrefab;
+    public GameObject ImortalTowerPrefab;
     public GameObject Bricked;
     private Bricks Bricker;
     public bool MakeTower = true;
@@ -20,11 +21,15 @@ public class CreateTower : MonoBehaviour
     public TextMeshProUGUI TowerCostDisplay;
     public bool BaseTowering = true;
     public float AdditionalCost;
+
+    public float backToBase;
+    public bool ImmortalTower = false;
     // Start is called before the first frame update
     void Start()
     {
         Bricked = GameObject.Find("Brick Manager");
         Bricker = Bricked.GetComponent<Bricks>();
+        ImmortalTower = false;
         //StartCoroutine(TowerTest());
         BaseTower();
     }
@@ -57,6 +62,19 @@ public class CreateTower : MonoBehaviour
         }
         BaseTowering = false;
     }
+    public void TowerBackDown()
+    {
+        ImmortalTower = true;
+        TotalBricks = Bricker.GetBrickCount();
+        backToBase = NumberOfSegments;
+        NumberOfSegments = 0;
+        while (NumberOfSegments <= (backToBase - 5) && TotalBricks >= 5) {
+        TowerCost = 0;
+        GenerateTower();
+        TotalBricks = Bricker.GetBrickCount();
+        }
+        
+    }
     public void GenerateTower()
     {
         //a = new gameObject Instantiate(TowerPrefab);
@@ -65,7 +83,12 @@ public class CreateTower : MonoBehaviour
         //Debug.Log(TotalBricks);
         if (TotalBricks >= TowerCost){
             Bricker.SetBrickCount(TotalBricks - TowerCost);
+            if (ImmortalTower) {
+                Instantiate(ImortalTowerPrefab, new Vector3(centerX, StartY + (Yscaling * NumberOfSegments), 0), Quaternion.identity);
+            }
+            else {
             Instantiate(TowerPrefab, new Vector3(centerX, StartY + (Yscaling * NumberOfSegments), 0), Quaternion.identity);
+            }
             NumberOfSegments += 1;
             if (!BaseTowering) {
                 AdditionalCost += 1;

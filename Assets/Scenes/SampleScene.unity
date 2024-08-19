@@ -2324,6 +2324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerPrefab: {fileID: 4141647870960665684, guid: e3ffbe46087c1da44b01ee528cf77966, type: 3}
+  ImortalTowerPrefab: {fileID: 4141647870960665684, guid: 813d26ec5ce9fcf44abf28fb0cc12d8f, type: 3}
   Bricked: {fileID: 0}
   MakeTower: 1
   centerX: 0
@@ -2336,6 +2337,8 @@ MonoBehaviour:
   TowerCostDisplay: {fileID: 0}
   BaseTowering: 1
   AdditionalCost: 0
+  backToBase: 0
+  ImmortalTower: 0
 --- !u!4 &712024321
 Transform:
   m_ObjectHideFlags: 0
