@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SFXManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class SFXManager : MonoBehaviour
     [SerializeField] AudioClip mus1;
     [SerializeField] AudioClip mus2;
     [SerializeField] AudioClip mus3;
+    [SerializeField] AudioClip musIntro;
     private AudioClip currClip;
 
     private AudioSource audioSource;
@@ -26,8 +28,20 @@ public class SFXManager : MonoBehaviour
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         music = gameObject.transform.GetChild(0).GetComponent<AudioSource>();
-        currClip = mus1;
-        StartCoroutine(PlayMusic(currClip));
+
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            currClip = mus1;
+            StartCoroutine(PlayMusic(currClip));
+        }
+        else
+        {
+            currClip = musIntro;
+            StartCoroutine(PlayMusic(currClip));
+        }
+
+
+
     }
 
     public void PlayClip(string str)

@@ -5295,8 +5295,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 539616532}
+  m_Children: []
   m_Father: {fileID: 1030709031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6054,9 +6053,10 @@ MonoBehaviour:
   sHitWall: {fileID: 8300000, guid: 9df25bd54ff062e4ea0ec739b7ea86f8, type: 3}
   sDestroy: {fileID: 8300000, guid: c34972999febc54479d63c3891703236, type: 3}
   sCreak: {fileID: 8300000, guid: 74df72cdb8cef624e8e9b530b869f3bd, type: 3}
-  mus1: {fileID: 8300000, guid: 058615d541c8c094bba7106d923b6894, type: 3}
-  mus2: {fileID: 8300000, guid: 65b9a7bc808f2f34ea35ddc8997f6b69, type: 3}
-  mus3: {fileID: 8300000, guid: 5346f03ff9657f948913ac8af846c02f, type: 3}
+  mus1: {fileID: 8300000, guid: 41b62527c9266e84bb4953555f691861, type: 3}
+  mus2: {fileID: 8300000, guid: 120299839f72b4845a42c3e812c78ea3, type: 3}
+  mus3: {fileID: 8300000, guid: e8979f5bf90daf84882e768bb4925e3d, type: 3}
+  musIntro: {fileID: 8300000, guid: fa2e74151b21d5940948a2806b621e1e, type: 3}
 --- !u!82 &1919727303
 AudioSource:
   m_ObjectHideFlags: 0
