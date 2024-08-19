@@ -9,7 +9,7 @@ public class SFXManager : MonoBehaviour
     [SerializeField] AudioClip sClick;
     [SerializeField] AudioClip sHitWall;
     [SerializeField] AudioClip sDestroy;
-    [SerializeField] AudioClip proxIncr;
+    [SerializeField] AudioClip sProxIncr;
 
     private AudioSource audioSource;
 
