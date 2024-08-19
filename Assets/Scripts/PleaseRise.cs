@@ -56,7 +56,7 @@ public class PleaseRise : MonoBehaviour
         else
         {
             rb.velocity = new Vector2(0, 0);
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (0, -50, 0), 3 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (0, -50, 0), 15 * Time.deltaTime);
         }
     }
     void MoveTide(Vector2 Fix){

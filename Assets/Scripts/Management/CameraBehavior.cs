@@ -36,7 +36,7 @@ public class CameraBehavior : MonoBehaviour
         else
         {
             cameraMoveable = false;
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (0, 0, transform.position.z), Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (0, 0, transform.position.z), 5 * Time.deltaTime);
         }
         if (cameraMoveable)
         {
