@@ -297,6 +297,7 @@ MonoBehaviour:
   - 'As you build dont let the scales touch the tower '
   - 'Tip: The kiln (30) gets exponentially better for each agora (10) in the same
     row and column '
+  - Good Luck!
   instructionsScreen: {fileID: 1174420688}
   titleScreen: {fileID: 1798801966}
   instructionsText: {fileID: 374831530}
