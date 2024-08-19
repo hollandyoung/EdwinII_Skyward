@@ -45,7 +45,7 @@ public class PanBody : MonoBehaviour
             gMScript.EndGame();
         }
 
-        RaycastHit2D hitStage3 = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 3f, tideMask);
+        RaycastHit2D hitStage3 = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 3.5f, tideMask);
         if (hitStage3.collider != null)
         {
             sFXManager.SetStage(3);
