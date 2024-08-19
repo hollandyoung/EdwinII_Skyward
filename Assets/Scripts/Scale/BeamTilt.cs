@@ -98,7 +98,7 @@ public class BeamTilt : MonoBehaviour
     {
         return rb.rotation;
     }
-    void SetBeamTilt(float beamTilt)
+    public void SetBeamTilt(float beamTilt)
     {
         rb.rotation = beamTilt;
     }
@@ -107,7 +107,7 @@ public class BeamTilt : MonoBehaviour
     {
         return tiltVelocity;
     }
-    void SetBeamTiltVelocity(float beamTiltVelocity)
+    public void SetBeamTiltVelocity(float beamTiltVelocity)
     {
         tiltVelocity = beamTiltVelocity;
     }
@@ -116,7 +116,7 @@ public class BeamTilt : MonoBehaviour
     {
         return tiltAcceleration;
     }
-    void SetBeamTiltAcceleration(float beamTiltAcceleration)
+    public void SetBeamTiltAcceleration(float beamTiltAcceleration)
     {
         tiltAcceleration = beamTiltAcceleration;
     }

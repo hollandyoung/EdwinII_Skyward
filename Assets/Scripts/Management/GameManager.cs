@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject createTowerObject;
     [SerializeField] GameObject cameraObject;
     [SerializeField] GameObject towerObject;
+    [SerializeField] GameObject beamObject;
+    private BeamTilt beamTilter;
     private UIManager uIManagerScript;
     private CreateTower edwinManager;
 
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         uIManagerScript = uIManagerObject.GetComponent<UIManager>();
         edwinManager = createTowerObject.GetComponent<CreateTower>();
+        beamTilter = beamObject.GetComponent<BeamTilt>();
         StartGame();
     }
 
@@ -62,6 +65,8 @@ public class GameManager : MonoBehaviour
         }
         uIManagerScript.UpdateScores();
         edwinManager.TowerBackDown();
+        beamTilter.SetBeamTiltVelocity(0);
+        beamTilter.SetBeamTiltAcceleration(0);
     }
 
     public int GetEndScore()
