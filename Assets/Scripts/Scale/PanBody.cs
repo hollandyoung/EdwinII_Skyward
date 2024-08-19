@@ -9,10 +9,12 @@ public class PanBody : MonoBehaviour
 
     // Scripts
     GameManager gMScript;
+    private SFXManager sFXManager;
 
     void Start()
     {
         gMScript = gM.GetComponent<GameManager>();
+        sFXManager = GameObject.Find("GameManager").GetComponent<SFXManager>();
     }
 
     private void Update()
@@ -27,12 +29,14 @@ public class PanBody : MonoBehaviour
         if (hitL.collider != null)
         {
             gMScript.EndGame();
+            sFXManager.PlayClip("hit wall");
         }
 
         RaycastHit2D hitR = Physics2D.Raycast(transform.position + Vector3.right * halfLength, Vector2.right, 0.1f, mask);
         if (hitR.collider != null)
         {
             gMScript.EndGame();
+            sFXManager.PlayClip("hit wall");
         }
 
         RaycastHit2D hitB = Physics2D.Raycast(transform.position + Vector3.down * halfHeight, Vector2.down, 0.2f, tideMask);
