@@ -548,6 +548,7 @@ public class AnnoyingSlot : MonoBehaviour
         while (isKiln)
         {
             yield return new WaitForSeconds(2);
+            Debug.Log("I am the Kiln and I am making" + (kilnBoost * kilnBoost));
             TotalBricks = Bricker.GetBrickCount();
             Bricker.SetBrickCount(TotalBricks + (kilnBoost * kilnBoost));
         }

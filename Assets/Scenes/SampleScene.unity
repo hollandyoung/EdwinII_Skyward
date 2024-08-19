@@ -6016,6 +6016,7 @@ MonoBehaviour:
   sClick: {fileID: 8300000, guid: 1978e6d6f9d38dd43a18ff1c228e504f, type: 3}
   sHitWall: {fileID: 8300000, guid: daa8d50ccb971f545aaebec25c53dcd3, type: 3}
   sDestroy: {fileID: 8300000, guid: c34972999febc54479d63c3891703236, type: 3}
+  sProxIncr: {fileID: 0}
 --- !u!82 &1919727303
 AudioSource:
   m_ObjectHideFlags: 0
