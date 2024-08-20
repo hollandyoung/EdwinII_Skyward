@@ -14,9 +14,15 @@ public class IntroScreen : MonoBehaviour
 
     // Vars for image
     [SerializeField] Image instructionsPic;
+    private RectTransform instructionsRect;
 
     [SerializeField] Sprite[] images;
     int page = 0;
+
+    private void Start()
+    {
+        instructionsRect = instructionsPic.gameObject.GetComponent<RectTransform>();
+    }
 
     public void StartGame()
     {
@@ -39,6 +45,21 @@ public class IntroScreen : MonoBehaviour
     public void NextInstruction()
     {
         instructionsText.text = instructions[page];
+
+        if (page == 11)
+        {
+            instructionsRect.localScale = new Vector3(2f, 1f, 1f);
+            instructionsRect.localPosition = new Vector3(0, 220, 0);
+        }
+        else if (page == 12)
+        {
+            instructionsRect.localScale = new Vector3(1.5f, 1f, 1f);
+            instructionsRect.localPosition = new Vector3(0, 190, 0);
+        }
+        else
+        {
+            instructionsRect.localScale = new Vector3(1f, 1f, 1f);
+        }
 
         if (images[page] == null)
         {
