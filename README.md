@@ -9,4 +9,5 @@ There are 5 types of structures you can place on open slots on either side of th
 The project used jsfxr for sound effect generation and sources its font to Style-7 found at https://www.fontspace.com/serif-pixel-7-font-f16130.
 
 Development team: [Whelm9](https://github.com/Whelm9), [Terayal](https://github.com/Terayal), [Colin Cerise](https://github.com/ColinCerise), and [KingRolly](https://github.com/KingRolly)
+
 Musical support: [Numlord](https://numlord.itch.io/)
